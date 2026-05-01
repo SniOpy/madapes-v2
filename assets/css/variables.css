@@ -1,0 +1,50 @@
+:root {
+  /* Colors */
+  --color-primary: #7c3aed;
+  --color-secondary: #a855f7;
+  --color-bg: #0b0b0d;
+  --color-bg-light: #121217;
+  --color-text: #ffffff;
+  --color-muted: #b0b0b0;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-overlay: rgba(11, 11, 13, 0.72);
+
+  /* Typography */
+  --font-family-base: "Poppins", sans-serif;
+  --font-size-h1: 56px;
+  --font-size-h2: 40px;
+  --font-size-h3: 28px;
+  --font-size-body: 16px;
+  --line-height-heading: 1.1;
+  --line-height-body: 1.65;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-primary: 0 0 20px rgba(124, 58, 237, 0.4);
+  --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.35);
+
+  /* Layout */
+  --container-max-width: 1180px;
+  --container-padding: 24px;
+  --section-padding-y: 96px;
+  --header-height: 84px;
+
+  /* Spacing scale */
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 72px;
+
+  /* Motion */
+  --transition-fast: 180ms ease;
+  --transition-base: 260ms ease;
+  --transition-slow: 420ms ease;
+}

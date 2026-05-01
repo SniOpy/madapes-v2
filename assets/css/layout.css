@@ -1,0 +1,40 @@
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+      circle at 78% 16%,
+      rgba(124, 58, 237, 0.26),
+      rgba(124, 58, 237, 0) 46%
+    ),
+    radial-gradient(circle at 16% 34%, rgba(168, 85, 247, 0.14), rgba(168, 85, 247, 0) 42%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-overlay);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.site-header__inner {
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.site-main {
+  overflow: clip;
+}
+
+@media (max-width: 960px) {
+  :root {
+    --section-padding-y: 72px;
+  }
+}

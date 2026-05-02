@@ -155,3 +155,16 @@ p {
   white-space: nowrap;
   border: 0;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -5,16 +5,20 @@
 }
 
 .brand__icon {
-  width: 44px;
-  height: 44px;
+  width: 80px;
+  height: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .brand__logo-full {
   width: auto;
-  height: 44px;
+  height: 125px;
   object-fit: contain;
+}
+
+.site-nav {
+  display: block;
 }
 
 .site-nav__list {
@@ -37,6 +41,38 @@
 .site-nav__list a:hover {
   color: var(--color-text);
   border-color: rgba(168, 85, 247, 0.75);
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle__line {
+  width: 18px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 999px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.menu-toggle.is-open .menu-toggle__line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open .menu-toggle__line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open .menu-toggle__line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .hero-buttons {
@@ -216,12 +252,53 @@
     height: 34px;
   }
 
+  .site-header__inner {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
   .site-nav {
-    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    padding: 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(11, 11, 13, 0.96);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .site-nav.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .site-nav__list a {
+    border-bottom: 0;
+    padding-bottom: 0;
   }
 
   .site-header .btn {
     padding: 12px 18px;
+  }
+
+  .site-header__cta {
+    display: none;
   }
 
   .hero-proof {

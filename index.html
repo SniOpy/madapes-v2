@@ -32,21 +32,14 @@
         <a class="brand" href="./index.html" aria-label="Accueil Madapes Agency">
           <img
             class="brand__icon"
-            src="./assets/icons/madapes-icon.png"
+            src="./assets/images/madapes-logo.png"
             alt="Icône Madapes"
             width="48"
             height="48"
           />
-          <img
-            class="brand__logo-full"
-            src="./assets/images/madapes-logo.png"
-            alt="Madapes Agency"
-            width="220"
-            height="96"
-          />
         </a>
 
-        <nav class="site-nav" aria-label="Navigation principale">
+        <nav class="site-nav" id="mobile-nav" aria-label="Navigation principale">
           <ul class="site-nav__list" role="list">
             <li><a href="./index.html">Accueil</a></li>
             <li><a href="#services">Services</a></li>
@@ -57,7 +50,19 @@
           </ul>
         </nav>
 
-        <a class="btn btn-primary" href="./pages/contact.html">Demander un devis</a>
+        <a class="btn btn-primary site-header__cta" href="./pages/contact.html">Demander un devis</a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Ouvrir le menu"
+          aria-controls="mobile-nav"
+          aria-expanded="false"
+        >
+          <span class="menu-toggle__line"></span>
+          <span class="menu-toggle__line"></span>
+          <span class="menu-toggle__line"></span>
+        </button>
       </div>
     </header>
 
@@ -102,8 +107,8 @@
           <div class="hero__visual" aria-hidden="true">
             <figure class="hero-laptop">
               <img
-                src="./assets/images/laptop-hero.svg"
-                alt=""
+                src="./assets/images/hero/laptop-hero.svg"
+                alt="Laptop hero"
                 width="1067"
                 height="683"
                 loading="eager"
@@ -274,50 +279,95 @@
           <h2 id="projects-title" class="section-title">Des projets qui parlent de résultats</h2>
           <div class="projects-slider" data-projects-slider>
             <article class="project-card">
-              <img
-                src="./assets/images/madapes-logo.png"
-                alt="Projet DentaCare"
-                loading="lazy"
-                width="360"
-                height="160"
-              />
+              <a href="https://galopinautomobile.fr" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="./assets/images/projects/galopin.webp"
+                  alt="Projet Galopin Automobile"
+                  loading="lazy"
+                  width="360"
+                  height="160"
+                />
+              </a>
               <div class="project-card__content">
-                <h3>DentaCare</h3>
-                <p>+120% de demandes de RDV en 4 mois.</p>
+                <h3>Galopin Automobile</h3>
+                <p>Vente de voiture automobile de luxe et de prestige.</p>
               </div>
             </article>
+
             <article class="project-card">
-              <img
-                src="./assets/images/madapes-logo.png"
-                alt="Projet ImmoPlus"
+              <a href="https://debarenov.fr" target="_blank" rel="noopener noreferrer">
+                <img
+                src="./assets/images/projects/debarenov.webp"
+                alt="Debarenov"
                 loading="lazy"
                 width="360"
                 height="160"
               />
+              </a>
               <div class="project-card__content">
-                <h3>ImmoPlus</h3>
-                <p>3,2 de ROAS moyen sur les campagnes Google Ads.</p>
+                <h3>Debarenov</h3>
+                <p>Entreprise spécialisé dans le débarras  après décès et succession immobilière</p>
               </div>
             </article>
+
             <article class="project-card">
-              <img
-                src="./assets/images/madapes-logo.png"
-                alt="Projet FitLife"
-                loading="lazy"
-                width="360"
-                height="160"
-              />
+              <a href="https://sahp-idf.fr" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="./assets/images/projects/sahp.webp"
+                  alt="Projet SAHP, assainissement"
+                  loading="lazy"
+                  width="360"
+                  height="160"
+                />
+              </a>
               <div class="project-card__content">
-                <h3>FitLife</h3>
-                <p>+43% d'événements de conversion en 2 mois.</p>
+                <h3>SAHP, assainissement</h3>
+                <p>Société d'assainissement situé en île de France</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <a href="https://fluvia-assainissement.fr" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="./assets/images/projects/fluvia.webp"
+                  alt="Fluvia assainissement"
+                  loading="lazy"
+                  width="360"
+                  height="160"
+                />
+              </a>
+              <div class="project-card__content">
+                <h3>Fluvia assainissement</h3>
+                <p>Spécialisé dans la mise en conformité des installations de traitement des eaux usées</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <a href="https://crazee-burger-eta-nine.vercel.app" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="./assets/images/projects/crazee-burger.webp"
+                  alt="Crazee Burger"
+                  loading="lazy"
+                  width="360"
+                  height="160"
+                />
+              </a>
+              <div class="project-card__content">
+                <h3>Crazee Burger</h3>
+                <p>Application mobile pour la livraison de burgers</p>
               </div>
             </article>
           </div>
           <div class="projects-actions">
             <a class="btn btn-secondary" href="./pages/google-ads.html">Voir tous nos projets</a>
-            <button class="projects-next" type="button" data-projects-next aria-label="Projet suivant">
-              <i data-lucide="chevron-right"></i>
-            </button>
+            <div class="projects-nav" aria-label="Navigation des projets">
+              <button class="projects-prev" type="button" data-projects-prev aria-label="Projet précédent">
+                <i data-lucide="chevron-left"></i>
+              </button>
+              <button class="projects-next" type="button" data-projects-next aria-label="Projet suivant">
+                <i data-lucide="chevron-right"></i>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -335,13 +385,7 @@
       <div class="container site-footer__grid">
         <div>
           <a class="brand brand--footer" href="./index.html" aria-label="Accueil Madapes Agency">
-            <img
-              class="brand__icon"
-              src="./assets/icons/madapes-icon.png"
-              alt="Icône Madapes"
-              width="44"
-              height="44"
-            />
+            
             <img
               class="brand__logo-full"
               src="./assets/images/madapes-logo.png"

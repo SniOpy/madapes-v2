@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+    />
+    <meta
+      name="description"
+      content="Demandez un devis personnalisé pour vos campagnes Google Ads, SEO et Landing Pages avec Madapes Agency."
+    />
+    <title>Devis | Madapes Agency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="../assets/css/variables.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/sections.css" />
+  </head>
+  <body data-path-prefix="../">
+    <div data-site-header></div>
+
+    <main class="site-main devis-page">
+      <section class="section devis-hero" aria-labelledby="devis-hero-title">
+        <div class="container devis-hero__grid">
+          <div class="devis-hero__content">
+            <p class="eyebrow">Devis sur mesure</p>
+            <h1 id="devis-hero-title">
+              Un projet ?<br />
+              Obtenez <strong>votre devis gratuit & personnalisé.</strong>
+            </h1>
+            <p class="devis-hero__lead">
+              Remplissez le formulaire ci-dessous et recevez une proposition sur-mesure adaptée à vos
+              objectifs, à votre budget et à vos enjeux.
+            </p>
+
+            <ul class="devis-trust" role="list">
+              <li>
+                <span class="devis-trust__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 6v6l4 2"></path>
+                    <circle cx="12" cy="12" r="8.5"></circle>
+                  </svg>
+                </span>
+                <span>Réponse sous 24h jours ouvrés</span>
+              </li>
+              <li>
+                <span class="devis-trust__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+                    <path d="M8 10V8a4 4 0 0 1 8 0v2"></path>
+                  </svg>
+                </span>
+                <span>Vos données sont 100% confidentielles</span>
+              </li>
+              <li>
+                <span class="devis-trust__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M4 12l5 5L20 6"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                  </svg>
+                </span>
+                <span>Devis gratuit & sans engagement</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="devis-hero__visual" aria-hidden="true">
+            <div class="devis-card">
+              <p class="devis-card__title">Devis personnalisé</p>
+              <ul role="list">
+                <li><i data-lucide="check"></i><span>Objectifs définis</span></li>
+                <li><i data-lucide="check"></i><span>Plan d'action clair</span></li>
+                <li><i data-lucide="check"></i><span>Budget maitrisé</span></li>
+                <li><i data-lucide="check"></i><span>Suivi performance</span></li>
+              </ul>
+              <span class="devis-card__badge"><i data-lucide="check-check"></i></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section devis-form-section" aria-labelledby="devis-form-title">
+        <div class="container">
+          <div class="devis-form-card">
+            <p class="devis-step">Etape 1 / 3</p>
+            <h2 id="devis-form-title">Décrivez votre projet</h2>
+            <p class="devis-form-intro">
+              Plus vous nous en dites, plus notre proposition sera précise et adaptée.
+            </p>
+
+            <form class="devis-form" action="#" method="post" novalidate>
+              <fieldset class="devis-offers" aria-labelledby="devis-offers-title">
+                <legend id="devis-offers-title">Quel type de prestation vous intéresse ?</legend>
+
+                <label class="devis-offer-option">
+                  <input type="radio" name="service" value="google-ads" checked />
+                  <span class="devis-offer-option__content">
+                    <strong>Google Ads</strong>
+                    <span>Campagnes performantes pour générer des leads qualifiés et augmenter vos ventes.</span>
+                  </span>
+                </label>
+
+               
+
+                <label class="devis-offer-option">
+                  <input type="radio" name="service" value="landing-pages" />
+                  <span class="devis-offer-option__content">
+                    <strong>Landing Pages</strong>
+                    <span>Des pages conçues pour convertir vos visiteurs en clients.</span>
+                  </span>
+                </label>
+
+                <label class="devis-offer-option">
+                  <input type="radio" name="service" value="seo" />
+                  <span class="devis-offer-option__content">
+                    <strong>SEO (Référencement naturel)</strong>
+                    <span>Améliorez votre visibilité sur Google et attirez du trafic qualifié sur le long terme.</span>
+                  </span>
+                </label>
+
+                <label class="devis-offer-option">
+                  <input type="radio" name="service" value="pack-complet" />
+                  <span class="devis-offer-option__content">
+                    <strong>Pack (Solution complète)</strong>
+                    <span>Une stratégie globale : Google Ads, SEO et Landing Pages.</span>
+                  </span>
+                </label>
+              </fieldset>
+
+              <div class="devis-fields">
+                <label>
+                  <span>Votre nom *</span>
+                  <input type="text" name="fullname" required autocomplete="name" />
+                </label>
+
+                <label>
+                  <span>Votre email *</span>
+                  <input type="email" name="email" required autocomplete="email" />
+                </label>
+
+                <label>
+                  <span>Nom de votre entreprise</span>
+                  <input type="text" name="company" autocomplete="organization" />
+                </label>
+
+                <label>
+                  <span>Site web (si existant)</span>
+                  <input type="url" name="website" autocomplete="url" inputmode="url" />
+                </label>
+
+                <label>
+                  <span>Quel est votre objectif principal ? *</span>
+                  <select name="goal" required>
+                    <option value="">Sélectionnez votre objectif</option>
+                    <option value="leads">Générer plus de leads qualifiés</option>
+                    <option value="ventes">Augmenter les ventes</option>
+                    <option value="visibilite">Améliorer la visibilité</option>
+                    <option value="autre">Autre</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Quel est votre budget estimatif ?</span>
+                  <select name="budget">
+                    <option value="">Sélectionnez une fourchette</option>
+                    <option value="1000-2000">1 000 EUR - 2 000 EUR</option>
+                    <option value="2000-5000">2 000 EUR - 5 000 EUR</option>
+                    <option value="5000+">Plus de 5 000 EUR</option>
+                  </select>
+                </label>
+
+                <label class="devis-field-full">
+                  <span>Décrivez votre projet *</span>
+                  <textarea
+                    name="project_details"
+                    rows="5"
+                    required
+                    minlength="20"
+                    autocomplete="off"
+                  ></textarea>
+                </label>
+
+                <label>
+                  <span>Quand souhaitez-vous démarrer ?</span>
+                  <select name="start_timing">
+                    <option value="">Sélectionnez une période</option>
+                    <option value="immediat">Immédiatement</option>
+                    <option value="1-mois">D'ici 1 mois</option>
+                    <option value="2-3-mois">Dans 2 a 3 mois</option>
+                    <option value="plus-tard">Plus tard</option>
+                  </select>
+                </label>
+
+                <div class="devis-form-actions">
+                  <button class="btn btn-primary" type="submit">
+                    Etape suivante
+                    <i data-lucide="arrow-right" aria-hidden="true"></i>
+                  </button>
+                  <p class="devis-form-security">
+                    <i data-lucide="shield-check" aria-hidden="true"></i>
+                    Vos données sont sécurisées
+                  </p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section devis-cta" aria-labelledby="devis-cta-title">
+        <div class="container devis-cta__grid">
+          <h2 id="devis-cta-title">Prêt à booster votre visibilité et atteindre vos objectifs ?</h2>
+          <p>Parlons de votre projet et construisons ensemble une stratégie gagnante.</p>
+          <a class="btn btn-primary" href="tel:+33695387240">
+            Parler avec un expert
+            <i data-lucide="phone-call" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="../assets/js/modules/security.js"></script>
+    <script defer src="../assets/js/animations.js"></script>
+    <script defer src="../assets/js/devis.js"></script>
+    <script defer src="../assets/js/main.js"></script>
+  </body>
+</html>

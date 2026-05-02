@@ -15,6 +15,13 @@ window.MadapesAnimations = {
     const ctaButtons = document.querySelectorAll(".btn");
     const approachIcons = document.querySelectorAll(".approach-step__icon svg");
     const serviceIcons = document.querySelectorAll(".service-card svg");
+    const landingInlineIcons = document.querySelectorAll(".landing-page .lp-inline-icon svg");
+    const landingProcessIcons = document.querySelectorAll(".landing-page .lp-process-step__icon svg");
+    const devisCard = document.querySelector(".devis-card");
+    const devisTrustItems = document.querySelectorAll(".devis-trust li");
+    const landingCards = document.querySelectorAll(
+      ".landing-page .lp-focus-card, .landing-page .lp-feature-card, .landing-page .lp-mockup-card"
+    );
 
     if (!prefersReducedMotion) {
       const introTimeline = window.gsap.timeline({ defaults: { ease: "power2.out" } });
@@ -25,6 +32,11 @@ window.MadapesAnimations = {
         .from(heroLead, { y: 12, opacity: 0, duration: 0.38 }, "-=0.2")
         .from(heroButtons, { y: 10, opacity: 0, duration: 0.34 }, "-=0.18")
         .from(heroCard, { y: 14, opacity: 0, duration: 0.4 }, "-=0.2");
+
+      if (document.querySelector(".landing-page")) {
+        introTimeline
+          .from(".lp-hero__points li", { y: 8, opacity: 0, stagger: 0.06, duration: 0.28 }, "-=0.14");
+      }
     }
 
     ctaButtons.forEach((button) => {
@@ -62,6 +74,55 @@ window.MadapesAnimations = {
           ease: "sine.inOut",
         });
       });
+
+      landingInlineIcons.forEach((icon, index) => {
+        window.gsap.to(icon, {
+          y: -2,
+          repeat: -1,
+          yoyo: true,
+          duration: 1.2 + index * 0.05,
+          ease: "sine.inOut",
+        });
+      });
+
+      landingProcessIcons.forEach((icon, index) => {
+        window.gsap.to(icon, {
+          rotate: index % 2 === 0 ? -4 : 4,
+          transformOrigin: "center",
+          repeat: -1,
+          yoyo: true,
+          duration: 1.5 + index * 0.08,
+          ease: "sine.inOut",
+        });
+      });
+
+      window.gsap.from(landingCards, {
+        y: 14,
+        opacity: 0,
+        duration: 0.42,
+        stagger: 0.05,
+        ease: "power2.out",
+      });
+
+      if (devisCard) {
+        window.gsap.to(devisCard, {
+          y: -6,
+          repeat: -1,
+          yoyo: true,
+          duration: 1.6,
+          ease: "sine.inOut",
+        });
+      }
+
+      if (devisTrustItems.length > 0) {
+        window.gsap.from(devisTrustItems, {
+          y: 8,
+          opacity: 0,
+          duration: 0.35,
+          stagger: 0.06,
+          ease: "power2.out",
+        });
+      }
     }
   },
 };

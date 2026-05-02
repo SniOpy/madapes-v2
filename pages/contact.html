@@ -3,11 +3,143 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+    />
     <title>Contact | Madapes Agency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="../assets/css/variables.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/sections.css" />
   </head>
-  <body>
-    <main>
-      <h1>Page contact en préparation</h1>
+  <body data-path-prefix="../">
+    <div data-site-header></div>
+
+    <main class="site-main contact-page">
+      <section class="section contact-hero" aria-labelledby="contact-hero-title">
+        <div class="container contact-hero__grid">
+          <div class="contact-hero__content">
+            <p class="eyebrow">Contact & audit gratuit</p>
+            <h1 id="contact-hero-title">
+              Demandez un audit gratuit de votre site
+              <strong>ou construisons votre projet ensemble.</strong>
+            </h1>
+            <p class="contact-hero__lead">
+              Dites-nous où vous en êtes : on analyse votre site existant, vos objectifs et vos besoins
+              pour vous proposer un plan clair et actionnable.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href="../pages/devis.html">
+                Demander un audit gratuit
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+              <a class="btn btn-secondary" href="tel:+33695387240">
+                Parler à un expert
+                <i data-lucide="phone-call" aria-hidden="true"></i>
+              </a>
+            </div>
+            <ul class="contact-trust" role="list">
+              <li><i data-lucide="clock-3"></i><span>Réponse sous 24h ouvrées</span></li>
+              <li><i data-lucide="shield-check"></i><span>Données traitées de façon confidentielle</span></li>
+              <li><i data-lucide="target"></i><span>Recommandations concrètes et actionnables</span></li>
+            </ul>
+          </div>
+          <div class="contact-hero__visual" aria-hidden="true">
+            <div class="contact-audit-card">
+              <h2>Audit express</h2>
+              <ul role="list">
+                <li><i data-lucide="check"></i><span>Analyse UX & conversion</span></li>
+                <li><i data-lucide="check"></i><span>Diagnostic performance</span></li>
+                <li><i data-lucide="check"></i><span>Recommandations prioritaires</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-form-section" aria-labelledby="contact-form-title">
+        <div class="container">
+          <div class="contact-form-card">
+            <h2 id="contact-form-title">Parlons de votre besoin</h2>
+            <p>
+              Plus vous partagez d'informations, plus notre analyse sera pertinente pour faire avancer
+              votre acquisition.
+            </p>
+            <form class="contact-form" action="#" method="post" novalidate>
+              <label>
+                <span>Votre nom *</span>
+                <input type="text" name="fullname" required autocomplete="name" />
+              </label>
+              <label>
+                <span>Votre email *</span>
+                <input type="email" name="email" required autocomplete="email" />
+              </label>
+              <label>
+                <span>Nom de votre entreprise</span>
+                <input type="text" name="company" autocomplete="organization" />
+              </label>
+              <label>
+                <span>Site web existant</span>
+                <input type="url" name="website" autocomplete="url" inputmode="url" />
+              </label>
+              <label class="contact-field-full">
+                <span>Votre besoin principal *</span>
+                <select name="goal" required>
+                  <option value="">Sélectionnez votre objectif</option>
+                  <option value="audit">Audit de site existant</option>
+                  <option value="creation">Création de projet complet</option>
+                  <option value="acquisition">Amélioration de l'acquisition Google Ads</option>
+                  <option value="other">Autre besoin</option>
+                </select>
+              </label>
+              <label class="contact-field-full">
+                <span>Décrivez votre projet *</span>
+                <textarea name="project_details" rows="5" required minlength="20"></textarea>
+              </label>
+              <div class="contact-form-actions">
+                <button class="btn btn-primary" type="submit">
+                  Recevoir mon audit gratuit
+                  <i data-lucide="arrow-right"></i>
+                </button>
+                <p class="contact-form-note">
+                  <i data-lucide="lock"></i>
+                  Vos informations restent privées et sécurisées.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-cta" aria-labelledby="contact-cta-title">
+        <div class="container contact-cta__grid">
+          <h2 id="contact-cta-title">Prêt à passer à l'action ?</h2>
+          <p>On analyse votre situation et on construit ensemble la meilleure stratégie pour votre croissance.</p>
+          <a class="btn btn-primary" href="../pages/devis.html">
+            Demander un devis
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </section>
     </main>
+
+    <div data-site-footer></div>
+
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="../assets/js/modules/security.js"></script>
+    <script defer src="../assets/js/animations.js"></script>
+    <script defer src="../assets/js/contact.js"></script>
+    <script defer src="../assets/js/main.js"></script>
   </body>
 </html>

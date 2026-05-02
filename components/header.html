@@ -1,1 +1,37 @@
-<!-- Header component placeholder for future extraction -->
+<header class="site-header" aria-label="En-tête principal">
+  <div class="container site-header__inner">
+    <a class="brand" href="{{BASE}}index.html" aria-label="Accueil Madapes Agency">
+      <img
+        class="brand__icon"
+        src="{{BASE}}assets/images/madapes-logo.png"
+        alt="Madapes Agency"
+        width="48"
+        height="48"
+      />
+    </a>
+
+    <nav class="site-nav" id="mobile-nav" aria-label="Navigation principale">
+      <ul class="site-nav__list" role="list">
+        <li><a href="{{BASE}}index.html">Accueil</a></li>
+        <li><a href="{{BASE}}pages/google-ads.html">Google Ads</a></li>
+        <li><a href="{{BASE}}pages/landing-pages.html">Landing Pages</a></li>
+        <li><a href="{{BASE}}pages/seo.html">SEO</a></li>
+        <li><a href="{{BASE}}pages/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn-primary site-header__cta" href="{{BASE}}pages/devis.html">Demander un devis</a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Ouvrir le menu"
+      aria-controls="mobile-nav"
+      aria-expanded="false"
+    >
+      <span class="menu-toggle__line"></span>
+      <span class="menu-toggle__line"></span>
+      <span class="menu-toggle__line"></span>
+    </button>
+  </div>
+</header>

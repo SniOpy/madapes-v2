@@ -26,45 +26,8 @@
     <link rel="stylesheet" href="./assets/css/components.css" />
     <link rel="stylesheet" href="./assets/css/sections.css" />
   </head>
-  <body>
-    <header class="site-header" aria-label="En-tête principal">
-      <div class="container site-header__inner">
-        <a class="brand" href="./index.html" aria-label="Accueil Madapes Agency">
-          <img
-            class="brand__icon"
-            src="./assets/images/madapes-logo.png"
-            alt="Icône Madapes"
-            width="48"
-            height="48"
-          />
-        </a>
-
-        <nav class="site-nav" id="mobile-nav" aria-label="Navigation principale">
-          <ul class="site-nav__list" role="list">
-            <li><a href="./index.html">Accueil</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#realisations">Réalisations</a></li>
-            <li><a href="#process">À propos</a></li>
-            <li><a href="#realisations">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-
-        <a class="btn btn-primary site-header__cta" href="./pages/contact.html">Demander un devis</a>
-
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Ouvrir le menu"
-          aria-controls="mobile-nav"
-          aria-expanded="false"
-        >
-          <span class="menu-toggle__line"></span>
-          <span class="menu-toggle__line"></span>
-          <span class="menu-toggle__line"></span>
-        </button>
-      </div>
-    </header>
+  <body data-path-prefix="./">
+    <div data-site-header></div>
 
     <main class="site-main">
       <section class="hero" aria-labelledby="hero-title">
@@ -372,6 +335,97 @@
         </div>
       </section>
 
+      <section class="section social-proof social-proof--light" aria-labelledby="social-proof-title">
+        <div class="container">
+          <div class="social-proof__head">
+            <div class="google-badge" aria-label="Avis Google">
+              <span class="google-badge__g">G</span>
+              <span>Avis Google</span>
+            </div>
+            <h2 id="social-proof-title">Ils nous font confiance pour accélérer leur croissance</h2>
+            <p>Des retours clients concrets sur la qualité de l'accompagnement, la performance et les résultats.</p>
+            <div class="social-proof__rating" aria-label="Note moyenne 5 sur 5">
+              <div class="social-proof__stars" aria-hidden="true">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+              </div>
+              <span>5.0 sur 5 - avis clients Google</span>
+            </div>
+          </div>
+
+          <div class="social-proof__marquee" aria-label="Défilement des avis clients">
+            <div class="social-proof__track">
+              <article class="social-review-card">
+                <p>"Service au top, réactif et à l'écoute. Je recommande à 100 %."</p>
+                <h3>Quentin BRIDON</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+              <article class="social-review-card">
+                <p>"Super expérience avec Madapes Agency ! L'équipe est dispo, pro et donne vraiment de bonnes idées."</p>
+                <h3>Ismail AISSI</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+              <article class="social-review-card">
+                <p>"Complètement satisfait. Hyper pro et très sérieux, je recommande vivement."</p>
+                <h3>Aiman BOULTOUAK</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+              <article class="social-review-card">
+                <p>"À l'écoute et très pro, je recommande vivement !"</p>
+                <h3>Yassin AMZIL</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+              <article class="social-review-card">
+                <p>"Highly recommended."</p>
+                <h3>Umar Faruque</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+
+              <article class="social-review-card" aria-hidden="true">
+                <p>"Service au top, réactif et à l'écoute. Je recommande à 100 %."</p>
+                <h3>Quentin BRIDON</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+              <article class="social-review-card" aria-hidden="true">
+                <p>"Super expérience avec Madapes Agency ! L'équipe est dispo, pro et donne vraiment de bonnes idées."</p>
+                <h3>Ismail AISSI</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+              <article class="social-review-card" aria-hidden="true">
+                <p>"Complètement satisfait. Hyper pro et très sérieux, je recommande vivement."</p>
+                <h3>Aiman BOULTOUAK</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+              <article class="social-review-card" aria-hidden="true">
+                <p>"À l'écoute et très pro, je recommande vivement !"</p>
+                <h3>Yassin AMZIL</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+              <article class="social-review-card" aria-hidden="true">
+                <p>"Highly recommended."</p>
+                <h3>Umar Faruque</h3>
+                <span>Visité en octobre 2025</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="social-proof__actions">
+            <a
+              class="btn btn-primary"
+              href="https://www.google.com/search?q=madapes+agency&rlz=1C1FHFK_frMA1179MA1179&oq=madapes+agency&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQIxgnMgoIAhAAGIAEGKIEMgoIAxAAGIAEGKIEMgcIBBAAGO8FMgoIBRAAGIAEGKIEMgYIBhBFGDwyBggHEEUYQdIBCDE1OTVqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voir tous les avis Google
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="section final-cta" id="contact" aria-labelledby="final-cta-title">
         <div class="container final-cta__grid">
           <h2 id="final-cta-title">Prêt à booster votre croissance en ligne&nbsp;?</h2>
@@ -381,55 +435,7 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container site-footer__grid">
-        <div>
-          <a class="brand brand--footer" href="./index.html" aria-label="Accueil Madapes Agency">
-            
-            <img
-              class="brand__logo-full"
-              src="./assets/images/madapes-logo.png"
-              alt="Madapes Agency"
-              width="200"
-              height="88"
-            />
-          </a>
-          <p class="site-footer__text">
-            Agence digitale orientée résultats. Nous aidons les entreprises à générer des leads,
-            des ventes et une croissance durable.
-          </p>
-        </div>
-        <nav aria-label="Navigation footer">
-          <h3>Navigation</h3>
-          <ul role="list">
-            <li><a href="./index.html">Accueil</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#realisations">Réalisations</a></li>
-            <li><a href="./pages/contact.html">Contact</a></li>
-          </ul>
-        </nav>
-        <nav aria-label="Services footer">
-          <h3>Services</h3>
-          <ul role="list">
-            <li><a href="./pages/google-ads.html">Google Ads</a></li>
-            <li><a href="./pages/google-ads.html">Landing Pages</a></li>
-            <li><a href="./pages/google-ads.html">SEO</a></li>
-            <li><a href="./pages/google-ads.html">Développement</a></li>
-          </ul>
-        </nav>
-        <div>
-          <h3>Suivez-nous</h3>
-          <ul class="social-links" role="list">
-            <li><a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a></li>
-            <li><a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a></li>
-            <li><a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="container site-footer__bottom">
-        <p>&copy; 2026 Madapes Agency. Tous droits réservés.</p>
-      </div>
-    </footer>
+    <div data-site-footer></div>
 
     <script defer src="https://unpkg.com/lucide@latest"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>

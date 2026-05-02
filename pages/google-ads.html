@@ -3,11 +3,268 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+    />
+    <meta
+      name="description"
+      content="Service Google Ads Madapes : une méthode claire, des campagnes rentables et des offres adaptées à vos objectifs de croissance."
+    />
     <title>Google Ads | Madapes Agency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="../assets/css/variables.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/sections.css" />
   </head>
-  <body>
-    <main>
-      <h1>Page Google Ads en préparation</h1>
+  <body data-path-prefix="../">
+    <div data-site-header></div>
+
+    <main class="site-main google-ads-page">
+      <section class="section ga-hero" aria-labelledby="ga-hero-title">
+        <div class="container ga-hero__grid">
+          <div class="ga-hero__content">
+            <p class="eyebrow">Google Ads</p>
+            <h1 id="ga-hero-title">
+              Soyez visible au bon moment<br />quand vos clients cherchent
+              <strong>exactement vos services</strong>.
+            </h1>
+            <p class="ga-hero__lead">
+              Google Ads vous place en haut des résultats de recherche quand l'intention d'achat est
+              forte. C'est l'un des leviers les plus rapides pour attirer des prospects qualifiés et
+              transformer votre trafic en demandes concrètes.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href="../pages/contact.html">
+                Obtenir un audit gratuit
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+              <a class="btn btn-secondary" href="#tarifs">Voir les tarifs</a>
+            </div>
+            <ul class="hero-proof ga-hero__proof" role="list">
+              <li>
+                <i class="hero-trust__icon" data-lucide="check" aria-hidden="true"></i>
+                <span>Visibilité immédiate</span>
+              </li>
+              <li>
+                <i class="hero-trust__icon" data-lucide="check" aria-hidden="true"></i>
+                <span>Leads qualifiés</span>
+              </li>
+              <li>
+                <i class="hero-trust__icon" data-lucide="check" aria-hidden="true"></i>
+                <span>Budget maîtrisé</span>
+              </li>
+            </ul>
+          </div>
+
+          <figure class="ga-hero__visual hero-laptop">
+            <img
+              src="../assets/images/hero/latop-ads.webp"
+              alt="Aperçu d'une landing page orientée conversion"
+              loading="eager"
+              width="900"
+              height="500"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section ga-importance" aria-labelledby="ga-importance-title">
+        <div class="container">
+          <p class="eyebrow">Pourquoi c'est indispensable</p>
+          <h2 id="ga-importance-title" class="section-title">
+            Sans visibilité, même un bon site reste invisible
+          </h2>
+          <div class="ga-cards-grid">
+            <article class="ga-info-card">
+              <span class="ga-info-card__icon"><i data-lucide="search"></i></span>
+              <h3>Vous captez une demande active</h3>
+              <p>
+                Les personnes qui cherchent sur Google ont déjà un besoin. Vous apparaissez au moment
+                où elles sont prêtes à comparer et à passer à l'action.
+              </p>
+            </article>
+            <article class="ga-info-card">
+              <span class="ga-info-card__icon"><i data-lucide="timer-reset"></i></span>
+              <h3>Des résultats rapides</h3>
+              <p>
+                Contrairement aux leviers qui prennent des mois, Google Ads peut générer des demandes
+                dès les premiers jours avec une campagne bien structurée.
+              </p>
+            </article>
+            <article class="ga-info-card">
+              <span class="ga-info-card__icon"><i data-lucide="bar-chart-3"></i></span>
+              <h3>Chaque euro est mesurable</h3>
+              <p>
+                Vous savez ce que coûte un clic, un appel ou un formulaire. Cette clarté permet
+                d'optimiser en continu et d'améliorer votre rentabilité.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section ga-methods" aria-labelledby="ga-methods-title">
+        <div class="container">
+          <p class="eyebrow">Ma méthode</p>
+          <h2 id="ga-methods-title" class="section-title">
+            Une gestion simple à comprendre, pensée pour la performance
+          </h2>
+          <div class="ga-methods-grid">
+            <article class="ga-method-card">
+              <div class="ga-method-card__content">
+                <span class="ga-method-card__icon"><i data-lucide="target"></i></span>
+                <h3>Cadrage business</h3>
+                <p>
+                  On définit vos objectifs réels : appels, devis, ventes ou prises de rendez-vous. La
+                  campagne est alignée sur ce qui compte vraiment pour votre activité.
+                </p>
+              </div>
+            </article>
+            <article class="ga-method-card">
+              <div class="ga-method-card__content">
+                <span class="ga-method-card__icon"><i data-lucide="network"></i></span>
+                <h3>Structure de campagne intelligente</h3>
+                <p>
+                  Je segmente les campagnes par intention de recherche, zone et offre pour diffuser le
+                  bon message à la bonne personne, au bon moment.
+                </p>
+              </div>
+            </article>
+            <article class="ga-method-card">
+              <div class="ga-method-card__content">
+                <span class="ga-method-card__icon"><i data-lucide="pen-line"></i></span>
+                <h3>Annonces qui donnent envie de cliquer</h3>
+                <p>
+                  J'écris des annonces claires, différenciantes et orientées conversion, pour attirer
+                  un trafic qualifié plutôt que du volume inutile.
+                </p>
+              </div>
+            </article>
+            <article class="ga-method-card">
+              <div class="ga-method-card__content">
+                <span class="ga-method-card__icon"><i data-lucide="trending-up"></i></span>
+                <h3>Optimisation continue</h3>
+                <p>
+                  Chaque semaine, j'analyse les données, je coupe ce qui ne marche pas et je renforce
+                  ce qui convertit pour améliorer vos résultats mois après mois.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section ga-process ga-process--light" aria-labelledby="ga-process-title">
+        <div class="container">
+          <p class="eyebrow">Comment ça se passe</p>
+          <h2 id="ga-process-title" class="section-title">Un accompagnement clair en 4 étapes</h2>
+          <ol class="ga-steps" role="list">
+            <li class="ga-step">
+              <span class="ga-step__number">1</span>
+              <h3>Audit & objectifs</h3>
+              <p>On fait le point sur votre activité, vos marges, votre cible et votre zone de vente.</p>
+            </li>
+            <li class="ga-step">
+              <span class="ga-step__number">2</span>
+              <h3>Lancement</h3>
+              <p>Je construis votre campagne, vos annonces et vos extensions avec une base solide.</p>
+            </li>
+            <li class="ga-step">
+              <span class="ga-step__number">3</span>
+              <h3>Suivi des conversions</h3>
+              <p>
+                On relie les campagnes à vos résultats réels (appels, formulaires, ventes) pour piloter
+                au bon niveau.
+              </p>
+            </li>
+            <li class="ga-step">
+              <span class="ga-step__number">4</span>
+              <h3>Optimisations régulières</h3>
+              <p>Vous recevez un suivi clair avec les actions menées et les axes d'amélioration.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section ga-pricing" id="tarifs" aria-labelledby="ga-pricing-title">
+        <div class="container">
+          <p class="eyebrow">Tarifs</p>
+          <h2 id="ga-pricing-title" class="section-title">
+            Des offres transparentes selon votre ambition
+          </h2>
+          <div class="ga-pricing-table-wrap">
+            <table class="ga-pricing-table">
+              <caption class="visually-hidden">
+                Tableau des tarifs de gestion Google Ads
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Offre</th>
+                  <th scope="col">Mise en service</th>
+                  <th scope="col">Gestion mensuelle</th>
+                  <th scope="col">Pour qui</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Starter</th>
+                  <td>299 EUR</td>
+                  <td>390 EUR / mois</td>
+                  <td>TPE locale qui veut générer ses premiers leads</td>
+                </tr>
+                <tr>
+                  <th scope="row">Croissance</th>
+                  <td>399 EUR</td>
+                  <td>490 EUR / mois</td>
+                  <td>Entreprise qui veut scaler et structurer son acquisition</td>
+                </tr>
+                <tr>
+                  <th scope="row">Premium</th>
+                  <td>Sur devis</td>
+                  <td>Sur devis</td>
+                  <td>Marque avec enjeux multi-offres, multi-zones ou e-commerce</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="ga-pricing-note">
+            Des frais de mise en service s'appliquent au démarrage : structure des campagnes,
+            configuration technique et paramétrage complet du compte. Budget publicitaire Google non
+            inclus. Chaque offre est ajustée selon votre secteur, vos objectifs et votre saisonnalité.
+          </p>
+          <div class="ga-pricing-actions">
+            <a class="btn btn-primary" href="../pages/contact.html">
+              Demander une proposition
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-secondary" href="../index.html#realisations">Voir des réalisations</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-cta" id="contact" aria-labelledby="ga-final-cta-title">
+        <div class="container final-cta__grid">
+          <h2 id="ga-final-cta-title">Prêt à rendre votre entreprise visible sur Google ?</h2>
+          <p>On construit une stratégie Google Ads claire, rentable et adaptée à vos objectifs.</p>
+          <a class="btn btn-primary" href="../pages/contact.html">Parler de mon projet</a>
+        </div>
+      </section>
     </main>
+
+    <div data-site-footer></div>
+
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="../assets/js/modules/security.js"></script>
+    <script defer src="../assets/js/main.js"></script>
   </body>
 </html>

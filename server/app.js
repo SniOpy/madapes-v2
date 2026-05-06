@@ -38,6 +38,12 @@ app.get("/api/health", (_req, res) => {
   return res.status(200).json({ success: true, message: "API is running." });
 });
 
+app.get("/api/public-config", (_req, res) => {
+  return res.status(200).json({
+    recaptchaSiteKey: String(process.env.VITE_RECAPTCHA_SITE_KEY || "").trim(),
+  });
+});
+
 app.use("/api/contact", contactRouter);
 
 app.use((err, _req, res, _next) => {

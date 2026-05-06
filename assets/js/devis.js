@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectDetailsField = devisForm.querySelector('textarea[name="project_details"]');
   const securityMessage = devisForm.querySelector(".devis-form-security");
   const submitButton = devisForm.querySelector('button[type="submit"]');
+  const submitButtonInitialText = submitButton?.textContent?.trim() || "Envoyer";
 
   const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -55,20 +56,30 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const validateForm = () => requiredFields.every((field) => validateField(field));
+
+  const setSubmitState = (isLoading) => {
+    if (!submitButton) {
+      return;
+    }
+
+    submitButton.disabled = isLoading;
+    submitButton.setAttribute("aria-busy", isLoading ? "true" : "false");
+    submitButton.textContent = isLoading ? "Envoi en cours..." : submitButtonInitialText;
+  };
+
   const toPayload = () => {
     const formData = new FormData(devisForm);
 
     return {
-      service: String(formData.get("service") || ""),
-      fullname: String(formData.get("fullname") || ""),
+      fullName: String(formData.get("fullname") || ""),
       email: String(formData.get("email") || ""),
-      company: String(formData.get("company") || ""),
+      companyName: String(formData.get("company") || ""),
       website: String(formData.get("website") || ""),
-      goal: String(formData.get("goal") || ""),
+      serviceType: String(formData.get("service") || ""),
+      projectGoal: String(formData.get("goal") || ""),
       budget: String(formData.get("budget") || ""),
-      project_details: String(formData.get("project_details") || ""),
-      start_timing: String(formData.get("start_timing") || ""),
-      contact_website: String(formData.get("contact_website") || ""),
+      projectDescription: String(formData.get("project_details") || ""),
+      startDelay: String(formData.get("start_timing") || ""),
     };
   };
 
@@ -111,35 +122,48 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (submitButton) {
-      submitButton.disabled = true;
-    }
+    setSubmitState(true);
+    let shouldUnlockSubmit = true;
 
     try {
-      const response = await fetch("/api/devis", {
+      const recaptcha = window.MadapesRecaptcha;
+      const recaptchaToken = await recaptcha.execute("contact_form");
+
+      if (!recaptchaToken) {
+        setMessage("La verification anti-spam a echoue. Merci de reessayer.", true);
+        return;
+      }
+
+      const payload = {
+        ...toPayload(),
+        recaptchaToken,
+      };
+
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(toPayload()),
+        body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      const result = await response.json().catch(() => ({}));
 
       if (!response.ok || !result.success) {
-        const fallbackError = "Une erreur est survenue. Merci de réessayer.";
-        const firstError = Array.isArray(result.errors) && result.errors.length > 0 ? result.errors[0] : fallbackError;
-        setMessage(firstError, true);
+        const fallbackError = "Une erreur est survenue. Merci de reessayer.";
+        const safeMessage = typeof result.message === "string" ? result.message : fallbackError;
+        setMessage(safeMessage, true);
         return;
       }
 
       devisForm.reset();
       requiredFields.forEach((field) => setFieldInvalidState(field, false));
       setOfferSelectionState();
-      setMessage("Merci, votre demande de devis a bien été envoyée.");
+      setMessage("Merci, votre demande a bien ete envoyee.");
+      shouldUnlockSubmit = false;
     } catch {
-      setMessage("Impossible d'envoyer le formulaire pour le moment. Merci de réessayer.", true);
+      setMessage("Impossible d'envoyer le formulaire pour le moment. Merci de reessayer.", true);
     } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
+      if (shouldUnlockSubmit) {
+        setSubmitState(false);
       }
     }
   });

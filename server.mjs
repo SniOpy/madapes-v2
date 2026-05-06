@@ -80,10 +80,10 @@ const BLOCKED_PATHS = [
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "img-src 'self' data: https:",
-  "script-src 'self' https://unpkg.com https://cdn.jsdelivr.net",
+  "script-src 'self' https://unpkg.com https://cdn.jsdelivr.net https://www.google.com https://www.gstatic.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
-  "connect-src 'self'",
+  "connect-src 'self' https://www.google.com https://www.gstatic.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -448,6 +448,13 @@ const server = createServer(async (request, response) => {
 
   if (request.method === "POST" && request.url === "/api/devis") {
     await handleFormSubmission(request, response, "devis");
+    return;
+  }
+
+  if (request.method === "GET" && request.url === "/api/public-config") {
+    sendJson(response, 200, {
+      recaptchaSiteKey: String(process.env.VITE_RECAPTCHA_SITE_KEY || "").trim(),
+    });
     return;
   }
 

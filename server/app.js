@@ -2,6 +2,7 @@ import express from "express";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
+import contactRouter from "./routes/contact.routes.js";
 
 const app = express();
 
@@ -36,6 +37,8 @@ app.use(express.urlencoded({ extended: false, limit: "100kb" }));
 app.get("/api/health", (_req, res) => {
   return res.status(200).json({ success: true, message: "API is running." });
 });
+
+app.use("/api/contact", contactRouter);
 
 app.use((err, _req, res, _next) => {
   if (err?.message === "Origin not allowed by CORS") {

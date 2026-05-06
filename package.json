@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "start:env": "node --env-file=.env server.mjs"
+    "start:env": "node --env-file=.env server.mjs",
+    "start:api": "node server/server.js"
   },
   "dependencies": {
     "axios": "^1.16.0",

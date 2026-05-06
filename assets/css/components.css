@@ -249,6 +249,14 @@
   padding-top: var(--space-3);
 }
 
+.site-footer__bottom-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
 .site-footer__legal {
   display: flex;
   align-items: center;
@@ -257,8 +265,15 @@
 }
 
 .site-footer__legal a {
-  color: var(--color-muted);
-  font-size: 13px;
+  color: #d8c7ff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer__legal a:hover {
+  color: #ffffff;
 }
 
 .site-footer .social-links {
@@ -284,6 +299,49 @@
 .site-footer .social-links a:hover {
   border-color: rgba(168, 85, 247, 0.85);
   background: rgba(124, 58, 237, 0.24);
+}
+
+.site-footer .social-links svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+
+.scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(168, 85, 247, 0.65);
+  background: rgba(124, 58, 237, 0.18);
+  color: var(--color-secondary);
+  box-shadow: 0 14px 30px rgba(10, 10, 16, 0.35);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+  z-index: 45;
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-top:hover {
+  background: rgba(124, 58, 237, 0.3);
+}
+
+.scroll-top svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.5;
 }
 
 @media (max-width: 960px) {
@@ -356,6 +414,11 @@
   .site-footer__grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .scroll-top {
+    right: 18px;
+    bottom: 18px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -366,6 +429,10 @@
   .site-footer__bottom {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .site-footer__bottom-right {
+    justify-content: flex-start;
   }
 
   .site-footer__legal {

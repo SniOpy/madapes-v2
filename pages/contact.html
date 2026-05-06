@@ -76,6 +76,11 @@
               votre acquisition.
             </p>
             <form class="contact-form" action="#" method="post" novalidate>
+              <label class="visually-hidden" aria-hidden="true">
+                Ne pas remplir ce champ
+                <input type="text" name="contact_website" tabindex="-1" autocomplete="off" />
+              </label>
+
               <label>
                 <span>Votre nom *</span>
                 <input type="text" name="fullname" required autocomplete="name" />

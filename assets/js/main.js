@@ -1,10 +1,38 @@
 "use strict";
 
 const getPathPrefix = () => document.body.dataset.pathPrefix || "./";
+const ROUTE_ALIASES = new Map([
+  ["/google-ads", "/pages/google-ads.html"],
+  ["/landing-pages", "/pages/landing-pages.html"],
+  ["/seo", "/pages/seo.html"],
+  ["/contact", "/pages/contact.html"],
+  ["/devis", "/pages/devis.html"],
+  ["/plan-du-site", "/pages/plan-du-site.html"],
+  ["/cgs", "/pages/cgs.html"],
+]);
 
 const normalizePathname = (pathname) => {
   const lowerPath = pathname.toLowerCase();
   return lowerPath.endsWith("/") ? `${lowerPath}index.html` : lowerPath;
+};
+
+const toCanonicalPath = (pathname) => {
+  const normalizedPath = normalizePathname(pathname);
+
+  if (ROUTE_ALIASES.has(normalizedPath)) {
+    return ROUTE_ALIASES.get(normalizedPath);
+  }
+
+  for (const [slugPath, htmlPath] of ROUTE_ALIASES.entries()) {
+    if (htmlPath === normalizedPath) {
+      return htmlPath;
+    }
+    if (slugPath === normalizedPath) {
+      return htmlPath;
+    }
+  }
+
+  return normalizedPath;
 };
 
 const parseMarkupToNodes = (markup) => {
@@ -40,13 +68,13 @@ const loadComponent = async (slotSelector, fileName) => {
 };
 
 const setActivePageLink = () => {
-  const currentPath = normalizePathname(window.location.pathname);
+  const currentPath = toCanonicalPath(window.location.pathname);
   const navLinks = document.querySelectorAll(".site-nav a");
 
   navLinks.forEach((link) => {
     const linkUrl = new URL(link.href, window.location.origin);
 
-    if (normalizePathname(linkUrl.pathname) === currentPath) {
+    if (toCanonicalPath(linkUrl.pathname) === currentPath) {
       link.setAttribute("aria-current", "page");
     } else {
       link.removeAttribute("aria-current");
@@ -120,6 +148,27 @@ const initProjectsSlider = () => {
   });
 };
 
+const initScrollTopButton = () => {
+  const scrollTopButton = document.querySelector("[data-scroll-top]");
+
+  if (!scrollTopButton) {
+    return;
+  }
+
+  const toggleVisibility = () => {
+    const shouldShow = window.scrollY > 280;
+    scrollTopButton.classList.toggle("is-visible", shouldShow);
+    scrollTopButton.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+  };
+
+  scrollTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", toggleVisibility, { passive: true });
+  toggleVisibility();
+};
+
 const initIconsAndAnimations = () => {
   if (window.lucide && typeof window.lucide.createIcons === "function") {
     window.lucide.createIcons();
@@ -128,6 +177,17 @@ const initIconsAndAnimations = () => {
   if (window.MadapesAnimations && typeof window.MadapesAnimations.run === "function") {
     window.MadapesAnimations.run();
   }
+};
+
+const ensureIconsAfterLoad = () => {
+  const runIcons = () => {
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+      window.lucide.createIcons();
+    }
+  };
+
+  window.addEventListener("load", runIcons, { once: true });
+  setTimeout(runIcons, 800);
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -143,5 +203,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setActivePageLink();
   initMobileNavigation();
   initProjectsSlider();
+  initScrollTopButton();
   initIconsAndAnimations();
+  ensureIconsAfterLoad();
 });

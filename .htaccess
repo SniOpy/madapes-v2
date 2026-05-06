@@ -1,0 +1,49 @@
+RewriteEngine On
+
+# Keep real existing files and folders accessible
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Legacy HTML URLs -> pretty slugs (SEO 301)
+RewriteRule ^pages/google-ads\.html$ /google-ads [R=301,L]
+RewriteRule ^pages/landing-pages\.html$ /landing-pages [R=301,L]
+RewriteRule ^pages/seo\.html$ /seo [R=301,L]
+RewriteRule ^pages/contact\.html$ /contact [R=301,L]
+RewriteRule ^pages/devis\.html$ /devis [R=301,L]
+RewriteRule ^pages/plan-du-site\.html$ /plan-du-site [R=301,L]
+RewriteRule ^pages/cgs\.html$ /cgs [R=301,L]
+RewriteRule ^pages/mentions-legales\.html$ /mentions-legales [R=301,L]
+RewriteRule ^pages/politique-confidentialite\.html$ /politique-confidentialite [R=301,L]
+RewriteRule ^pages/gestion-cookies\.html$ /gestion-cookies [R=301,L]
+
+# Pretty slugs -> real files
+RewriteRule ^google-ads/?$ /pages/google-ads.html [L]
+RewriteRule ^landing-pages/?$ /pages/landing-pages.html [L]
+RewriteRule ^seo/?$ /pages/seo.html [L]
+RewriteRule ^contact/?$ /pages/contact.html [L]
+RewriteRule ^devis/?$ /pages/devis.html [L]
+RewriteRule ^plan-du-site/?$ /pages/plan-du-site.html [L]
+RewriteRule ^cgs/?$ /pages/cgs.html [L]
+RewriteRule ^mentions-legales/?$ /pages/mentions-legales.html [L]
+RewriteRule ^politique-confidentialite/?$ /pages/politique-confidentialite.html [L]
+RewriteRule ^gestion-cookies/?$ /pages/gestion-cookies.html [L]
+
+# Any unknown /pages/* URL -> custom 404
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^pages/.+$ /404.html [R=404,L]
+
+# Custom 404 page
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Permitted-Cross-Domain-Policies "none"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data: https:; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';"
+</IfModule>

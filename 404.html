@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+    />
+    <title>Page introuvable | Madapes Agency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/components.css" />
+    <link rel="stylesheet" href="./assets/css/sections.css" />
+  </head>
+  <body data-path-prefix="./">
+    <div data-site-header></div>
+
+    <main class="site-main error-page">
+      <section class="section error-hero" aria-labelledby="error-title">
+        <div class="container error-hero__grid">
+          <div class="error-hero__content">
+            <p class="eyebrow">Erreur 404</p>
+            <h1 id="error-title">Oups, cette page n'existe pas.</h1>
+            <p class="error-hero__lead">
+              Le lien est peut-être incorrect ou la page a été déplacée. Reprenons la navigation
+              tranquillement.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href="./index.html">
+                Retour à l'accueil
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+              <a class="btn btn-secondary" href="./pages/contact.html">Nous contacter</a>
+            </div>
+          </div>
+
+          <div class="error-hero__visual" aria-hidden="true">
+            <div class="error-card">
+              <p class="error-card__code">404</p>
+              <p>Page introuvable</p>
+              <i data-lucide="search-x"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="./assets/js/modules/security.js"></script>
+    <script defer src="./assets/js/main.js"></script>
+  </body>
+</html>

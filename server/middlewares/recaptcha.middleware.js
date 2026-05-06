@@ -3,6 +3,20 @@ import axios from "axios";
 const GOOGLE_RECAPTCHA_VERIFY_URL =
   "https://www.google.com/recaptcha/api/siteverify";
 const MINIMUM_RECAPTCHA_SCORE = 0.5;
+const DEV_BYPASS_TOKEN = "local-dev-bypass";
+const LOCAL_HOST_VALUES = ["localhost", "127.0.0.1"];
+
+const isLocalRequest = (req) => {
+  const origin = String(req.headers.origin || "");
+  const referer = String(req.headers.referer || "");
+  const host = String(req.headers.host || "");
+  const forwardedHost = String(req.headers["x-forwarded-host"] || "");
+  const remoteAddress = String(req.socket?.remoteAddress || "");
+
+  const requestMetadata = [origin, referer, host, forwardedHost, remoteAddress].join(" ").toLowerCase();
+
+  return LOCAL_HOST_VALUES.some((value) => requestMetadata.includes(value));
+};
 
 export const verifyRecaptchaToken = async (req, res, next) => {
   try {
@@ -13,6 +27,13 @@ export const verifyRecaptchaToken = async (req, res, next) => {
         success: false,
         message: "Verification anti-spam invalide.",
       });
+    }
+
+    const currentNodeEnv = String(process.env.NODE_ENV || "").toLowerCase();
+    const isDevelopment = currentNodeEnv === "development";
+
+    if (isDevelopment && (recaptchaToken === DEV_BYPASS_TOKEN || isLocalRequest(req))) {
+      return next();
     }
 
     const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;

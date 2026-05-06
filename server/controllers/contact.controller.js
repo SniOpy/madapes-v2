@@ -6,7 +6,7 @@ const normalizeEmail = (value) => String(value ?? "").trim().toLowerCase();
 
 export const handleContactFormSubmission = async (req, res) => {
   try {
-    const formData = req.body;
+    const formData = req.validatedContactData || req.body;
     const clientEmail = normalizeEmail(formData.email);
     const serviceType = String(formData.serviceType ?? "").trim() || "Demande";
 

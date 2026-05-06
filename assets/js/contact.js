@@ -12,6 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectDetailsField = contactForm.querySelector('textarea[name="project_details"]');
   const note = contactForm.querySelector(".contact-form-note");
   const submitButton = contactForm.querySelector('button[type="submit"]');
+  const submitButtonInitialText = submitButton?.textContent?.trim() || "Envoyer";
+  const noteTextElement = note
+    ? note.querySelector("[data-form-message-text]") || (() => {
+        const textSpan = document.createElement("span");
+        textSpan.setAttribute("data-form-message-text", "");
+        textSpan.textContent = note.textContent.trim();
+        note.textContent = "";
+        note.appendChild(textSpan);
+        return textSpan;
+      })()
+    : null;
 
   const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -42,26 +53,40 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const validateForm = () => requiredFields.every((field) => validateField(field));
+
+  const setSubmitState = (isLoading) => {
+    if (!submitButton) {
+      return;
+    }
+
+    submitButton.disabled = isLoading;
+    submitButton.setAttribute("aria-busy", isLoading ? "true" : "false");
+    submitButton.textContent = isLoading ? "Envoi en cours..." : submitButtonInitialText;
+  };
+
   const toPayload = () => {
     const formData = new FormData(contactForm);
+    const rawWebsite = String(formData.get("website") || "").trim();
+    const normalizedWebsite =
+      rawWebsite && !/^https?:\/\//i.test(rawWebsite) ? `https://${rawWebsite}` : rawWebsite;
 
     return {
-      fullname: String(formData.get("fullname") || ""),
+      fullName: String(formData.get("fullname") || ""),
       email: String(formData.get("email") || ""),
-      company: String(formData.get("company") || ""),
-      website: String(formData.get("website") || ""),
-      goal: String(formData.get("goal") || ""),
-      project_details: String(formData.get("project_details") || ""),
-      contact_website: String(formData.get("contact_website") || ""),
+      companyName: String(formData.get("company") || ""),
+      website: normalizedWebsite,
+      serviceType: String(formData.get("goal") || ""),
+      projectGoal: String(formData.get("goal") || ""),
+      projectDescription: String(formData.get("project_details") || ""),
     };
   };
 
   const setNote = (message, isError = false) => {
-    if (!note) {
+    if (!note || !noteTextElement) {
       return;
     }
 
-    note.textContent = message;
+    noteTextElement.textContent = message;
     note.classList.toggle("contact-form-note--error", isError);
     note.classList.toggle("contact-form-note--success", !isError);
   };
@@ -91,34 +116,51 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (submitButton) {
-      submitButton.disabled = true;
-    }
+    setSubmitState(true);
+    let shouldUnlockSubmit = true;
 
     try {
+      const recaptcha = window.MadapesRecaptcha;
+      const recaptchaToken = await recaptcha.execute("contact_form");
+
+      if (!recaptchaToken) {
+        setNote("La verification anti-spam a echoue. Merci de reessayer.", true);
+        return;
+      }
+
+      const payload = {
+        ...toPayload(),
+        recaptchaToken,
+      };
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(toPayload()),
+        body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      const result = await response.json().catch(() => ({}));
 
       if (!response.ok || !result.success) {
-        const fallbackError = "Une erreur est survenue. Merci de réessayer.";
-        const firstError = Array.isArray(result.errors) && result.errors.length > 0 ? result.errors[0] : fallbackError;
-        setNote(firstError, true);
+        const fallbackError = "Une erreur est survenue. Merci de reessayer.";
+        const firstValidationError = Array.isArray(result.errors)
+          ? result.errors.find((errorItem) => typeof errorItem?.msg === "string")?.msg
+          : "";
+        const safeMessage =
+          firstValidationError || (typeof result.message === "string" ? result.message : fallbackError);
+        setNote(safeMessage, true);
         return;
       }
 
       contactForm.reset();
       requiredFields.forEach((field) => setInvalidState(field, false));
-      setNote("Merci, votre demande a bien été envoyée. Nous revenons vers vous rapidement.");
+      setNote("Merci, votre demande a bien ete envoyee. Nous revenons vers vous rapidement.");
+      shouldUnlockSubmit = false;
     } catch {
-      setNote("Impossible d'envoyer le formulaire pour le moment. Merci de réessayer.", true);
+      setNote("Impossible d'envoyer le formulaire pour le moment. Merci de reessayer.", true);
     } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
+      if (shouldUnlockSubmit) {
+        setSubmitState(false);
       }
     }
   });

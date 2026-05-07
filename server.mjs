@@ -451,13 +451,6 @@ const server = createServer(async (request, response) => {
     return;
   }
 
-  if (request.method === "GET" && request.url === "/api/public-config") {
-    sendJson(response, 200, {
-      recaptchaSiteKey: String(process.env.VITE_RECAPTCHA_SITE_KEY || "").trim(),
-    });
-    return;
-  }
-
   await serveStaticFile(request, response);
 });
 

@@ -61,13 +61,11 @@ app.use(
           "'self'",
           "https://unpkg.com",
           "https://cdn.jsdelivr.net",
-          "https://www.google.com",
-          "https://www.gstatic.com",
         ],
-        frameSrc: ["'self'", "https://www.google.com", "https://www.gstatic.com"],
+        frameSrc: ["'self'"],
         styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
-        connectSrc: ["'self'", "https://www.google.com", "https://www.gstatic.com"],
+        connectSrc: ["'self'"],
         objectSrc: ["'none'"],
         baseUri: ["'self'"],
         formAction: ["'self'"],
@@ -86,12 +84,6 @@ app.get("/favicon.ico", (_req, res) => {
 
 app.get("/api/health", (_req, res) => {
   return res.status(200).json({ success: true, message: "API is running." });
-});
-
-app.get("/api/public-config", (_req, res) => {
-  return res.status(200).json({
-    recaptchaSiteKey: String(process.env.VITE_RECAPTCHA_SITE_KEY || "").trim(),
-  });
 });
 
 app.use("/api/contact", contactRouter);

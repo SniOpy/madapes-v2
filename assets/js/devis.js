@@ -139,23 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let shouldUnlockSubmit = true;
 
     try {
-      const recaptcha = window.MadapesRecaptcha;
-      const recaptchaToken = await recaptcha.execute("contact_form");
-
-      if (!recaptchaToken) {
-        setMessage("La verification anti-spam a echoue. Merci de reessayer.", true);
-        return;
-      }
-
-      const payload = {
-        ...toPayload(),
-        recaptchaToken,
-      };
-
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(toPayload()),
       });
 
       const result = await response.json().catch(() => ({}));
@@ -176,23 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setOfferSelectionState();
       setMessage("Merci, votre demande a bien ete envoyee.");
       shouldUnlockSubmit = false;
-    } catch (error) {
-      console.error("Devis form submission failed:", error);
-      const errorMessage = String(error?.message || "").toLowerCase();
-      const recaptchaIssue =
-        errorMessage.includes("recaptcha") ||
-        errorMessage.includes("captcha") ||
-        errorMessage.includes("site key") ||
-        errorMessage.includes("google");
-
-      if (recaptchaIssue) {
-        setMessage(
-          "La verification reCAPTCHA a echoue. Verifiez les domaines autorises dans Google reCAPTCHA.",
-          true,
-        );
-        return;
-      }
-
+    } catch {
       setMessage("Impossible d'envoyer le formulaire pour le moment. Merci de reessayer.", true);
     } finally {
       if (shouldUnlockSubmit) {

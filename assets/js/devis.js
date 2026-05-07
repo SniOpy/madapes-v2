@@ -176,7 +176,23 @@ document.addEventListener("DOMContentLoaded", () => {
       setOfferSelectionState();
       setMessage("Merci, votre demande a bien ete envoyee.");
       shouldUnlockSubmit = false;
-    } catch {
+    } catch (error) {
+      console.error("Devis form submission failed:", error);
+      const errorMessage = String(error?.message || "").toLowerCase();
+      const recaptchaIssue =
+        errorMessage.includes("recaptcha") ||
+        errorMessage.includes("captcha") ||
+        errorMessage.includes("site key") ||
+        errorMessage.includes("google");
+
+      if (recaptchaIssue) {
+        setMessage(
+          "La verification reCAPTCHA a echoue. Verifiez les domaines autorises dans Google reCAPTCHA.",
+          true,
+        );
+        return;
+      }
+
       setMessage("Impossible d'envoyer le formulaire pour le moment. Merci de reessayer.", true);
     } finally {
       if (shouldUnlockSubmit) {

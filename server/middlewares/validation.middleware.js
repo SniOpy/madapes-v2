@@ -61,16 +61,6 @@ export const validateContactForm = [
     .isLength({ min: 20, max: 5000 })
     .withMessage("La description du projet doit contenir au moins 20 caracteres."),
 
-  body("recaptchaToken")
-    .exists({ values: "falsy" })
-    .withMessage("Le token reCAPTCHA est obligatoire.")
-    .bail()
-    .isString()
-    .withMessage("Le token reCAPTCHA est invalide.")
-    .customSanitizer(normalizeText)
-    .isLength({ min: 10, max: 4000 })
-    .withMessage("Le token reCAPTCHA est invalide."),
-
   body("phone")
     .optional({ values: "falsy" })
     .isString()

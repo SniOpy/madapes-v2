@@ -117,28 +117,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     setSubmitState(true);
-    let shouldUnlockSubmit = true;
 
+    let requestTimeoutId = null;
     try {
-      const recaptcha = window.MadapesRecaptcha;
-      const recaptchaToken = await recaptcha.execute("contact_form");
-
-      if (!recaptchaToken) {
-        setNote("La verification anti-spam a echoue. Merci de reessayer.", true);
-        return;
-      }
-
-      const payload = {
-        ...toPayload(),
-        recaptchaToken,
-      };
+      const requestController = new AbortController();
+      requestTimeoutId = window.setTimeout(() => requestController.abort(), 12000);
 
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(toPayload()),
+        signal: requestController.signal,
       });
-
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok || !result.success) {
@@ -155,29 +145,17 @@ document.addEventListener("DOMContentLoaded", () => {
       contactForm.reset();
       requiredFields.forEach((field) => setInvalidState(field, false));
       setNote("Merci, votre demande a bien ete envoyee. Nous revenons vers vous rapidement.");
-      shouldUnlockSubmit = false;
     } catch (error) {
-      console.error("Contact form submission failed:", error);
-      const errorMessage = String(error?.message || "").toLowerCase();
-      const recaptchaIssue =
-        errorMessage.includes("recaptcha") ||
-        errorMessage.includes("captcha") ||
-        errorMessage.includes("site key") ||
-        errorMessage.includes("google");
-
-      if (recaptchaIssue) {
-        setNote(
-          "La verification reCAPTCHA a echoue. Verifiez les domaines autorises dans Google reCAPTCHA.",
-          true,
-        );
+      if (error?.name === "AbortError") {
+        setNote("Le delai d'envoi est depasse. Merci de reessayer dans quelques secondes.", true);
         return;
       }
-
       setNote("Impossible d'envoyer le formulaire pour le moment. Merci de reessayer.", true);
     } finally {
-      if (shouldUnlockSubmit) {
-        setSubmitState(false);
+      if (requestTimeoutId) {
+        window.clearTimeout(requestTimeoutId);
       }
+      setSubmitState(false);
     }
   });
 });

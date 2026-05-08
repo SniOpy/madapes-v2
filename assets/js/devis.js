@@ -79,20 +79,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const toPayload = () => {
     const formData = new FormData(devisForm);
+    const fullName = String(formData.get("fullname") || "");
+    const email = String(formData.get("email") || "");
+    const companyName = String(formData.get("company") || "");
     const rawWebsite = String(formData.get("website") || "").trim();
+    const serviceType = String(formData.get("service") || "");
+    const projectGoal = String(formData.get("goal") || "");
+    const budget = String(formData.get("budget") || "");
+    const projectDescription = String(formData.get("project_details") || "");
+    const startDelay = String(formData.get("start_timing") || "");
+    const honeypot = String(formData.get("contact_website") || "");
     const normalizedWebsite =
       rawWebsite && !/^https?:\/\//i.test(rawWebsite) ? `https://${rawWebsite}` : rawWebsite;
 
     return {
-      fullName: String(formData.get("fullname") || ""),
-      email: String(formData.get("email") || ""),
-      companyName: String(formData.get("company") || ""),
+      fullName,
+      fullname: fullName,
+      email,
+      companyName,
+      company: companyName,
       website: normalizedWebsite,
-      serviceType: String(formData.get("service") || ""),
-      projectGoal: String(formData.get("goal") || ""),
-      budget: String(formData.get("budget") || ""),
-      projectDescription: String(formData.get("project_details") || ""),
-      startDelay: String(formData.get("start_timing") || ""),
+      serviceType,
+      service: serviceType,
+      goal: projectGoal,
+      projectGoal,
+      budget,
+      projectDescription,
+      project_details: projectDescription,
+      startDelay,
+      start_timing: startDelay,
+      contact_website: honeypot,
     };
   };
 
@@ -154,7 +170,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!response.ok || !result.success) {
         const fallbackError = "Une erreur est survenue. Merci de reessayer.";
         const firstValidationError = Array.isArray(result.errors)
-          ? result.errors.find((errorItem) => typeof errorItem?.msg === "string")?.msg
+          ? result.errors
+              .map((errorItem) => {
+                if (typeof errorItem?.msg === "string") {
+                  return errorItem.msg;
+                }
+                if (typeof errorItem === "string") {
+                  return errorItem;
+                }
+                return "";
+              })
+              .find(Boolean)
           : "";
         const safeMessage =
           firstValidationError || (typeof result.message === "string" ? result.message : fallbackError);

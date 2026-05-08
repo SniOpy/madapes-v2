@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     : null;
 
   const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const REQUEST_TIMEOUT_MS = window.location.hostname === "localhost" ? 12000 : 45000;
 
   const setOfferSelectionState = () => {
     serviceRadios.forEach((radio) => {
@@ -136,6 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // On Vercel, le backend Render peut etre "cold" au premier appel.
+  // Ce ping silencieux limite le risque de timeout au moment du submit.
+  fetch("/api/health", { method: "GET", cache: "no-store" }).catch(() => {});
+
   devisForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -156,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let requestTimeoutId = null;
     try {
       const requestController = new AbortController();
-      requestTimeoutId = window.setTimeout(() => requestController.abort(), 12000);
+      requestTimeoutId = window.setTimeout(() => requestController.abort(), REQUEST_TIMEOUT_MS);
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -193,7 +198,10 @@ document.addEventListener("DOMContentLoaded", () => {
       setMessage("Merci, votre demande a bien ete envoyee.");
     } catch (error) {
       if (error?.name === "AbortError") {
-        setMessage("Le delai d'envoi est depasse. Merci de reessayer dans quelques secondes.", true);
+        setMessage(
+          "Le serveur met plus de temps a repondre. Merci de reessayer dans quelques secondes.",
+          true,
+        );
         return;
       }
       setMessage("Impossible d'envoyer le formulaire pour le moment. Merci de reessayer.", true);

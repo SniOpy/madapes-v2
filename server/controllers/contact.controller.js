@@ -13,17 +13,18 @@ export const handleContactFormSubmission = async (req, res) => {
     const adminSubject = `Nouveau lead Madapes Agency - ${serviceType}`;
     const clientSubject = "Nous avons bien recu votre demande - Madapes Agency";
 
-    await sendAdminNotificationEmail({
-      subject: adminSubject,
-      html: buildAdminEmailHtml(formData),
-      replyTo: clientEmail,
-    });
-
-    await sendClientConfirmationEmail({
-      to: clientEmail,
-      subject: clientSubject,
-      html: buildClientEmailHtml(formData),
-    });
+    await Promise.all([
+      sendAdminNotificationEmail({
+        subject: adminSubject,
+        html: buildAdminEmailHtml(formData),
+        replyTo: clientEmail,
+      }),
+      sendClientConfirmationEmail({
+        to: clientEmail,
+        subject: clientSubject,
+        html: buildClientEmailHtml(formData),
+      }),
+    ]);
 
     return res.status(200).json({
       success: true,
@@ -32,7 +33,7 @@ export const handleContactFormSubmission = async (req, res) => {
   } catch (_error) {
     return res.status(500).json({
       success: false,
-      message: "Une erreur est survenue. Merci de reessayer.",
+      message: "Le service email est temporairement indisponible. Merci de reessayer dans quelques instants.",
     });
   }
 };

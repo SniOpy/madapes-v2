@@ -157,7 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const requestController = new AbortController();
       requestTimeoutId = window.setTimeout(() => requestController.abort(), 12000);
-
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

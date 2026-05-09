@@ -2,6 +2,9 @@ import nodemailer from "nodemailer";
 
 let cachedTransporter = null;
 
+const DEFAULT_MAIL_HOST = "smtp.gmail.com";
+const DEFAULT_MAIL_PORT = 587;
+const DEFAULT_MAIL_SECURE = false;
 const DEFAULT_CONNECTION_TIMEOUT_MS = 10000;
 const DEFAULT_GREETING_TIMEOUT_MS = 10000;
 const DEFAULT_SOCKET_TIMEOUT_MS = 15000;
@@ -12,6 +15,22 @@ const parsePositiveNumber = (value, fallback) => {
   return Number.isFinite(parsedValue) && parsedValue > 0
     ? parsedValue
     : fallback;
+};
+
+const parseBoolean = (value, fallback) => {
+  if (typeof value !== "string") {
+    return fallback;
+  }
+
+  const normalizedValue = value.trim().toLowerCase();
+  if (normalizedValue === "true" || normalizedValue === "1") {
+    return true;
+  }
+  if (normalizedValue === "false" || normalizedValue === "0") {
+    return false;
+  }
+
+  return fallback;
 };
 
 const ensureMailEnvironment = () => {
@@ -57,10 +76,21 @@ export const getMailTransporter = () => {
     DEFAULT_SOCKET_TIMEOUT_MS,
   );
 
+  const host = String(process.env.MAIL_HOST || DEFAULT_MAIL_HOST).trim();
+  const port = parsePositiveNumber(process.env.MAIL_PORT, DEFAULT_MAIL_PORT);
+  const secure = parseBoolean(process.env.MAIL_SECURE, DEFAULT_MAIL_SECURE);
+
+  console.log({
+    MAIL_HOST: host,
+    MAIL_PORT: port,
+    MAIL_SECURE: secure,
+  });
+
   cachedTransporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
+    host,
+    port,
+    secure,
+    requireTLS: !secure,
 
     auth: {
       user: mailUser,

@@ -7,7 +7,7 @@ Site statique Madapes Agency (Vercel) + API Express (Render) pour l'envoi des fo
 - Front: site statique deploye sur Vercel.
 - API: service Node/Express deploye sur Render (`server/server.js`).
 - Proxy API: `vercel.json` redirige `/api/*` vers Render.
-- Email: Nodemailer vers `smtp.gmail.com:465`.
+- Email: Nodemailer vers Gmail SMTP (par defaut `smtp.gmail.com:587` avec TLS).
 
 ## Lancer localement
 
@@ -27,6 +27,9 @@ Copier `.env.example` vers `.env` puis renseigner:
 - `NODE_ENV=production` (sur Render)
 - `MAIL_USER=madapes.agency@gmail.com`
 - `MAIL_PASSWORD=<gmail app password>`
+- `MAIL_HOST=smtp.gmail.com`
+- `MAIL_PORT=587`
+- `MAIL_SECURE=false`
 - `SITE_BASE_URL=https://madapes-agency.com`
 - `CORS_ALLOWED_ORIGINS=<origines autorisees, separees par des virgules>`
 

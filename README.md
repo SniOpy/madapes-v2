@@ -45,6 +45,7 @@ Fallback API email (optionnel, recommande en cloud si SMTP timeout):
 
 - `RESEND_API_KEY=<api key resend>`
 - `RESEND_FROM_EMAIL=<expediteur valide resend>`
+- `MAIL_PROVIDER=resend` (optionnel, force Resend comme provider principal)
 
 ## Checklist de mise en production email
 

@@ -8,6 +8,17 @@ const resolveSenderEmail = () => process.env.MAIL_USER || DEFAULT_ADMIN_EMAIL;
 const resolveResendApiKey = () => String(process.env.RESEND_API_KEY || "").trim();
 const resolveResendFromEmail = () =>
   String(process.env.RESEND_FROM_EMAIL || resolveSenderEmail()).trim();
+export const shouldUseResendAsPrimaryProvider = () => {
+  const preferredProvider = String(process.env.MAIL_PROVIDER || "").trim().toLowerCase();
+  if (preferredProvider === "smtp") {
+    return false;
+  }
+  if (preferredProvider === "resend") {
+    return true;
+  }
+
+  return process.env.NODE_ENV === "production" && Boolean(resolveResendApiKey());
+};
 const resolveMailSendTimeout = () => {
   const timeoutMs = Number(process.env.MAIL_SEND_TIMEOUT_MS);
   return Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : DEFAULT_MAIL_SEND_TIMEOUT_MS;
@@ -68,6 +79,10 @@ const sendMailWithTimeout = async (mailOptions, timeoutLabel) => {
 };
 
 const sendTransactionalEmail = async (mailOptions, timeoutLabel) => {
+  if (shouldUseResendAsPrimaryProvider()) {
+    return sendViaResend(mailOptions);
+  }
+
   try {
     return await sendMailWithTimeout(mailOptions, timeoutLabel);
   } catch (error) {

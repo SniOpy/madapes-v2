@@ -5,6 +5,7 @@ let cachedTransporter = null;
 const DEFAULT_MAIL_HOST = "smtp.gmail.com";
 const DEFAULT_MAIL_PORT = 587;
 const DEFAULT_MAIL_SECURE = false;
+const DEFAULT_MAIL_NETWORK_FAMILY = 4;
 const DEFAULT_CONNECTION_TIMEOUT_MS = 10000;
 const DEFAULT_GREETING_TIMEOUT_MS = 10000;
 const DEFAULT_SOCKET_TIMEOUT_MS = 15000;
@@ -31,6 +32,11 @@ const parseBoolean = (value, fallback) => {
   }
 
   return fallback;
+};
+
+const parseNetworkFamily = (value, fallback) => {
+  const parsedValue = Number(value);
+  return parsedValue === 4 || parsedValue === 6 ? parsedValue : fallback;
 };
 
 const ensureMailEnvironment = () => {
@@ -79,16 +85,22 @@ export const getMailTransporter = () => {
   const host = String(process.env.MAIL_HOST || DEFAULT_MAIL_HOST).trim();
   const port = parsePositiveNumber(process.env.MAIL_PORT, DEFAULT_MAIL_PORT);
   const secure = parseBoolean(process.env.MAIL_SECURE, DEFAULT_MAIL_SECURE);
+  const family = parseNetworkFamily(
+    process.env.MAIL_NETWORK_FAMILY,
+    DEFAULT_MAIL_NETWORK_FAMILY,
+  );
 
   console.log({
     MAIL_HOST: host,
     MAIL_PORT: port,
     MAIL_SECURE: secure,
+    MAIL_NETWORK_FAMILY: family,
   });
 
   cachedTransporter = nodemailer.createTransport({
     host,
     port,
+    family,
     secure,
     requireTLS: !secure,
 

@@ -30,6 +30,7 @@ Copier `.env.example` vers `.env` puis renseigner:
 - `MAIL_HOST=smtp.gmail.com`
 - `MAIL_PORT=587`
 - `MAIL_SECURE=false`
+- `MAIL_NETWORK_FAMILY=4`
 - `SITE_BASE_URL=https://madapes-agency.com`
 - `CORS_ALLOWED_ORIGINS=<origines autorisees, separees par des virgules>`
 

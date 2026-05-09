@@ -1,34 +1,55 @@
 # madapes-v2
 
-Site vitrine Madapes Agency avec formulaires `contact` et `devis` gérés en JavaScript côté serveur.
+Site statique Madapes Agency (Vercel) + API Express (Render) pour l'envoi des formulaires par email via Gmail SMTP.
+
+## Architecture production
+
+- Front: site statique deploye sur Vercel.
+- API: service Node/Express deploye sur Render (`server/server.js`).
+- Proxy API: `vercel.json` redirige `/api/*` vers Render.
+- Email: Nodemailer vers `smtp.gmail.com:465`.
 
 ## Lancer localement
 
 ```bash
-node server.mjs
+npm run start:api
 ```
 
-Le serveur démarre par défaut sur `http://localhost:3000`.
+API locale:
 
-## Configuration e-mail (optionnelle)
+- healthcheck: `GET http://localhost:5500/api/health`
+- formulaire contact: `POST http://localhost:5500/api/contact`
 
-Copier `.env.example` vers `.env` puis renseigner :
+## Variables d'environnement
 
-- `RESEND_API_KEY`
-- `FORM_FROM_EMAIL`
-- `FORM_TO_EMAIL`
+Copier `.env.example` vers `.env` puis renseigner:
 
-Sans ces variables, les soumissions sont quand même enregistrées dans `data/submissions.log`.
+- `NODE_ENV=production` (sur Render)
+- `MAIL_USER=madapes.agency@gmail.com`
+- `MAIL_PASSWORD=<gmail app password>`
+- `SITE_BASE_URL=https://madapes-agency.com`
+- `CORS_ALLOWED_ORIGINS=<origines autorisees, separees par des virgules>`
 
-## Endpoints API
+Timeouts SMTP (optionnels):
 
-- `POST /api/contact`
-- `POST /api/devis`
+- `MAIL_CONNECTION_TIMEOUT_MS` (defaut 10000)
+- `MAIL_GREETING_TIMEOUT_MS` (defaut 10000)
+- `MAIL_SOCKET_TIMEOUT_MS` (defaut 15000)
+- `MAIL_SEND_TIMEOUT_MS` (defaut 12000)
 
-Chaque endpoint applique :
+## Checklist de mise en production email
 
-- validation serveur des champs obligatoires
-- validation e-mail
-- minimum 20 caractères pour le message
-- honeypot anti-spam (`contact_website`)
-- rate-limit basique par IP
+1. Render: deploy de la branche + variables d'environnement ci-dessus.
+2. Render: verifier `GET https://<service-render>/api/health`.
+3. Vercel: verifier que `vercel.json` pointe vers le bon service Render.
+4. Vercel: verifier `GET https://<domaine-vercel>/api/health`.
+5. Soumettre un formulaire depuis la page contact en production.
+6. Verifier reception:
+   - email admin sur `madapes.agency@gmail.com`
+   - email de confirmation sur l'adresse client.
+
+## Diagnostic rapide en cas d'erreur
+
+- `500` sur `/api/contact`: lire les logs Render (`Contact form email send failed` + details SMTP).
+- `429`: limite actuelle `5 requetes / 15 minutes` sur la route contact.
+- Requete lente: augmenter les timeouts SMTP via variables d'environnement.

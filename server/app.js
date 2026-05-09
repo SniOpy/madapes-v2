@@ -7,6 +7,7 @@ import contactRouter from "./routes/contact.routes.js";
 
 const app = express();
 const projectRootDir = process.cwd();
+app.set("trust proxy", 1);
 
 const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS || "")
   .split(",")
@@ -96,6 +97,13 @@ app.get("/", (_req, res) => {
 app.use(express.static(projectRootDir, { index: false }));
 
 app.use((err, _req, res, _next) => {
+  console.error("Unhandled API error");
+  console.error({
+    message: err?.message,
+    code: err?.code,
+    name: err?.name,
+  });
+
   if (err?.message === "Origin not allowed by CORS") {
     return res.status(403).json({
       success: false,

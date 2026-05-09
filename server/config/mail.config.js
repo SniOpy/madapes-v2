@@ -43,11 +43,6 @@ const ensureMailEnvironment = () => {
   const mailUser = String(process.env.MAIL_USER ?? "").trim();
   const mailPassword = String(process.env.MAIL_PASSWORD ?? "").trim();
 
-  console.log({
-    MAIL_USER_EXISTS: !!mailUser,
-    MAIL_PASSWORD_EXISTS: !!mailPassword,
-  });
-
   if (!mailUser || !mailPassword) {
     throw new Error(
       "Missing mail configuration. MAIL_USER and MAIL_PASSWORD are required.",
@@ -90,13 +85,6 @@ export const getMailTransporter = () => {
     DEFAULT_MAIL_NETWORK_FAMILY,
   );
 
-  console.log({
-    MAIL_HOST: host,
-    MAIL_PORT: port,
-    MAIL_SECURE: secure,
-    MAIL_NETWORK_FAMILY: family,
-  });
-
   cachedTransporter = nodemailer.createTransport({
     host,
     port,
@@ -118,16 +106,6 @@ export const getMailTransporter = () => {
 };
 
 export const verifyMailTransporter = async () => {
-  try {
-    const transporter = getMailTransporter();
-
-    await transporter.verify();
-
-    console.log("✅ Mail server is ready");
-  } catch (error) {
-    console.error("❌ Mail server verification failed");
-    console.error(error);
-
-    throw error;
-  }
+  const transporter = getMailTransporter();
+  await transporter.verify();
 };

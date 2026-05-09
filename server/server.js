@@ -8,10 +8,7 @@ dotenv.config();
 const port = Number(process.env.PORT) || 3000;
 
 app.listen(port, () => {
-  console.log(`Madapes API server running on port ${port}`);
-
   if (shouldUseResendAsPrimaryProvider()) {
-    console.log("Resend is configured as primary provider in production.");
     return;
   }
 

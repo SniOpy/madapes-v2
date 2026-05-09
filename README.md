@@ -41,6 +41,11 @@ Timeouts SMTP (optionnels):
 - `MAIL_SOCKET_TIMEOUT_MS` (defaut 15000)
 - `MAIL_SEND_TIMEOUT_MS` (defaut 12000)
 
+Fallback API email (optionnel, recommande en cloud si SMTP timeout):
+
+- `RESEND_API_KEY=<api key resend>`
+- `RESEND_FROM_EMAIL=<expediteur valide resend>`
+
 ## Checklist de mise en production email
 
 1. Render: deploy de la branche + variables d'environnement ci-dessus.

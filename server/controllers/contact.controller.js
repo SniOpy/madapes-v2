@@ -30,7 +30,16 @@ export const handleContactFormSubmission = async (req, res) => {
       success: true,
       message: "Votre demande a bien ete envoyee.",
     });
-  } catch (_error) {
+  } catch (error) {
+    console.error("Contact form email send failed");
+    console.error({
+      message: error?.message,
+      code: error?.code,
+      command: error?.command,
+      response: error?.response,
+      responseCode: error?.responseCode,
+    });
+
     return res.status(500).json({
       success: false,
       message: "Le service email est temporairement indisponible. Merci de reessayer dans quelques instants.",

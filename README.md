@@ -6,7 +6,8 @@ Site statique Madapes Agency (Vercel) + API Express (Render) pour l'envoi des fo
 
 - Front: site statique deploye sur Vercel.
 - API: service Node/Express deploye sur Render (`server/server.js`).
-- Proxy API: `vercel.json` redirige `/api/*` vers Render.
+- Proxy API: `vercel.mjs` réécrit `/api/*` vers l’URL de base Render (`RENDER_API_ORIGIN` dans les variables d’environnement Vercel).
+- Routes marketing (`/contact`, `/devis`, etc.): réécrites vers les fichiers dans `pages/` (comme en local avec `server.mjs`).
 - Email: Nodemailer vers Gmail SMTP (par defaut `smtp.gmail.com:587` avec TLS).
 
 ## Lancer localement
@@ -51,7 +52,7 @@ Fallback API email (optionnel, recommande en cloud si SMTP timeout):
 
 1. Render: deploy de la branche + variables d'environnement ci-dessus.
 2. Render: verifier `GET https://<service-render>/api/health`.
-3. Vercel: verifier que `vercel.json` pointe vers le bon service Render.
+3. Vercel: definir `RENDER_API_ORIGIN` (ex. `https://<service>.onrender.com`, sans slash final) pour que le proxy `/api/*` soit genere au build.
 4. Vercel: verifier `GET https://<domaine-vercel>/api/health`.
 5. Soumettre un formulaire depuis la page contact en production.
 6. Verifier reception:

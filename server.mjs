@@ -19,6 +19,11 @@ const USE_RESEND = process.env.RESEND_API_KEY && process.env.FORM_FROM_EMAIL && 
 
 // Slugs lisibles pour les visiteurs
 const SLUG_ROUTES = {
+  "/services": "/pages/services.html",
+  "/tracking": "/pages/tracking.html",
+  "/offres": "/pages/offres.html",
+  "/blog": "/pages/blog.html",
+  "/realisations": "/pages/realisations.html",
   "/google-ads": "/pages/google-ads.html",
   "/landing-pages": "/pages/landing-pages.html",
   "/seo": "/pages/seo.html",
@@ -33,6 +38,11 @@ const SLUG_ROUTES = {
 
 // Anciennes URLs .html redirigées en 301 vers les slugs
 const LEGACY_ROUTES = {
+  "/pages/services.html": "/services",
+  "/pages/tracking.html": "/tracking",
+  "/pages/offres.html": "/offres",
+  "/pages/blog.html": "/blog",
+  "/pages/realisations.html": "/realisations",
   "/pages/google-ads.html": "/google-ads",
   "/pages/landing-pages.html": "/landing-pages",
   "/pages/seo.html": "/seo",
@@ -80,10 +90,11 @@ const BLOCKED_PATHS = [
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "img-src 'self' data: https:",
-  "script-src 'self' https://unpkg.com https://cdn.jsdelivr.net https://www.google.com https://www.gstatic.com",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "script-src 'self' https://unpkg.com https://cdn.jsdelivr.net https://www.google.com https://www.gstatic.com https://assets.calendly.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com",
   "font-src 'self' https://fonts.gstatic.com",
-  "connect-src 'self' https://www.google.com https://www.gstatic.com",
+  "connect-src 'self' https://www.google.com https://www.gstatic.com https://calendly.com https://assets.calendly.com",
+  "frame-src 'self' https://calendly.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

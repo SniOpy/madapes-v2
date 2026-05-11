@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net https://assets.calendly.com; style-src 'self' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://calendly.com https://assets.calendly.com; frame-src 'self' https://calendly.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta
       name="description"
-      content="Madapes Agency accompagne votre croissance avec Google Ads, landing pages et développement web performant."
+      content="Madapes Agency vous aide à attirer plus de clients avec Google Ads, des landing pages efficaces et un suivi clair des performances."
     />
-    <title>Madapes Agency | Acquisition & Développement</title>
+    <title>Madapes Agency | Google Ads, landing pages et conversion</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,28 +33,35 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero__grid">
           <div class="hero__content">
-            <p class="eyebrow">Agence Growth Premium</p>
+            <p class="eyebrow">Agence Google Ads &amp; landing pages</p>
             <h1 class="hero__title" id="hero-title">
-              On crée des sites,<br />des campagnes et des expériences qui
-              <strong>génèrent des leads</strong>.
+              Attirez plus de clients grâce à des campagnes Google Ads et des landing pages
+              <strong>conçues pour convertir.</strong>
             </h1>
             <p class="hero__lead">
-              Spécialiste Google Ads, SEO, création de sites, landing pages et applications web.
-              Des solutions sur-mesure pour développer votre business.
+              Nous créons des campagnes et des pages rapides, claires et optimisées pour transformer
+              votre trafic en demandes concrètes.
             </p>
 
             <div class="hero-buttons">
-              <a class="btn btn-primary" href="./pages/index.html/#services">
-                Nos services
+              <a class="btn btn-primary" href="/devis">
+                Demander un devis
                 <i data-lucide="arrow-right" aria-hidden="true"></i>
               </a>
-              <a class="btn btn-secondary" href="#realisations">Voir nos réalisations</a>
+              <a
+                class="btn btn-secondary hero-buttons__secondary"
+                href="https://calendly.com/madapes-agency/30min"
+                data-calendly-link
+                data-calendly-url="https://calendly.com/madapes-agency/30min"
+              >
+                Réserver un appel
+              </a>
             </div>
 
             <ul class="hero-proof" role="list">
               <li>
                 <i class="hero-trust__icon" data-lucide="check" aria-hidden="true"></i>
-                <span>+ de leads qualifiés</span>
+                <span>Plus de demandes clients</span>
               </li>
               <li>
                 <i class="hero-trust__icon" data-lucide="check" aria-hidden="true"></i>
@@ -62,9 +69,14 @@
               </li>
               <li>
                 <i class="hero-trust__icon" data-lucide="check" aria-hidden="true"></i>
-                <span>Suivi & analyse avancés</span>
+                <span>Suivi clair des performances</span>
               </li>
             </ul>
+            <div class="hero-proof-badges" aria-label="Preuves complémentaires">
+              <span class="hero-proof-badge">Tracking GTM &amp; GA4</span>
+              <span class="hero-proof-badge">Optimisations régulières</span>
+              <span class="hero-proof-badge">Pages rapides &amp; responsive</span>
+            </div>
           </div>
 
           <div class="hero__visual" aria-hidden="true">
@@ -116,11 +128,14 @@
               <span class="approach-step__icon"><i data-lucide="monitor-up"></i></span>
               <h3>Tracking & optimisation</h3>
               <p>On implémente le tracking (GTM, GA4, Ads) et on optimise en continu.</p>
+              <span class="approach-step__arrow" aria-hidden="true">
+                <i data-lucide="arrow-right"></i>
+              </span>
             </li>
             <li class="approach-step">
               <span class="approach-step__icon"><i data-lucide="target"></i></span>
               <h3>Résultats</h3>
-              <p>Plus de visibilité, plus de leads, et une croissance durable.</p>
+              <p>Plus de visibilité, plus de demandes clients, et une activité qui progresse durablement.</p>
             </li>
           </ol>
         </div>
@@ -131,7 +146,7 @@
           <div class="services-heading">
             <div>
               <p class="eyebrow">Nos expertises</p>
-              <h2 id="services-title" class="section-title">Des services taillés pour vos objectifs</h2>
+              <h2 id="services-title" class="section-title">Des services clairs pour développer votre activité</h2>
             </div>
           </div>
 
@@ -140,77 +155,140 @@
               <span class="service-card__icon"><i data-lucide="badge-dollar-sign" aria-hidden="true"></i></span>
               <p class="service-card__tag">Acquisition</p>
               <h3>Google Ads</h3>
-              <p class="service-card__desc">Campagnes orientées rentabilité et croissance mesurable.</p>
+              <p class="service-card__desc">
+                Des campagnes Google Ads pensées pour attirer des prospects réellement intéressés par vos services.
+              </p>
               <ul class="service-card__list" role="list">
-                <li>Audit du compte et du tracking</li>
-                <li>Structure orientée intention d'achat</li>
-                <li>Optimisations hebdomadaires</li>
+                <li>Audit du compte</li>
+                <li>Annonces ciblées</li>
+                <li>Optimisations régulières</li>
               </ul>
-              <p class="service-card__kpi">Objectif : ROAS stable et scalable</p>
+              <p class="service-card__kpi">Objectif : plus de demandes utiles et un budget mieux investi</p>
+              <a class="service-card__link" href="/google-ads" aria-label="Découvrir le service Google Ads"></a>
             </article>
             <article class="service-card">
               <span class="service-card__icon"><i data-lucide="layout-template" aria-hidden="true"></i></span>
               <p class="service-card__tag">Conversion</p>
               <h3>Landing Pages</h3>
-              <p class="service-card__desc">Pages rapides, lisibles et pensées conversion.</p>
+              <p class="service-card__desc">
+                Des pages rapides et claires conçues pour donner envie de vous contacter.
+              </p>
               <ul class="service-card__list" role="list">
-                <li>Wireframe axé intention utilisateur</li>
-                <li>Copywriting conversion-ready</li>
-                <li>Intégration mobile-first performante</li>
+                <li>Structure claire</li>
+                <li>Textes orientés contact</li>
+                <li>Expérience fluide mobile/desktop</li>
               </ul>
-              <p class="service-card__kpi">Objectif : +taux de conversion</p>
+              <p class="service-card__kpi">Objectif : transformer plus de visites en demandes concrètes</p>
+              <a class="service-card__link" href="/landing-pages" aria-label="Découvrir le service Landing Pages"></a>
             </article>
             <article class="service-card">
               <span class="service-card__icon"><i data-lucide="line-chart" aria-hidden="true"></i></span>
               <p class="service-card__tag">Visibilité</p>
-              <h3>SEO léger</h3>
-              <p class="service-card__desc">Fondations SEO techniques pour capter du trafic qualifié.</p>
-              <ul class="service-card__list" role="list">
-                <li>Optimisation technique on-page</li>
-                <li>Architecture de pages stratégique</li>
-                <li>Suivi des positions prioritaires</li>
-              </ul>
-              <p class="service-card__kpi">Objectif : trafic qualifié durable</p>
-            </article>
-            <article class="service-card">
-              <span class="service-card__icon"><i data-lucide="code-2" aria-hidden="true"></i></span>
-              <p class="service-card__tag">Exécution</p>
-              <h3>Développement</h3>
-              <p class="service-card__desc">Intégration front-end premium, propre et maintenable.</p>
-              <ul class="service-card__list" role="list">
-                <li>Code modulaire clair et documenté</li>
-                <li>Performance Lighthouse orientée mobile</li>
-                <li>Maintenance facilitée pour votre équipe</li>
-              </ul>
-              <p class="service-card__kpi">Objectif : vitesse et stabilité produit</p>
-            </article>
-            <article class="service-card">
-              <span class="service-card__icon"><i data-lucide="monitor-smartphone" aria-hidden="true"></i></span>
-              <p class="service-card__tag">Produit</p>
-              <h3>Création site web</h3>
+              <h3>SEO</h3>
               <p class="service-card__desc">
-                Site vitrine ou corporate moderne, rapide et prêt à convertir vos visiteurs.
+                Des bases SEO solides pour améliorer votre visibilité sur Google.
               </p>
               <ul class="service-card__list" role="list">
-                <li>Design premium fidèle à votre image</li>
-                <li>Intégration responsive mobile-first</li>
-                <li>Setup SEO, tracking et performance</li>
+                <li>Optimisation technique</li>
+                <li>Structure de pages claire</li>
+                <li>Suivi des positions clés</li>
               </ul>
-              <p class="service-card__kpi">Objectif : présence digitale crédible et efficace</p>
+              <p class="service-card__kpi">Objectif : générer un trafic utile sur la durée</p>
+              <a class="service-card__link" href="/seo" aria-label="Découvrir le service SEO"></a>
             </article>
             <article class="service-card">
-              <span class="service-card__icon"><i data-lucide="credit-card" aria-hidden="true"></i></span>
-              <p class="service-card__tag">Monétisation</p>
-              <h3>Paiement en ligne</h3>
+              <span class="service-card__icon"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i></span>
+              <p class="service-card__tag">Mesure</p>
+              <h3>Suivi des performances</h3>
               <p class="service-card__desc">
-                Intégration sécurisée des paiements pour vendre en toute confiance.
+                Suivez précisément ce qui fonctionne grâce à des outils comme GA4, GTM et Microsoft Clarity.
               </p>
               <ul class="service-card__list" role="list">
-                <li>Checkout simple et fluide</li>
-                <li>Connexion Stripe/solutions adaptées</li>
-                <li>UX optimisée jusqu'à la conversion</li>
+                <li>Mesure fiable des conversions</li>
+                <li>Tableaux de bord clairs</li>
+                <li>Actions utiles identifiées</li>
               </ul>
-              <p class="service-card__kpi">Objectif : plus de ventes finalisées</p>
+              <p class="service-card__kpi">Objectif : prendre de meilleures décisions avec des données claires</p>
+              <a class="service-card__link" href="/tracking" aria-label="Découvrir le service Suivi des performances"></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-results" aria-labelledby="results-title">
+        <div class="container">
+          <p class="eyebrow">Résultats</p>
+          <h2 id="results-title" class="section-title">Des projets pensés pour générer des résultats concrets</h2>
+          <div class="home-results__grid">
+            <article class="home-results__card">
+              <strong>-28%</strong>
+              <p>Coût par lead réduit sur des campagnes locales optimisées.</p>
+            </article>
+            <article class="home-results__card">
+              <strong>+37%</strong>
+              <p>Hausse des demandes clients après refonte de landing pages.</p>
+            </article>
+            <article class="home-results__card">
+              <strong>1,8s</strong>
+              <p>Temps de chargement moyen atteint sur les pages clés mobile.</p>
+            </article>
+            <article class="home-results__card">
+              <strong>100%</strong>
+              <p>Conversions suivies avec GTM, GA4 et points de contrôle clairs.</p>
+            </article>
+          </div>
+          <p class="home-results__note">Indicateurs observés sur des projets récents, selon secteur et contexte.</p>
+        </div>
+      </section>
+
+      <section class="section offers" aria-labelledby="offers-title">
+        <div class="container">
+          <div class="offers-heading">
+            <p class="eyebrow">Nos offres</p>
+            <h2 id="offers-title" class="section-title">Des offres adaptées à vos objectifs</h2>
+          </div>
+
+          <div class="offers-grid">
+            <article class="offer-card">
+              <p class="offer-card__label">STARTER</p>
+              <p class="offer-card__price">À partir de 990€</p>
+              <p class="offer-card__benefit">Pour démarrer rapidement avec une base solide et des actions concrètes.</p>
+              <ul class="offer-card__list" role="list">
+                <li>Audit express Google Ads et suivi des performances</li>
+                <li>1 landing page de conversion</li>
+                <li>Mise en place d'indicateurs simples à suivre</li>
+                <li>Support prioritaire de démarrage</li>
+              </ul>
+              <a class="btn btn-secondary" href="/devis">Demander cette offre</a>
+            </article>
+
+            <article class="offer-card offer-card--featured">
+              <span class="offer-card__badge">Le plus populaire</span>
+              <p class="offer-card__label">GROWTH</p>
+              <p class="offer-card__price">À partir de 1490€</p>
+              <p class="offer-card__benefit">
+                Une offre complète pour développer votre visibilité et générer plus de demandes.
+              </p>
+              <ul class="offer-card__list" role="list">
+                <li>Gestion Google Ads sur plusieurs campagnes</li>
+                <li>Landing pages et A/B tests prioritaires</li>
+                <li>Suivi précis avec GTM, GA4 et les conversions</li>
+                <li>Optimisations hebdomadaires selon les résultats</li>
+              </ul>
+              <a class="btn btn-primary" href="/devis">Choisir cette offre</a>
+            </article>
+
+            <article class="offer-card">
+              <p class="offer-card__label">PERFORMANCE</p>
+              <p class="offer-card__price">Sur devis</p>
+              <p class="offer-card__benefit">Un accompagnement complet pour les projets à fort potentiel.</p>
+              <ul class="offer-card__list" role="list">
+                <li>Stratégie de visibilité adaptée à vos canaux</li>
+                <li>Outils de conversion et de suivi sur mesure</li>
+                <li>Amélioration continue de vos performances et de vos conversions</li>
+                <li>Suivi exécutif et arbitrages budgétaires</li>
+              </ul>
+              <a class="btn btn-secondary" href="/devis">Parler de votre projet</a>
             </article>
           </div>
         </div>
@@ -228,7 +306,7 @@
             et appels à l’action alignés sur vos objectifs business.
           </p>
           <div class="objective-note__actions">
-            <a class="btn btn-primary" href="./pages/contact.html">
+            <a class="btn btn-primary" href="/contact">
               Nous contacter
               <i data-lucide="arrow-right" aria-hidden="true"></i>
             </a>
@@ -322,7 +400,7 @@
             </article>
           </div>
           <div class="projects-actions">
-            <a class="btn btn-secondary" href="./pages/google-ads.html">Voir tous nos projets</a>
+            <a class="btn btn-secondary" href="/google-ads">Voir tous nos projets</a>
             <div class="projects-nav" aria-label="Navigation des projets">
               <button class="projects-prev" type="button" data-projects-prev aria-label="Projet précédent">
                 <i data-lucide="chevron-left"></i>
@@ -342,7 +420,7 @@
               <span class="google-badge__g">G</span>
               <span>Avis Google</span>
             </div>
-            <h2 id="social-proof-title">Ils nous font confiance pour accélérer leur croissance</h2>
+            <h2 id="social-proof-title">Ils nous font confiance pour développer leur activité</h2>
             <p>Des retours clients concrets sur la qualité de l'accompagnement, la performance et les résultats.</p>
             <div class="social-proof__rating" aria-label="Note moyenne 5 sur 5">
               <div class="social-proof__stars" aria-hidden="true">
@@ -428,9 +506,9 @@
 
       <section class="section final-cta" id="contact" aria-labelledby="final-cta-title">
         <div class="container final-cta__grid">
-          <h2 id="final-cta-title">Prêt à booster votre croissance en ligne&nbsp;?</h2>
+          <h2 id="final-cta-title">Prêt à développer votre activité en ligne&nbsp;?</h2>
           <p>Discutons de votre projet et trouvons la meilleure solution pour atteindre vos objectifs.</p>
-          <a class="btn btn-primary" href="./pages/contact.html">Demander un devis gratuit</a>
+          <a class="btn btn-primary" href="/devis">Demander un devis gratuit</a>
         </div>
       </section>
 

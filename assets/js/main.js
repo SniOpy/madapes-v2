@@ -2,6 +2,7 @@
 
 const getPathPrefix = () => document.body.dataset.pathPrefix || "./";
 const ROUTE_ALIASES = new Map([
+  ["/services", "/pages/services.html"],
   ["/google-ads", "/pages/google-ads.html"],
   ["/landing-pages", "/pages/landing-pages.html"],
   ["/seo", "/pages/seo.html"],

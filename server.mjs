@@ -19,6 +19,7 @@ const USE_RESEND = process.env.RESEND_API_KEY && process.env.FORM_FROM_EMAIL && 
 
 // Slugs lisibles pour les visiteurs
 const SLUG_ROUTES = {
+  "/services": "/pages/services.html",
   "/google-ads": "/pages/google-ads.html",
   "/landing-pages": "/pages/landing-pages.html",
   "/seo": "/pages/seo.html",
@@ -33,6 +34,7 @@ const SLUG_ROUTES = {
 
 // Anciennes URLs .html redirigées en 301 vers les slugs
 const LEGACY_ROUTES = {
+  "/pages/services.html": "/services",
   "/pages/google-ads.html": "/google-ads",
   "/pages/landing-pages.html": "/landing-pages",
   "/pages/seo.html": "/seo",

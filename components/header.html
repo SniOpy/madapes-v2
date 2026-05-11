@@ -13,10 +13,29 @@
     <nav class="site-nav" id="mobile-nav" aria-label="Navigation principale">
       <ul class="site-nav__list" role="list">
         <li><a href="/">Accueil</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/google-ads">Google Ads</a></li>
-        <li><a href="/landing-pages">Landing Pages</a></li>
-        <li><a href="/seo">SEO</a></li>
+        <li class="site-nav__dropdown-item">
+          <button
+            class="site-nav__dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="services-dropdown-menu"
+            data-services-toggle
+          >
+            Services
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <ul class="site-nav__dropdown" id="services-dropdown-menu" role="list" data-services-dropdown>
+            <li><a href="/google-ads">Google Ads</a></li>
+            <li><a href="/landing-pages">Landing Pages</a></li>
+            <li><a href="/seo">SEO</a></li>
+            <li><a href="/tracking">Suivi des performances</a></li>
+            <li class="site-nav__dropdown-separator" aria-hidden="true"></li>
+            <li><a href="/offres">Nos offres</a></li>
+          </ul>
+        </li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/blog">Blog</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>

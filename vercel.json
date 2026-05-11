@@ -1,28 +1,29 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "https://madapes-v2.onrender.com/api/$1"
-    },
-    {
-      "src": "/(services|google-ads|landing-pages|seo|contact|devis|plan-du-site|cgs|mentions-legales|politique-confidentialite|gestion-cookies)",
-      "dest": "/pages/$1.html"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://madapes-v2.onrender.com/api/:path*"
+    },
+    { "source": "/services", "destination": "/pages/services.html" },
+    { "source": "/tracking", "destination": "/pages/tracking.html" },
+    { "source": "/offres", "destination": "/pages/offres.html" },
+    { "source": "/blog", "destination": "/pages/blog.html" },
+    { "source": "/realisations", "destination": "/pages/realisations.html" },
+    { "source": "/google-ads", "destination": "/pages/google-ads.html" },
+    { "source": "/landing-pages", "destination": "/pages/landing-pages.html" },
+    { "source": "/seo", "destination": "/pages/seo.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/devis", "destination": "/pages/devis.html" },
+    { "source": "/plan-du-site", "destination": "/pages/plan-du-site.html" },
+    { "source": "/cgs", "destination": "/pages/cgs.html" },
+    { "source": "/mentions-legales", "destination": "/pages/mentions-legales.html" },
+    {
+      "source": "/politique-confidentialite",
+      "destination": "/pages/politique-confidentialite.html"
+    },
+    { "source": "/gestion-cookies", "destination": "/pages/gestion-cookies.html" }
+  ]
 }

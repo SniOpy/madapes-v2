@@ -1,28 +1,12 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "https://madapes-v2.onrender.com/api/$1"
-    },
-    {
-      "src": "/(services|tracking|offres|blog|realisations|google-ads|landing-pages|seo|contact|devis|plan-du-site|cgs|mentions-legales|politique-confidentialite|gestion-cookies)",
-      "dest": "/pages/$1.html"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+    
+  ]
 }

@@ -41,6 +41,9 @@ const parseMarkupToNodes = (markup) => {
   return Array.from(parsedDocument.body.children);
 };
 
+const CALENDLY_WIDGET_SRC = "https://assets.calendly.com/assets/external/widget.js";
+let calendlyWidgetPromise = null;
+
 const loadComponent = async (slotSelector, fileName) => {
   const slot = document.querySelector(slotSelector);
 
@@ -169,6 +172,79 @@ const initScrollTopButton = () => {
   toggleVisibility();
 };
 
+const loadCalendlyWidget = () => {
+  if (window.Calendly) {
+    return Promise.resolve(window.Calendly);
+  }
+
+  if (calendlyWidgetPromise) {
+    return calendlyWidgetPromise;
+  }
+
+  calendlyWidgetPromise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = CALENDLY_WIDGET_SRC;
+    script.async = true;
+    script.onload = () => resolve(window.Calendly);
+    script.onerror = () => reject(new Error("Calendly widget failed to load"));
+    document.head.appendChild(script);
+  });
+
+  return calendlyWidgetPromise;
+};
+
+const openCalendlyPopup = async (url) => {
+  if (!url) {
+    return false;
+  }
+
+  try {
+    const calendly = await loadCalendlyWidget();
+
+    if (!calendly || typeof calendly.initPopupWidget !== "function") {
+      return false;
+    }
+
+    calendly.initPopupWidget({ url });
+    return true;
+  } catch (error) {
+    console.warn(error);
+    return false;
+  }
+};
+
+const initCalendlyLinks = () => {
+  const calendlyLinks = document.querySelectorAll("[data-calendly-link]");
+
+  if (!calendlyLinks.length) {
+    return;
+  }
+
+  calendlyLinks.forEach((link) => {
+    link.addEventListener("click", async (event) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      const calendlyUrl = link.dataset.calendlyUrl || link.href;
+
+      event.preventDefault();
+      const hasOpenedPopup = await openCalendlyPopup(calendlyUrl);
+
+      if (!hasOpenedPopup) {
+        window.open(calendlyUrl, "_blank", "noopener,noreferrer");
+      }
+    });
+  });
+};
+
 const initIconsAndAnimations = () => {
   if (window.lucide && typeof window.lucide.createIcons === "function") {
     window.lucide.createIcons();
@@ -204,6 +280,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initMobileNavigation();
   initProjectsSlider();
   initScrollTopButton();
+  initCalendlyLinks();
   initIconsAndAnimations();
   ensureIconsAfterLoad();
 });

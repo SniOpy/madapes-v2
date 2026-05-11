@@ -24,7 +24,7 @@ const buildClientSummaryRows = (formData) => {
     ["Budget", normalizeFieldValue(formData.budget)],
     ["Objectif", normalizeFieldValue(formData.projectGoal)],
     ["Description", normalizeFieldValue(formData.projectDescription)],
-    ["Delai souhaite", normalizeFieldValue(formData.startDelay)],
+    ["Délai souhaité", normalizeFieldValue(formData.startDelay)],
   ];
 
   return rows
@@ -80,16 +80,16 @@ export const buildClientEmailHtml = (formData) => {
                   Confirmation de demande
                 </p>
                 <h1 style="margin: 8px 0 0; font-size: 22px; line-height: 1.3; font-weight: 700;">
-                  Merci ${safeFirstName}, votre demande est bien recue.
+                  Merci ${safeFirstName}, votre demande est bien reçue.
                 </h1>
               </div>
 
               <div style="padding: 24px;">
                 <p style="margin: 0 0 12px; font-size: 15px; line-height: 1.6; color: #1F2937;">
-                  Nous avons bien recu votre demande et notre equipe reviendra vers vous sous <strong>24h ouvrees</strong>.
+                  Nous avons bien reçu votre demande et notre équipe reviendra vers vous sous <strong>24h ouvrées</strong>.
                 </p>
                 <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #1F2937;">
-                  Voici un recapitulatif de votre brief:
+                  Voici un récapitulatif de votre brief:
                 </p>
 
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden;">
@@ -103,7 +103,7 @@ export const buildClientEmailHtml = (formData) => {
                     rel="noreferrer"
                     style="display: inline-block; background: #7C3AED; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 10px;"
                   >
-                    Voir nos realisations
+                    Voir nos réalisations
                   </a>
                 </div>
               </div>

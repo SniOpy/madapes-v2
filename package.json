@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "echo \"Static site: no compilation\"",
     "start": "node server/server.js",
     "start:env": "node --env-file=.env server/server.js",
     "start:api": "node server/server.js"

@@ -9,7 +9,7 @@ window.MadapesAnimations = {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const heroTitles = document.querySelectorAll(
-      ".hero h1, .ga-hero h1, .lp-hero h1, .devis-hero h1, .contact-hero h1, .seo-hero h1, .error-hero h1, .tracking-hero h1"
+      ".hero h1, .ga-hero h1, .lp-hero h1, .devis-hero h1, .contact-hero h1, .seo-hero h1, .error-hero h1, .tracking-hero h1, .offres-hero h1, .starter-hero h1"
     );
     const heroButtons = document.querySelector(".hero-buttons");
     const ctaButtons = document.querySelectorAll(".btn");
@@ -30,16 +30,34 @@ window.MadapesAnimations = {
         .from(".site-header", { y: -24, opacity: 0, duration: 0.32 })
         .from(heroTitles, { y: 12, opacity: 0, duration: 0.44, stagger: 0.06 }, "-=0.08")
         .from(
-          ".hero__lead, .seo-hero__lead, .tracking-hero__lead, .ga-hero__lead, .contact-hero__lead, .devis-hero__lead, .landing-page .lp-hero__lead",
+          ".hero__lead, .seo-hero__lead, .tracking-hero__lead, .offres-hero__lead, .starter-hero__lead, .ga-hero__lead, .contact-hero__lead, .devis-hero__lead, .landing-page .lp-hero__lead",
           { y: 12, opacity: 0, duration: 0.38 },
           "-=0.2"
         )
         .from(heroButtons, { y: 10, opacity: 0, duration: 0.34 }, "-=0.18")
-        .from(".hero-laptop, .tracking-hero-card", { y: 14, opacity: 0, duration: 0.4 }, "-=0.2");
+        .from(
+          ".hero-laptop, .tracking-hero-card, .offres-hero-card",
+          { y: 14, opacity: 0, duration: 0.4 },
+          "-=0.2"
+        );
 
       if (document.querySelector(".landing-page")) {
         introTimeline
           .from(".lp-hero__points li", { y: 8, opacity: 0, stagger: 0.06, duration: 0.28 }, "-=0.14");
+      }
+
+      if (document.querySelector(".starter-page")) {
+        introTimeline
+          .from(
+            ".starter-compare__panel",
+            { y: 22, opacity: 0, stagger: 0.14, duration: 0.48, ease: "power2.out" },
+            "-=0.12"
+          )
+          .from(
+            ".starter-compare__connector",
+            { scale: 0.6, opacity: 0, duration: 0.36, ease: "back.out(1.6)" },
+            "-=0.35"
+          );
       }
     }
 

@@ -20,6 +20,7 @@
       "destination": "/pages/tracking"
     },
     { "source": "/offres", "destination": "/pages/offres" },
+    { "source": "/starter", "destination": "/pages/starter" },
     { "source": "/blog", "destination": "/pages/blog" },
     {
       "source": "/realisations",

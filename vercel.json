@@ -1,3 +1,57 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "installCommand": "npm ci --omit=dev",
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://madapes-v2.onrender.com/api/:path*"
+    },
+    {
+      "source": "/services",
+      "destination": "/pages/services"
+    },
+    {
+      "source": "/tracking",
+      "destination": "/pages/tracking"
+    },
+    { "source": "/offres", "destination": "/pages/offres" },
+    { "source": "/blog", "destination": "/pages/blog" },
+    {
+      "source": "/realisations",
+      "destination": "/pages/realisations"
+    },
+    {
+      "source": "/google-ads",
+      "destination": "/pages/google-ads"
+    },
+    {
+      "source": "/landing-pages",
+      "destination": "/pages/landing-pages"
+    },
+    { "source": "/seo", "destination": "/pages/seo" },
+    { "source": "/contact", "destination": "/pages/contact" },
+    { "source": "/devis", "destination": "/pages/devis" },
+    {
+      "source": "/plan-du-site",
+      "destination": "/pages/plan-du-site"
+    },
+    { "source": "/cgs", "destination": "/pages/cgs" },
+    {
+      "source": "/mentions-legales",
+      "destination": "/pages/mentions-legales"
+    },
+    {
+      "source": "/politique-confidentialite",
+      "destination": "/pages/politique-confidentialite"
+    },
+    {
+      "source": "/gestion-cookies",
+      "destination": "/pages/gestion-cookies"
+    }
+  ]
 }

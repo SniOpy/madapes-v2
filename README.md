@@ -7,7 +7,7 @@ Site statique Madapes Agency (Vercel) + API Express (Render) pour l'envoi des fo
 - Front: site statique deploye sur Vercel.
 - API: service Node/Express deploye sur Render (`server/server.js`).
 - Proxy API: `vercel.json` réécrit `/api/*` vers Render (`https://madapes-v2.onrender.com/api/*`). À ajuster dans ce fichier si l’URL backend change.
-- Routes marketing (`/contact`, `/devis`, etc.): réécrites dans `vercel.json` vers les fichiers dans `pages/` (alignées avec `SLUG_ROUTES` dans `server/app.js`).
+- Routes marketing (`/contact`, `/devis`, etc.) : réécrites dans `vercel.json` avec des **destinations sans `.html`** car `cleanUrls: true` — Vercel résout alors `pages/devis.html` (voir doc Vercel). Aligné conceptuellement avec `SLUG_ROUTES` dans `server/app.js`.
 - Email: Nodemailer vers Gmail SMTP (par defaut `smtp.gmail.com:587` avec TLS).
 
 ## Lancer localement

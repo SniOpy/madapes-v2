@@ -9,11 +9,9 @@ window.MadapesAnimations = {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const heroTitles = document.querySelectorAll(
-      ".hero h1, .ga-hero h1, .lp-hero h1, .devis-hero h1, .contact-hero h1, .seo-hero h1, .error-hero h1"
+      ".hero h1, .ga-hero h1, .lp-hero h1, .devis-hero h1, .contact-hero h1, .seo-hero h1, .error-hero h1, .tracking-hero h1"
     );
-    const heroLead = document.querySelector(".hero__lead");
     const heroButtons = document.querySelector(".hero-buttons");
-    const heroCard = document.querySelector(".hero-laptop");
     const ctaButtons = document.querySelectorAll(".btn");
     const approachIcons = document.querySelectorAll(".approach-step__icon svg");
     const serviceIcons = document.querySelectorAll(".service-card svg");
@@ -31,9 +29,13 @@ window.MadapesAnimations = {
       introTimeline
         .from(".site-header", { y: -24, opacity: 0, duration: 0.32 })
         .from(heroTitles, { y: 12, opacity: 0, duration: 0.44, stagger: 0.06 }, "-=0.08")
-        .from(heroLead, { y: 12, opacity: 0, duration: 0.38 }, "-=0.2")
+        .from(
+          ".hero__lead, .seo-hero__lead, .tracking-hero__lead, .ga-hero__lead, .contact-hero__lead, .devis-hero__lead, .landing-page .lp-hero__lead",
+          { y: 12, opacity: 0, duration: 0.38 },
+          "-=0.2"
+        )
         .from(heroButtons, { y: 10, opacity: 0, duration: 0.34 }, "-=0.18")
-        .from(heroCard, { y: 14, opacity: 0, duration: 0.4 }, "-=0.2");
+        .from(".hero-laptop, .tracking-hero-card", { y: 14, opacity: 0, duration: 0.4 }, "-=0.2");
 
       if (document.querySelector(".landing-page")) {
         introTimeline

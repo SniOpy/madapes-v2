@@ -24,7 +24,7 @@ const SLUG_ROUTES = {
   "/contact": "/pages/contact.html",
   "/devis": "/pages/devis.html",
   "/plan-du-site": "/pages/plan-du-site.html",
-  "/cgs": "/pages/cgs.html",
+  "/conditions-generales-de-service": "/pages/conditions-generales-de-service.html",
   "/mentions-legales": "/pages/mentions-legales.html",
   "/politique-confidentialite": "/pages/politique-confidentialite.html",
   "/gestion-cookies": "/pages/gestion-cookies.html",
@@ -45,7 +45,8 @@ const LEGACY_ROUTES = {
   "/pages/contact.html": "/contact",
   "/pages/devis.html": "/devis",
   "/pages/plan-du-site.html": "/plan-du-site",
-  "/pages/cgs.html": "/cgs",
+  "/pages/cgs.html": "/conditions-generales-de-service",
+  "/pages/conditions-generales-de-service.html": "/conditions-generales-de-service",
   "/pages/mentions-legales.html": "/mentions-legales",
   "/pages/politique-confidentialite.html": "/politique-confidentialite",
   "/pages/gestion-cookies.html": "/gestion-cookies",
@@ -144,6 +145,11 @@ for (const [legacyPath, slugPath] of Object.entries(LEGACY_ROUTES)) {
     return res.redirect(301, targetPath);
   });
 }
+
+// Ancienne URL /cgs -> nouvelle URL propre (SEO 301)
+app.get("/cgs", (_req, res) => {
+  return res.redirect(301, "/conditions-generales-de-service");
+});
 
 for (const [slugPath, htmlPath] of Object.entries(SLUG_ROUTES)) {
   app.get(slugPath, (_req, res) => {

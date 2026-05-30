@@ -16,7 +16,7 @@ const ROUTE_ALIASES = new Map([
   ["/contact", "/pages/contact.html"],
   ["/devis", "/pages/devis.html"],
   ["/plan-du-site", "/pages/plan-du-site.html"],
-  ["/cgs", "/pages/cgs.html"],
+  ["/conditions-generales-de-service", "/pages/conditions-generales-de-service.html"],
   ["/mentions-legales", "/pages/mentions-legales.html"],
   ["/politique-confidentialite", "/pages/politique-confidentialite.html"],
   ["/gestion-cookies", "/pages/gestion-cookies.html"],
@@ -410,6 +410,56 @@ const initCursorGlow = () => {
   });
 };
 
+const initLegalScrollSpy = () => {
+  const tocLinks = Array.from(document.querySelectorAll(".cgs-toc__list a"));
+
+  if (tocLinks.length === 0) {
+    return;
+  }
+
+  const linkById = new Map();
+  const sections = [];
+
+  tocLinks.forEach((link) => {
+    const targetId = (link.getAttribute("href") || "").replace("#", "");
+    const section = targetId ? document.getElementById(targetId) : null;
+
+    if (section) {
+      linkById.set(targetId, link);
+      sections.push(section);
+    }
+  });
+
+  if (sections.length === 0) {
+    return;
+  }
+
+  const setActiveLink = (targetId) => {
+    tocLinks.forEach((link) => link.classList.remove("is-active"));
+    const activeLink = linkById.get(targetId);
+
+    if (activeLink) {
+      activeLink.classList.add("is-active");
+    }
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+      if (visible.length > 0) {
+        setActiveLink(visible[0].target.id);
+      }
+    },
+    { rootMargin: "-30% 0px -60% 0px", threshold: 0 },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+  setActiveLink(sections[0].id);
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     await Promise.all([
@@ -427,6 +477,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initScrollTopButton();
   initCalendlyLinks();
   initCursorGlow();
+  initLegalScrollSpy();
   initIconsAndAnimations();
   ensureIconsAfterLoad();
 });

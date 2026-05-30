@@ -1,0 +1,496 @@
+/* ==========================================================================
+   Legal pages (CGS) — namespace cgs-*
+   Dark premium + section blanche, sommaire sticky, lecture confortable
+   ========================================================================== */
+
+.cgs-page {
+  --cgs-violet: #a855f7;
+  --cgs-violet-deep: #7c3aed;
+  --cgs-glass: rgba(255, 255, 255, 0.04);
+  --cgs-border: rgba(168, 85, 247, 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compense le header fixe lors des sauts d'ancre */
+.cgs-article {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+/* ------------------------------------------------------------- HERO ------- */
+.cgs-hero {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 48px;
+}
+
+.cgs-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(620px circle at 80% 10%, rgba(168, 85, 247, 0.16), transparent 60%);
+  z-index: 0;
+}
+
+.cgs-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cgs-hero__back {
+  margin: 0 0 18px;
+  font-size: 14px;
+}
+
+.cgs-hero__back a {
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.cgs-hero__back a:hover {
+  color: var(--color-text);
+}
+
+.cgs-hero h1 {
+  margin: 14px 0 0;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.cgs-hero__lead {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  color: var(--color-muted);
+  font-size: 18px;
+  line-height: var(--line-height-body);
+}
+
+.cgs-hero__meta {
+  margin: 24px 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.cgs-hero__meta i {
+  width: 16px;
+  height: 16px;
+  color: var(--cgs-violet);
+}
+
+/* --------------------------------------------------------- LAYOUT --------- */
+.cgs-body {
+  padding-top: 24px;
+}
+
+.cgs-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+
+/* ----------------------------------------------------------- TOC ---------- */
+.cgs-toc {
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--cgs-glass);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cgs-toc__title {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cgs-violet);
+}
+
+.cgs-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: cgs-toc;
+  display: grid;
+  gap: 2px;
+}
+
+.cgs-toc__list li {
+  counter-increment: cgs-toc;
+}
+
+.cgs-toc__list a {
+  display: flex;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--color-muted);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color var(--transition-fast), background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.cgs-toc__list a::before {
+  content: counter(cgs-toc, decimal-leading-zero);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: rgba(168, 85, 247, 0.7);
+  flex-shrink: 0;
+}
+
+.cgs-toc__list a:hover {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cgs-toc__list a.is-active {
+  color: var(--color-text);
+  background: rgba(124, 58, 237, 0.16);
+  border-left-color: var(--cgs-violet);
+}
+
+/* --------------------------------------------------------- CONTENT -------- */
+.cgs-content {
+  display: grid;
+  gap: 20px;
+}
+
+.cgs-article {
+  padding: 30px 32px;
+  border-radius: var(--radius-lg);
+  background: var(--cgs-glass);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.cgs-article h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.cgs-article__num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cgs-violet);
+  font-variant-numeric: tabular-nums;
+}
+
+.cgs-article p {
+  margin: 0 0 14px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #d9d4e6;
+}
+
+.cgs-article p:last-child {
+  margin-bottom: 0;
+}
+
+.cgs-article a {
+  color: var(--cgs-violet);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cgs-list {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.cgs-list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #d9d4e6;
+}
+
+.cgs-list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 11px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cgs-violet);
+}
+
+/* Article mis en avant (Google Ads & SEO) */
+.cgs-article--highlight {
+  background: linear-gradient(160deg, rgba(124, 58, 237, 0.16), rgba(168, 85, 247, 0.05));
+  border-color: var(--cgs-border);
+  box-shadow: 0 0 50px rgba(124, 58, 237, 0.12);
+}
+
+.cgs-article__tag {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 16px !important;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px !important;
+  font-weight: 600;
+  color: #ece6ff;
+  background: rgba(124, 58, 237, 0.22);
+  border: 1px solid var(--cgs-border);
+}
+
+.cgs-article__tag i {
+  width: 14px;
+  height: 14px;
+}
+
+/* Encadré d'alerte (retard de paiement) */
+.cgs-callout {
+  display: flex !important;
+  gap: 12px;
+  margin: 4px 0 0 !important;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  font-size: 16px !important;
+}
+
+.cgs-callout i {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #f87171;
+}
+
+.cgs-callout strong {
+  color: #fff;
+}
+
+/* --------------------------------------------- SECTION BLANCHE (ENGAGE) --- */
+.cgs-engagements {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: #f7f5fb;
+}
+
+.cgs-engagements::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 0%, #000 35%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 35%, transparent 80%);
+}
+
+.cgs-engagements::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  height: 70%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.16), transparent 70%);
+}
+
+.cgs-engagements .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cgs-engagements__head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 44px;
+}
+
+.cgs-engagements__head h2 {
+  margin: 0;
+  font-size: var(--font-size-h2);
+  line-height: 1.15;
+  color: #1a1430;
+}
+
+.cgs-engagements__head p {
+  margin: 14px 0 0;
+  font-size: 17px;
+  line-height: var(--line-height-body);
+  color: #5a5470;
+}
+
+.cgs-engagements__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cgs-engagement-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 26px 24px;
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.08);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.cgs-engagement-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(124, 58, 237, 0.15);
+}
+
+.cgs-engagement-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--cgs-violet-deep), var(--cgs-violet));
+}
+
+.cgs-engagement-card__icon i {
+  width: 22px;
+  height: 22px;
+}
+
+.cgs-engagement-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1430;
+}
+
+.cgs-engagement-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #5a5470;
+}
+
+/* ------------------------------------------------------------- CTA -------- */
+.cgs-cta__card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: clamp(40px, 6vw, 72px) 28px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, rgba(28, 22, 44, 0.96), rgba(15, 13, 23, 0.96));
+  border: 1px solid var(--cgs-border);
+  box-shadow: 0 0 60px rgba(124, 58, 237, 0.2);
+}
+
+.cgs-cta__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 100% at 50% 0%, rgba(168, 85, 247, 0.22), transparent 70%);
+}
+
+.cgs-cta__card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cgs-cta__card h2 {
+  margin: 0;
+  font-size: var(--font-size-h2);
+  line-height: 1.15;
+}
+
+.cgs-cta__text {
+  margin: 18px auto 28px;
+  max-width: 56ch;
+  color: var(--color-muted);
+  font-size: 17px;
+  line-height: var(--line-height-body);
+}
+
+.cgs-cta .hero-buttons {
+  justify-content: center;
+}
+
+/* ---------------------------------------------------------- RESPONSIVE ---- */
+@media (max-width: 980px) {
+  .cgs-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .cgs-toc {
+    position: static;
+    top: auto;
+  }
+
+  .cgs-toc__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .cgs-engagements__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .cgs-article {
+    padding: 24px 20px;
+  }
+
+  .cgs-article h2 {
+    font-size: 21px;
+  }
+
+  .cgs-article p,
+  .cgs-list li {
+    font-size: 16px;
+  }
+
+  .cgs-toc__list {
+    grid-template-columns: 1fr;
+  }
+
+  .cgs-engagements__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cgs-engagement-card {
+    transition: none;
+  }
+}

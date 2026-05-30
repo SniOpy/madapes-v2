@@ -9,7 +9,7 @@
     />
     <meta
       name="description"
-      content="Suivi des performances Madapes : tracking, lecture des résultats et optimisation continue pour améliorer vos demandes clients."
+      content="Suivi des performances Madapes : GTM, GA4 et données fiables pour comprendre demandes, campagnes et résultats réels."
     />
     <title>Suivi des performances | Madapes Agency</title>
 
@@ -27,26 +27,153 @@
   </head>
   <body data-path-prefix="../">
     <div data-site-header></div>
-    <main class="site-main">
-      <section class="section hero" aria-labelledby="tracking-title">
-        <div class="container hero__grid">
-          <div class="hero__content">
+
+    <main class="site-main tracking-page">
+      <section class="section tracking-hero" aria-labelledby="tracking-hero-title">
+        <div class="container tracking-hero__grid">
+          <div class="tracking-hero__content">
             <p class="eyebrow">Suivi des performances</p>
-            <h1 class="hero__title" id="tracking-title">Mesurez clairement ce qui <strong>génère des résultats.</strong></h1>
-            <p class="hero__lead">
-              Cette page arrive bientôt avec notre méthode complète de suivi et d'optimisation.
+            <h1 id="tracking-hero-title">
+              Comprenez enfin ce qui fonctionne <strong>réellement.</strong>
+            </h1>
+            <p class="tracking-hero__lead">
+              Vous diffusez des campagnes et recevez des demandes sans toujours savoir ce qui les a
+              déclenchées. Nous vous aidons à lire vos résultats simplement&nbsp;: quel canal apporte quoi,
+              où va votre budget et quoi ajuster pour progresser sans jargon incompréhensible.
             </p>
             <div class="hero-buttons">
-              <a class="btn btn-primary" href="/devis">Demander un devis</a>
-              <a class="btn btn-secondary" href="/contact">Parler de votre projet</a>
+              <a class="btn btn-primary" href="/devis">
+                Demander un devis
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+              <a class="btn btn-secondary hero-buttons__secondary" href="/contact"
+                >Parler de votre projet</a
+              >
+            </div>
+          </div>
+          <div class="tracking-hero__visual" aria-hidden="true">
+            <div class="tracking-hero-card">
+              <div class="tracking-hero-dashboard">
+                <p class="tracking-hero-dashboard__tags">
+                  <span>GTM</span>
+                  <span>GA4</span>
+                </p>
+                <div class="tracking-hero-dashboard__kpis">
+                  <span class="tracking-hero-dashboard__pill tracking-hero-dashboard__pill--leads">
+                    Demandes
+                  </span>
+                  <span class="tracking-hero-dashboard__pill tracking-hero-dashboard__pill--conv">
+                    Conversions
+                  </span>
+                </div>
+                <svg class="tracking-hero-dashboard__svg" viewBox="0 0 300 166" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="tracking-curve-g" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="rgba(168,85,247,0.85)" />
+                      <stop offset="100%" stop-color="rgba(124,58,237,0.35)" />
+                    </linearGradient>
+                  </defs>
+                  <g class="tracking-hero-dashboard__bars" transform="translate(16,96)">
+                    <rect class="tracking-hero-dash-bar" x="0" y="18" width="22" height="42" rx="4" />
+                    <rect class="tracking-hero-dash-bar" x="36" y="8" width="22" height="52" rx="4" />
+                    <rect class="tracking-hero-dash-bar" x="72" y="24" width="22" height="36" rx="4" />
+                    <rect class="tracking-hero-dash-bar" x="108" y="4" width="22" height="56" rx="4" />
+                    <rect class="tracking-hero-dash-bar" x="144" y="14" width="22" height="46" rx="4" />
+                    <rect class="tracking-hero-dash-bar" x="180" y="22" width="22" height="38" rx="4" />
+                    <rect class="tracking-hero-dash-bar" x="216" y="12" width="22" height="48" rx="4" />
+                  </g>
+                  <path
+                    class="tracking-hero-dashboard__curve"
+                    d="M 16 88 C 70 76, 120 104, 180 82 S 268 96, 284 74"
+                    fill="none"
+                    stroke="url(#tracking-curve-g)"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <section class="section tracking-problem" aria-labelledby="tracking-problem-title">
+        <div class="container">
+          <h2 id="tracking-problem-title" class="section-title tracking-problem__title">
+            Sans suivi clair, impossible de prendre les bonnes décisions.
+          </h2>
+          <div class="tracking-problem__grid">
+            <article class="tracking-problem-card">
+              <span class="tracking-problem-card__icon" aria-hidden="true">
+                <i data-lucide="gauge"></i>
+              </span>
+              <h3>Campagnes difficiles à analyser</h3>
+              <p>Vous voyez des clics et des impressions, mais pas le fil qui relie une action à un contact ou une vente.</p>
+            </article>
+            <article class="tracking-problem-card">
+              <span class="tracking-problem-card__icon" aria-hidden="true">
+                <i data-lucide="wallet"></i>
+              </span>
+              <h3>Budget publicitaire mal exploité</h3>
+              <p>Sans lecture claire du retour investissement, vous continuez ou coupez sans savoir réellement ce qui payait.</p>
+            </article>
+            <article class="tracking-problem-card">
+              <span class="tracking-problem-card__icon" aria-hidden="true">
+                <i data-lucide="alert-triangle"></i>
+              </span>
+              <h3>Données peu fiables ou incomplètes</h3>
+              <p>Des balises absentes ou des filtres imprécis brouillent les rapports : difficile d’optimiser sur des chiffres flous.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tracking-tools" aria-labelledby="tracking-tools-title">
+        <div class="container tracking-tools__inner">
+          <h2 id="tracking-tools-title" class="section-title tracking-tools__title">
+            Des données claires pour améliorer vos performances.
+          </h2>
+          <p class="tracking-tools__lead">
+            Avec des outils fiables et correctement configurés, vous voyez vos conversions,
+            le comportement de vos visiteurs et les retombées concrètes de vos actions — sans tableau de
+            bord illisible ni promesses creuses sur des métriques vides de sens métier.
+          </p>
+          <div class="tracking-tools__grid">
+            <article class="tracking-tools-card">
+              <h3>GTM</h3>
+              <p>
+                Tags et événements structurés pour mesurer ce qui compte réellement pour votre activité,
+                sans dépendre d’une multitude de snippets fragiles dans le code.
+              </p>
+            </article>
+            <article class="tracking-tools-card">
+              <h3>GA4</h3>
+              <p>
+                Propriétés et explorations utilisables au quotidien : trafic, parcours, conversions et indicateurs qui répondent à vos questions business.
+              </p>
+            </article>
+            <article class="tracking-tools-card">
+              <h3>Microsoft Clarity</h3>
+              <p>
+                Enregistrements et cartes de chaleur pour voir comment les visiteurs parcourent vos pages avant d’investir encore dans une campagne aveugle.
+              </p>
+            </article>
+          </div>
+          <div class="tracking-tools__actions">
+            <a class="btn btn-primary" href="/contact">
+              Discuter de votre projet
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
+
     <div data-site-footer></div>
     <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script defer src="../assets/js/modules/security.js"></script>
+    <script defer src="../assets/js/animations.js"></script>
     <script defer src="../assets/js/main.js"></script>
   </body>
 </html>

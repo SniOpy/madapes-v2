@@ -7,6 +7,7 @@ const ROUTE_ALIASES = new Map([
   ["/offres", "/pages/offres.html"],
   ["/starter", "/pages/starter.html"],
   ["/growth", "/pages/growth.html"],
+  ["/performance", "/pages/performance.html"],
   ["/blog", "/pages/blog.html"],
   ["/realisations", "/pages/realisations.html"],
   ["/google-ads", "/pages/google-ads.html"],

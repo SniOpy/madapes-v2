@@ -46,7 +46,7 @@ window.MadapesAnimations = {
           .from(".lp-hero__points li", { y: 8, opacity: 0, stagger: 0.06, duration: 0.28 }, "-=0.14");
       }
 
-      if (document.querySelector(".starter-page")) {
+      if (document.querySelector(".starter-page, .growth-page")) {
         introTimeline
           .from(
             ".starter-compare__panel",

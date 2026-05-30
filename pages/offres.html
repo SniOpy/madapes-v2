@@ -186,9 +186,13 @@
             <article class="offres-plan-card" aria-labelledby="plan-starter-heading">
               <div class="offres-plan-card__head">
                 <h3 id="plan-starter-heading">Starter</h3>
-                <p class="offres-plan-card__price">À partir de 990&euro;</p>
+                <p class="offres-plan-card__price">À partir de 1&nbsp;490&nbsp;&euro;</p>
                 <p class="offres-plan-card__desc">
-                  Pour poser des bases solides et commencer à attirer vos premiers prospects.
+                  Landing page prête pour Google Ads, avec CTA téléphone, formulaire et préparation tracking.
+                </p>
+                <p class="offres-plan-card__note">
+                  <i data-lucide="info" aria-hidden="true"></i>
+                  Gestion Google Ads non incluse
                 </p>
               </div>
               <div class="offres-plan-card__body">
@@ -215,14 +219,12 @@
                     <span class="offres-plan-tier__icon" aria-hidden="true">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg>
                     </span>
-                    <h4 id="tier-starter-ads">Google Ads</h4>
+                    <h4 id="tier-starter-ads">Préparation Google Ads</h4>
                   </div>
                   <ul class="offres-plan-tier__checks">
-                    <li><i data-lucide="check" aria-hidden="true"></i> Mise en place campagne Google Ads</li>
-                    <li><i data-lucide="check" aria-hidden="true"></i> Structuration groupes d&rsquo;annonces</li>
-                    <li><i data-lucide="check" aria-hidden="true"></i> Recherche mots-clés</li>
-                    <li><i data-lucide="check" aria-hidden="true"></i> Paramétrage conversions</li>
-                    <li><i data-lucide="check" aria-hidden="true"></i> Configuration technique</li>
+                    <li><i data-lucide="check" aria-hidden="true"></i> Page adaptée au trafic Ads</li>
+                    <li><i data-lucide="check" aria-hidden="true"></i> Structure pensée pour le trafic publicitaire</li>
+                    <li><i data-lucide="check" aria-hidden="true"></i> Préparation du suivi des conversions</li>
                   </ul>
                 </section>
                 <div class="offres-plan-tier__sep" role="presentation" aria-hidden="true"></div>
@@ -244,14 +246,9 @@
               </div>
               <p class="offres-plan-card__tagline">Idéal pour démarrer proprement.</p>
               <div class="offres-plan-card__actions">
-                <a class="btn btn-primary" href="/devis?plan=starter">Demander cette offre</a>
-                <button type="button" class="btn btn-secondary" onclick="handleStarterDeposit(event)">
-                  Payer un acompte
-                </button>
+                <a class="btn btn-primary" href="/starter">Voir le Starter</a>
+                <a class="btn btn-secondary" href="/devis?plan=starter">Demander un devis</a>
               </div>
-              <p class="offres-plan-card__stripe-hint">
-                <i data-lucide="lock" aria-hidden="true"></i> Acompte par carte, via Stripe (paiement sécurisé)
-              </p>
             </article>
 
             <article
@@ -261,9 +258,13 @@
               <p class="offres-plan-card__badge" role="note">Le plus populaire</p>
               <div class="offres-plan-card__head">
                 <h3 id="plan-growth-heading">Growth</h3>
-                <p class="offres-plan-card__price">À partir de 1490&euro;</p>
+                <p class="offres-plan-card__price">À partir de 2&nbsp;490&nbsp;&euro;</p>
                 <p class="offres-plan-card__desc">
-                  Pour développer durablement votre visibilité et recevoir plus de demandes.
+                  Starter inclus + structuration et optimisation Google Ads.
+                </p>
+                <p class="offres-plan-card__note">
+                  <i data-lucide="info" aria-hidden="true"></i>
+                  Budget publicitaire non inclus
                 </p>
               </div>
               <div class="offres-plan-card__body">
@@ -322,14 +323,9 @@
               </div>
               <p class="offres-plan-card__tagline">Idéal pour développer durablement vos performances.</p>
               <div class="offres-plan-card__actions">
-                <a class="btn btn-primary" href="/devis?plan=growth">Choisir cette offre</a>
-                <button type="button" class="btn btn-secondary" onclick="handleGrowthDeposit(event)">
-                  Payer un acompte
-                </button>
+                <a class="btn btn-primary" href="/growth">Voir le Growth</a>
+                <a class="btn btn-secondary" href="/devis?plan=growth">Demander un devis</a>
               </div>
-              <p class="offres-plan-card__stripe-hint">
-                <i data-lucide="lock" aria-hidden="true"></i> Acompte par carte, via Stripe (paiement sécurisé)
-              </p>
             </article>
 
             <article class="offres-plan-card" aria-labelledby="plan-performance-heading">
@@ -337,7 +333,7 @@
                 <h3 id="plan-performance-heading">Performance</h3>
                 <p class="offres-plan-card__price">Sur devis</p>
                 <p class="offres-plan-card__desc">
-                  Pour les projets avec des objectifs plus ambitieux et un accompagnement plus poussé.
+                  Accompagnement avancé pour les projets à forte ambition.
                 </p>
               </div>
               <div class="offres-plan-card__body">
@@ -391,7 +387,7 @@
               </div>
               <p class="offres-plan-card__tagline">Idéal pour les stratégies plus ambitieuses.</p>
               <div class="offres-plan-card__actions">
-                <a class="btn btn-primary" href="/contact">Parler de votre projet</a>
+                <a class="btn btn-primary" href="/contact">Parler du projet</a>
               </div>
             </article>
           </div>
@@ -404,7 +400,6 @@
     <script defer src="https://unpkg.com/lucide@latest"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script defer src="../assets/js/modules/security.js"></script>
-    <script defer src="../assets/js/stripe/stripeCheckout.js"></script>
     <script defer src="../assets/js/animations.js"></script>
     <script defer src="../assets/js/main.js"></script>
   </body>

@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+    />
+    <meta
+      name="description"
+      content="Pack Performance Madapes : analyse, tests et optimisation continue de votre acquisition. Un accompagnement sur mesure, sur devis, pour aller plus loin."
+    />
+    <title>Pack Performance — Optimisation continue de l'acquisition | Madapes Agency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="../assets/css/variables.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/sections.css" />
+    <link rel="stylesheet" href="../assets/css/performance.css" />
+  </head>
+  <body data-path-prefix="../">
+    <div data-site-header></div>
+
+    <main class="site-main performance-page">
+      <section class="section perf-hero" aria-labelledby="perf-hero-title">
+        <div class="container perf-hero__grid">
+          <div class="perf-hero__content">
+            <p class="perf-hero__back"><a href="/offres">← Toutes les offres</a></p>
+            <p class="pack-badge">
+              <i data-lucide="gauge" aria-hidden="true"></i>
+              Pack Performance
+            </p>
+            <h1 id="perf-hero-title">
+              Votre acquisition génère déjà des demandes.
+              <strong>Nous optimisons chaque détail pour aller plus loin.</strong>
+            </h1>
+            <p class="perf-hero__lead">
+              Le pack Performance analyse, teste et optimise votre écosystème d'acquisition
+              pour améliorer vos résultats en continu.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href="/devis?plan=performance">
+                Demander un devis
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+              <a class="btn btn-secondary hero-buttons__secondary" href="#perf-approche">
+                <i data-lucide="compass" aria-hidden="true"></i>
+                Découvrir notre approche
+              </a>
+            </div>
+            <ul class="perf-hero__pills" role="list">
+              <li>
+                <i data-lucide="search-check" aria-hidden="true"></i>
+                Analyse approfondie
+              </li>
+              <li>
+                <i data-lucide="flask-conical" aria-hidden="true"></i>
+                Tests &amp; optimisations
+              </li>
+              <li>
+                <i data-lucide="activity" aria-hidden="true"></i>
+                Suivi continu
+              </li>
+              <li>
+                <i data-lucide="line-chart" aria-hidden="true"></i>
+                Résultats mesurables
+              </li>
+            </ul>
+          </div>
+
+          <div class="perf-hero__visual" aria-hidden="true">
+            <div class="perf-cockpit">
+              <div class="perf-cockpit__window">
+                <div class="perf-cockpit__topbar">
+                  <span class="perf-cockpit__dots">
+                    <span></span><span></span><span></span>
+                  </span>
+                  <span class="perf-cockpit__title">Vue d'ensemble</span>
+                  <span class="perf-cockpit__tag">
+                    <i data-lucide="megaphone"></i>
+                    Google Ads
+                  </span>
+                </div>
+
+                <div class="perf-cockpit__kpis">
+                  <div class="perf-kpi">
+                    <span class="perf-kpi__label">Visiteurs</span>
+                    <span class="perf-kpi__value">28 641</span>
+                    <span class="perf-kpi__trend perf-kpi__trend--up">
+                      <i data-lucide="trending-up"></i> +12,4%
+                    </span>
+                  </div>
+                  <div class="perf-kpi">
+                    <span class="perf-kpi__label">Conversions</span>
+                    <span class="perf-kpi__value">467</span>
+                    <span class="perf-kpi__trend perf-kpi__trend--up">
+                      <i data-lucide="trending-up"></i> +8,1%
+                    </span>
+                  </div>
+                  <div class="perf-kpi">
+                    <span class="perf-kpi__label">Taux de conv.</span>
+                    <span class="perf-kpi__value">1,63%</span>
+                    <span class="perf-kpi__trend perf-kpi__trend--up">
+                      <i data-lucide="trending-up"></i> +0,3 pt
+                    </span>
+                  </div>
+                  <div class="perf-kpi">
+                    <span class="perf-kpi__label">Coût / conv.</span>
+                    <span class="perf-kpi__value">16,42 €</span>
+                    <span class="perf-kpi__trend perf-kpi__trend--down">
+                      <i data-lucide="trending-down"></i> -6,7%
+                    </span>
+                  </div>
+                </div>
+
+                <div class="perf-cockpit__row">
+                  <div class="perf-panel perf-panel--chart">
+                    <div class="perf-panel__head">
+                      <span>Évolution des conversions</span>
+                      <span class="perf-panel__chip">30 jours</span>
+                    </div>
+                    <svg class="perf-chart" viewBox="0 0 320 120" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="perf-area" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgba(168,85,247,0.45)" />
+                          <stop offset="100%" stop-color="rgba(124,58,237,0)" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M0 96 L40 84 L80 90 L120 64 L160 70 L200 44 L240 52 L280 28 L320 18"
+                        fill="none"
+                        stroke="rgba(168,85,247,0.95)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M0 96 L40 84 L80 90 L120 64 L160 70 L200 44 L240 52 L280 28 L320 18 L320 120 L0 120 Z"
+                        fill="url(#perf-area)"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="perf-panel perf-panel--donut">
+                    <div class="perf-panel__head">
+                      <span>Sources de trafic</span>
+                    </div>
+                    <div class="perf-donut">
+                      <svg viewBox="0 0 42 42" aria-hidden="true">
+                        <circle class="perf-donut__bg" cx="21" cy="21" r="15.915" />
+                        <circle
+                          class="perf-donut__seg perf-donut__seg--1"
+                          cx="21" cy="21" r="15.915"
+                          stroke-dasharray="46 54" stroke-dashoffset="0"
+                        />
+                        <circle
+                          class="perf-donut__seg perf-donut__seg--2"
+                          cx="21" cy="21" r="15.915"
+                          stroke-dasharray="29 71" stroke-dashoffset="-46"
+                        />
+                        <circle
+                          class="perf-donut__seg perf-donut__seg--3"
+                          cx="21" cy="21" r="15.915"
+                          stroke-dasharray="25 75" stroke-dashoffset="-75"
+                        />
+                      </svg>
+                      <ul class="perf-donut__legend" role="list">
+                        <li><span class="perf-dot perf-dot--1"></span> Google Ads</li>
+                        <li><span class="perf-dot perf-dot--2"></span> SEO</li>
+                        <li><span class="perf-dot perf-dot--3"></span> Direct</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="perf-cockpit__row perf-cockpit__row--bottom">
+                  <div class="perf-panel perf-panel--heatmap">
+                    <div class="perf-panel__head">
+                      <span>Heatmap</span>
+                      <i data-lucide="flame" aria-hidden="true"></i>
+                    </div>
+                    <div class="perf-heatmap" role="presentation">
+                      <span class="h1"></span><span class="h2"></span><span class="h3"></span><span class="h2"></span>
+                      <span class="h3"></span><span class="h4"></span><span class="h4"></span><span class="h2"></span>
+                      <span class="h1"></span><span class="h3"></span><span class="h2"></span><span class="h1"></span>
+                    </div>
+                  </div>
+
+                  <div class="perf-panel perf-panel--abtest">
+                    <div class="perf-panel__head">
+                      <span>Tests A/B</span>
+                      <span class="perf-panel__chip perf-panel__chip--live">2 en cours</span>
+                    </div>
+                    <div class="perf-abtest">
+                      <div class="perf-abtest__row">
+                        <span>Variante A</span>
+                        <span class="perf-abtest__bar"><i style="width: 58%"></i></span>
+                      </div>
+                      <div class="perf-abtest__row perf-abtest__row--win">
+                        <span>Variante B</span>
+                        <span class="perf-abtest__bar"><i style="width: 72%"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section perf-funnel" id="perf-approche" aria-labelledby="perf-funnel-title">
+        <div class="container">
+          <header class="perf-funnel__head">
+            <h2 id="perf-funnel-title" class="section-title">Là où se cachent les opportunités</h2>
+          </header>
+
+          <ol class="perf-funnel__track" role="list">
+            <li class="perf-funnel-step">
+              <span class="perf-funnel-step__icon"><i data-lucide="users" aria-hidden="true"></i></span>
+              <span class="perf-funnel-step__value">28 641</span>
+              <span class="perf-funnel-step__label">Trafic qualifié</span>
+              <svg class="perf-funnel-step__spark" viewBox="0 0 80 24" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 18 L20 14 L40 16 L60 8 L80 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </li>
+            <li class="perf-funnel__arrow" aria-hidden="true"><i data-lucide="chevron-right"></i></li>
+            <li class="perf-funnel-step">
+              <span class="perf-funnel-step__icon"><i data-lucide="mouse-pointer-click" aria-hidden="true"></i></span>
+              <span class="perf-funnel-step__value">9 120</span>
+              <span class="perf-funnel-step__label">Interactions</span>
+              <svg class="perf-funnel-step__spark" viewBox="0 0 80 24" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 16 L20 18 L40 10 L60 12 L80 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </li>
+            <li class="perf-funnel__arrow" aria-hidden="true"><i data-lucide="chevron-right"></i></li>
+            <li class="perf-funnel-step">
+              <span class="perf-funnel-step__icon"><i data-lucide="file-text" aria-hidden="true"></i></span>
+              <span class="perf-funnel-step__value">467</span>
+              <span class="perf-funnel-step__label">Demandes</span>
+              <svg class="perf-funnel-step__spark" viewBox="0 0 80 24" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 18 L20 12 L40 14 L60 8 L80 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </li>
+            <li class="perf-funnel__arrow" aria-hidden="true"><i data-lucide="chevron-right"></i></li>
+            <li class="perf-funnel-step">
+              <span class="perf-funnel-step__icon"><i data-lucide="phone-call" aria-hidden="true"></i></span>
+              <span class="perf-funnel-step__value">318</span>
+              <span class="perf-funnel-step__label">Appels</span>
+              <svg class="perf-funnel-step__spark" viewBox="0 0 80 24" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 16 L20 14 L40 10 L60 9 L80 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </li>
+            <li class="perf-funnel__arrow" aria-hidden="true"><i data-lucide="chevron-right"></i></li>
+            <li class="perf-funnel-step perf-funnel-step--goal">
+              <span class="perf-funnel-step__icon"><i data-lucide="handshake" aria-hidden="true"></i></span>
+              <span class="perf-funnel-step__value">142</span>
+              <span class="perf-funnel-step__label">Clients</span>
+              <svg class="perf-funnel-step__spark" viewBox="0 0 80 24" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 18 L20 13 L40 12 L60 7 L80 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </li>
+          </ol>
+
+          <p class="perf-funnel__note">
+            Quelques ajustements ciblés peuvent parfois avoir plus d'impact qu'une simple augmentation
+            du budget publicitaire.
+          </p>
+        </div>
+      </section>
+
+      <section class="section perf-analyse" aria-labelledby="perf-analyse-title">
+        <div class="container">
+          <header class="perf-section-head">
+            <h2 id="perf-analyse-title" class="section-title">Ce que nous analysons en profondeur</h2>
+            <p class="perf-section-sub">
+              Avant d'optimiser, nous comprenons précisément ce qui freine ou accélère vos résultats.
+            </p>
+          </header>
+
+          <div class="perf-analyse__grid">
+            <article class="perf-analyse-card">
+              <span class="perf-analyse-card__icon"><i data-lucide="layout-dashboard" aria-hidden="true"></i></span>
+              <h3>Landing page &amp; UX</h3>
+              <ul role="list">
+                <li>Comportement utilisateur</li>
+                <li>Points de friction</li>
+                <li>Vitesse de chargement</li>
+                <li>Clarté du message</li>
+              </ul>
+            </article>
+
+            <article class="perf-analyse-card">
+              <span class="perf-analyse-card__icon"><i data-lucide="megaphone" aria-hidden="true"></i></span>
+              <h3>Google Ads</h3>
+              <ul role="list">
+                <li>Mots-clés</li>
+                <li>Annonces</li>
+                <li>Enchères</li>
+                <li>Qualité du trafic</li>
+              </ul>
+            </article>
+
+            <article class="perf-analyse-card">
+              <span class="perf-analyse-card__icon"><i data-lucide="bar-chart-3" aria-hidden="true"></i></span>
+              <h3>Données &amp; conversions</h3>
+              <ul role="list">
+                <li>Tracking</li>
+                <li>Attribution</li>
+                <li>Parcours utilisateur</li>
+                <li>Conversions essentielles</li>
+              </ul>
+            </article>
+
+            <article class="perf-analyse-card">
+              <span class="perf-analyse-card__icon"><i data-lucide="flask-conical" aria-hidden="true"></i></span>
+              <h3>Tests &amp; optimisations</h3>
+              <ul role="list">
+                <li>Tests A/B</li>
+                <li>Accroches</li>
+                <li>Formulaires</li>
+                <li>CTA</li>
+                <li>Audiences</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section perf-optim" aria-labelledby="perf-optim-title">
+        <div class="container">
+          <header class="perf-section-head">
+            <h2 id="perf-optim-title" class="perf-optim__title">Ce qui est réellement optimisé</h2>
+            <p class="perf-optim__sub">
+              Un processus continu pour améliorer vos performances mois après mois.
+            </p>
+          </header>
+
+          <div class="perf-optim__grid">
+            <article class="perf-optim-card">
+              <span class="perf-optim-card__icon"><i data-lucide="flask-conical" aria-hidden="true"></i></span>
+              <h3>Tests A/B</h3>
+            </article>
+            <article class="perf-optim-card">
+              <span class="perf-optim-card__icon"><i data-lucide="flame" aria-hidden="true"></i></span>
+              <h3>Heatmaps</h3>
+            </article>
+            <article class="perf-optim-card">
+              <span class="perf-optim-card__icon"><i data-lucide="bar-chart-3" aria-hidden="true"></i></span>
+              <h3>Analyse conversions</h3>
+            </article>
+            <article class="perf-optim-card">
+              <span class="perf-optim-card__icon"><i data-lucide="sliders-horizontal" aria-hidden="true"></i></span>
+              <h3>Ajustements enchères</h3>
+            </article>
+            <article class="perf-optim-card">
+              <span class="perf-optim-card__icon"><i data-lucide="mouse-pointer-click" aria-hidden="true"></i></span>
+              <h3>Optimisation UX</h3>
+            </article>
+            <article class="perf-optim-card">
+              <span class="perf-optim-card__icon"><i data-lucide="message-square-text" aria-hidden="true"></i></span>
+              <h3>Optimisation messages</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section perf-devis" aria-labelledby="perf-devis-title">
+        <div class="container">
+          <header class="perf-section-head">
+            <h2 id="perf-devis-title" class="section-title">Pourquoi cette offre est sur devis ?</h2>
+            <p class="perf-section-sub">
+              Chaque projet est unique. Pour vous proposer un accompagnement pertinent, nous analysons
+              votre contexte, vos objectifs et le niveau d'optimisation nécessaire.
+            </p>
+          </header>
+
+          <div class="perf-devis__grid">
+            <div class="perf-devis__factors">
+              <p class="perf-devis__label">Facteurs qui influencent l'offre</p>
+              <ul role="list">
+                <li><i data-lucide="check" aria-hidden="true"></i> Volume de trafic actuel</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Nombre de campagnes</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Nombre de landing pages</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Objectifs de croissance</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Niveau de suivi en place</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Tests à mettre en place</li>
+              </ul>
+            </div>
+
+            <aside class="perf-devis-card">
+              <p class="perf-devis-card__text">
+                Nous construisons un plan d'optimisation sur mesure, aligné sur vos objectifs et votre
+                potentiel de croissance.
+              </p>
+              <ul class="perf-devis-card__badges" role="list">
+                <li>Analyse approfondie</li>
+                <li>Optimisations sur mesure</li>
+                <li>Suivi continu</li>
+                <li>Résultats mesurables</li>
+              </ul>
+              <a class="btn btn-primary" href="/devis?plan=performance">
+                Demander un devis
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section perf-process" aria-labelledby="perf-process-title">
+        <div class="container">
+          <header class="perf-section-head">
+            <h2 id="perf-process-title" class="section-title">Comment se déroule l'accompagnement ?</h2>
+          </header>
+
+          <ol class="perf-process__track" role="list">
+            <li class="perf-process-step">
+              <span class="perf-process-step__num">1</span>
+              <span class="perf-process-step__icon"><i data-lucide="search" aria-hidden="true"></i></span>
+              <h3>Audit &amp; analyse</h3>
+              <p>Nous examinons vos campagnes, vos pages et vos données pour identifier les leviers.</p>
+            </li>
+            <li class="perf-process-step">
+              <span class="perf-process-step__num">2</span>
+              <span class="perf-process-step__icon"><i data-lucide="list-checks" aria-hidden="true"></i></span>
+              <h3>Priorisation</h3>
+              <p>Nous classons les actions par impact attendu pour avancer sur l'essentiel d'abord.</p>
+            </li>
+            <li class="perf-process-step">
+              <span class="perf-process-step__num">3</span>
+              <span class="perf-process-step__icon"><i data-lucide="flask-conical" aria-hidden="true"></i></span>
+              <h3>Tests &amp; optimisations</h3>
+              <p>Nous mettons en place les tests et ajustons pages, annonces et ciblage.</p>
+            </li>
+            <li class="perf-process-step">
+              <span class="perf-process-step__num">4</span>
+              <span class="perf-process-step__icon"><i data-lucide="line-chart" aria-hidden="true"></i></span>
+              <h3>Mesure &amp; reporting</h3>
+              <p>Vous suivez les résultats avec des données claires et des décisions justifiées.</p>
+            </li>
+            <li class="perf-process-step">
+              <span class="perf-process-step__num">5</span>
+              <span class="perf-process-step__icon"><i data-lucide="refresh-cw" aria-hidden="true"></i></span>
+              <h3>Amélioration continue</h3>
+              <p>Nous poursuivons les optimisations pour faire progresser vos performances.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section perf-cta" aria-labelledby="perf-cta-title">
+        <div class="container">
+          <div class="perf-cta__card">
+            <h2 id="perf-cta-title">Prêt à passer à la vitesse supérieure ?</h2>
+            <p class="perf-cta__text">
+              Discutons de votre projet et identifions les leviers qui peuvent améliorer vos résultats.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href="/devis?plan=performance">
+                Demander un devis
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <p class="perf-cta__reassurance">
+              <i data-lucide="clock" aria-hidden="true"></i>
+              Réponse sous 24h
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="../assets/js/modules/security.js"></script>
+    <script defer src="../assets/js/animations.js"></script>
+    <script defer src="../assets/js/main.js"></script>
+  </body>
+</html>

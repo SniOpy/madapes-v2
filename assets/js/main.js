@@ -5,6 +5,9 @@ const ROUTE_ALIASES = new Map([
   ["/services", "/pages/services.html"],
   ["/tracking", "/pages/tracking.html"],
   ["/offres", "/pages/offres.html"],
+  ["/starter", "/pages/starter.html"],
+  ["/growth", "/pages/growth.html"],
+  ["/performance", "/pages/performance.html"],
   ["/blog", "/pages/blog.html"],
   ["/realisations", "/pages/realisations.html"],
   ["/google-ads", "/pages/google-ads.html"],
@@ -344,6 +347,69 @@ const ensureIconsAfterLoad = () => {
   setTimeout(runIcons, 800);
 };
 
+const initCursorGlow = () => {
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!finePointer || reducedMotion) {
+    return;
+  }
+
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let currentX = targetX;
+  let currentY = targetY;
+  let isRunning = false;
+
+  const setGlowPosition = () => {
+    document.body.style.setProperty("--cursor-x", `${currentX}px`);
+    document.body.style.setProperty("--cursor-y", `${currentY}px`);
+  };
+
+  const render = () => {
+    currentX += (targetX - currentX) * 0.1;
+    currentY += (targetY - currentY) * 0.1;
+    setGlowPosition();
+    requestAnimationFrame(render);
+  };
+
+  const startRenderLoop = () => {
+    if (isRunning) {
+      return;
+    }
+
+    isRunning = true;
+    requestAnimationFrame(render);
+  };
+
+  document.addEventListener(
+    "mousemove",
+    (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+
+      if (!document.body.classList.contains("is-cursor-glow-active")) {
+        currentX = targetX;
+        currentY = targetY;
+        setGlowPosition();
+        document.body.classList.add("is-cursor-glow-active");
+        startRenderLoop();
+      }
+    },
+    { passive: true },
+  );
+
+  document.addEventListener("mouseleave", () => {
+    document.body.classList.remove("is-cursor-glow-active");
+  });
+
+  document.addEventListener("mouseenter", () => {
+    if (isRunning) {
+      document.body.classList.add("is-cursor-glow-active");
+    }
+  });
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     await Promise.all([
@@ -360,6 +426,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initProjectsSlider();
   initScrollTopButton();
   initCalendlyLinks();
+  initCursorGlow();
   initIconsAndAnimations();
   ensureIconsAfterLoad();
 });

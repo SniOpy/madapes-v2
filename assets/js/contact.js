@@ -167,6 +167,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // dataLayer event (aucune donnee personnelle : uniquement l'objectif choisi).
+      const selectedGoal = contactForm.querySelector('[name="goal"]');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "lead_form_submit",
+        form_name: "contact",
+        service_selected: selectedGoal ? selectedGoal.value : "",
+      });
+
       contactForm.reset();
       requiredFields.forEach((field) => setInvalidState(field, false));
       setNote("Merci, votre demande a bien ete envoyee. Nous revenons vers vous rapidement.");

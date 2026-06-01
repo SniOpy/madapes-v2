@@ -125,10 +125,17 @@ app.use(
           "https://*.google.com",
           "https://calendly.com",
         ],
-        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://assets.calendly.com"],
+        styleSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://fonts.googleapis.com",
+          "https://assets.calendly.com",
+          "https://www.googletagmanager.com",
+        ],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         connectSrc: [
           "'self'",
+          "https://unpkg.com",
           "https://www.google-analytics.com",
           "https://*.google-analytics.com",
           "https://analytics.google.com",

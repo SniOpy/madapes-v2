@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Banniere de consentement cookies - Madapes Agency
+   Dark premium + violet, fixed en bas, accessible, responsive, sans CLS.
+   ========================================================================== */
+
+.cookie-consent {
+  --cc-violet: #a855f7;
+  --cc-violet-deep: #7c3aed;
+  --cc-border: rgba(168, 85, 247, 0.22);
+}
+
+.cookie-consent[hidden] {
+  display: none;
+}
+
+/* ----------------------------- Banniere ------------------------------- */
+.cookie-consent__banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--cc-border);
+  background: linear-gradient(160deg, rgba(24, 19, 38, 0.97), rgba(14, 12, 21, 0.97));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 50px rgba(124, 58, 237, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cookie-consent__banner[hidden] {
+  display: none;
+}
+
+.cookie-consent__body {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.cookie-consent__title {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.cookie-consent__text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
+.cookie-consent__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Boutons compacts dans la banniere */
+.cookie-consent .btn {
+  padding: 11px 18px;
+  font-size: 14px;
+}
+
+.cookie-consent .btn-ghost {
+  color: var(--color-muted);
+  background: transparent;
+  border-color: transparent;
+}
+
+.cookie-consent .btn-ghost:hover {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cookie-consent :focus-visible {
+  outline: 2px solid var(--cc-violet);
+  outline-offset: 2px;
+}
+
+/* ------------------------------ Panneau ------------------------------- */
+.cookie-consent__panel {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(8, 7, 12, 0.62);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.cookie-consent__panel[hidden] {
+  display: none;
+}
+
+.cookie-consent__panel-head {
+  margin-bottom: 18px;
+}
+
+.cookie-consent__panel > * {
+  width: 100%;
+}
+
+.cookie-consent__panel {
+  --panel-max: 540px;
+}
+
+.cookie-consent__panel-head,
+.cookie-consent__list,
+.cookie-consent__panel .cookie-consent__actions {
+  max-width: var(--panel-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cookie-consent__panel-head {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 26px 26px 0;
+  background: linear-gradient(160deg, rgba(24, 19, 38, 0.98), rgba(14, 12, 21, 0.98));
+}
+
+.cookie-consent__list {
+  list-style: none;
+  margin: 0;
+  padding: 18px 26px;
+  display: grid;
+  gap: 12px;
+  background: linear-gradient(160deg, rgba(24, 19, 38, 0.98), rgba(14, 12, 21, 0.98));
+  border-left: 1px solid var(--cc-border);
+  border-right: 1px solid var(--cc-border);
+}
+
+.cookie-consent__panel-head {
+  border: 1px solid var(--cc-border);
+  border-bottom: 0;
+}
+
+.cookie-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.cookie-option__info {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.cookie-option__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.cookie-option__desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.cookie-option__state {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cc-violet);
+}
+
+/* ------------------------------ Switch -------------------------------- */
+.cookie-switch {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.cookie-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.cookie-switch__track {
+  display: block;
+  width: 46px;
+  height: 26px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background var(--transition-base);
+}
+
+.cookie-switch__track::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform var(--transition-base);
+}
+
+.cookie-switch input:checked ~ .cookie-switch__track {
+  background: linear-gradient(135deg, var(--cc-violet-deep), var(--cc-violet));
+  border-color: transparent;
+}
+
+.cookie-switch input:checked ~ .cookie-switch__track::after {
+  transform: translateY(-50%) translateX(20px);
+}
+
+.cookie-switch input:focus-visible ~ .cookie-switch__track {
+  outline: 2px solid var(--cc-violet);
+  outline-offset: 2px;
+}
+
+.cookie-switch__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cookie-consent__panel .cookie-consent__actions {
+  justify-content: flex-end;
+  padding: 18px 26px 26px;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border: 1px solid var(--cc-border);
+  border-top: 0;
+  background: linear-gradient(160deg, rgba(20, 16, 32, 0.98), rgba(12, 10, 18, 0.98));
+}
+
+/* ---------------------------- Responsive ------------------------------ */
+@media (max-width: 720px) {
+  .cookie-consent__banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .cookie-consent__actions {
+    justify-content: stretch;
+  }
+
+  .cookie-consent__actions .btn {
+    flex: 1 1 auto;
+  }
+
+  .cookie-consent__panel .cookie-consent__actions {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-switch__track,
+  .cookie-switch__track::after {
+    transition: none;
+  }
+}

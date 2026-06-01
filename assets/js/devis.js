@@ -192,6 +192,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // dataLayer event (aucune donnee personnelle : uniquement le type de prestation).
+      const selectedService = devisForm.querySelector('input[name="service"]:checked');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "lead_form_submit",
+        form_name: "devis",
+        service_selected: selectedService ? selectedService.value : "",
+      });
+
       devisForm.reset();
       requiredFields.forEach((field) => setFieldInvalidState(field, false));
       setOfferSelectionState();

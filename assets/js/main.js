@@ -316,6 +316,10 @@ const initCalendlyLinks = () => {
 
       const calendlyUrl = link.dataset.calendlyUrl || link.href;
 
+      // dataLayer event (aucune donnee personnelle).
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "calendly_booking_started" });
+
       event.preventDefault();
       const hasOpenedPopup = await openCalendlyPopup(calendlyUrl);
 
@@ -323,6 +327,20 @@ const initCalendlyLinks = () => {
         window.open(calendlyUrl, "_blank", "noopener,noreferrer");
       }
     });
+  });
+};
+
+const initPhoneTracking = () => {
+  // Suivi des clics telephone (aucun numero envoye dans le dataLayer).
+  document.addEventListener("click", (event) => {
+    const phoneLink = event.target.closest && event.target.closest('a[href^="tel:"]');
+
+    if (!phoneLink) {
+      return;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "phone_click" });
   });
 };
 
@@ -476,6 +494,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initProjectsSlider();
   initScrollTopButton();
   initCalendlyLinks();
+  initPhoneTracking();
   initCursorGlow();
   initLegalScrollSpy();
   initIconsAndAnimations();

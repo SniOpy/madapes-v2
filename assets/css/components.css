@@ -412,7 +412,8 @@
   margin: 0;
 }
 
-.site-footer .social-links a {
+.site-footer .social-links a,
+.site-footer .social-links__icon {
   width: 32px;
   height: 32px;
   display: grid;
@@ -421,6 +422,11 @@
   border: 1px solid rgba(168, 85, 247, 0.5);
   background: rgba(124, 58, 237, 0.14);
   color: #f0e8ff;
+}
+
+.site-footer .social-links__icon {
+  cursor: default;
+  opacity: 0.75;
 }
 
 .site-footer .social-links a:hover {

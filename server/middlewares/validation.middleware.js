@@ -75,6 +75,7 @@ export const validateContactForm = [
   sanitizeOptionalTextField("budget", 80),
   sanitizeOptionalTextField("projectGoal", 500),
   sanitizeOptionalTextField("startDelay", 120),
+  sanitizeOptionalTextField("formSource", 20),
 
   body("website")
     .optional({ values: "falsy" })

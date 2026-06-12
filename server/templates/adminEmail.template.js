@@ -86,7 +86,7 @@ export const buildAdminEmailHtml = (formData) => {
             <td style="background: #FFFFFF; border-radius: 16px; overflow: hidden;">
               <div style="padding: 24px; background: linear-gradient(135deg, #7C3AED 0%, #4C1D95 100%); color: #FFFFFF;">
                 <p style="margin: 0; font-size: 13px; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.92;">
-                  Nouveau lead Madapes Agency
+                  🔥 Nouveau lead Madapes Agency
                 </p>
                 <h1 style="margin: 8px 0 0; font-size: 22px; line-height: 1.3; font-weight: 700;">
                   Demande: ${safeServiceType}

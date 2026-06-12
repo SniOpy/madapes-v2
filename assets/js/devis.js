@@ -11,19 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const requiredFields = Array.from(devisForm.querySelectorAll("[required]"));
   const emailField = devisForm.querySelector('input[name="email"]');
   const projectDetailsField = devisForm.querySelector('textarea[name="project_details"]');
-  const securityMessage = devisForm.querySelector(".devis-form-security");
   const submitButton = devisForm.querySelector('button[type="submit"]');
   const submitButtonInitialText = submitButton?.textContent?.trim() || "Envoyer";
-  const securityMessageTextElement = securityMessage
-    ? securityMessage.querySelector("[data-form-message-text]") || (() => {
-        const textSpan = document.createElement("span");
-        textSpan.setAttribute("data-form-message-text", "");
-        textSpan.textContent = securityMessage.textContent.trim();
-        securityMessage.textContent = "";
-        securityMessage.appendChild(textSpan);
-        return textSpan;
-      })()
-    : null;
 
   const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   const REQUEST_TIMEOUT_MS = window.location.hostname === "localhost" ? 12000 : 45000;
@@ -83,7 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullName = String(formData.get("fullname") || "");
     const email = String(formData.get("email") || "");
     const companyName = String(formData.get("company") || "");
-    const rawWebsite = String(formData.get("website") || "").trim();
+    const rawWebsite = String(formData.get("website") || "")
+      .trim()
+      .replace(/^https?:\/\//i, "");
     const serviceType = String(formData.get("service") || "");
     const projectGoal = String(formData.get("goal") || "");
     const budget = String(formData.get("budget") || "");
@@ -109,18 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
       project_details: projectDescription,
       startDelay,
       start_timing: startDelay,
+      formSource: "devis",
       contact_website: honeypot,
     };
   };
 
-  const setMessage = (message, isError = false) => {
-    if (!securityMessage || !securityMessageTextElement) {
-      return;
+  const showToast = (type, title, message) => {
+    if (window.MadapesFormToast && typeof window.MadapesFormToast.show === "function") {
+      window.MadapesFormToast.show({ type, title, message });
     }
-
-    securityMessageTextElement.textContent = message;
-    securityMessage.classList.toggle("devis-form-security--error", isError);
-    securityMessage.classList.toggle("devis-form-security--success", !isError);
   };
 
   serviceRadios.forEach((radio) => {
@@ -188,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
           : "";
         const safeMessage =
           firstValidationError || (typeof result.message === "string" ? result.message : fallbackError);
-        setMessage(safeMessage, true);
+        showToast("error", "Envoi impossible", safeMessage);
         return;
       }
 
@@ -204,16 +192,25 @@ document.addEventListener("DOMContentLoaded", () => {
       devisForm.reset();
       requiredFields.forEach((field) => setFieldInvalidState(field, false));
       setOfferSelectionState();
-      setMessage("Merci, votre demande a bien ete envoyee.");
+      showToast(
+        "success",
+        "Demande envoyée",
+        "Merci, votre demande de devis a bien été transmise. Nous revenons vers vous rapidement.",
+      );
     } catch (error) {
       if (error?.name === "AbortError") {
-        setMessage(
-          "Le serveur met plus de temps a repondre. Merci de reessayer dans quelques secondes.",
-          true,
+        showToast(
+          "error",
+          "Délai dépassé",
+          "Le serveur met plus de temps à répondre. Merci de réessayer dans quelques secondes.",
         );
         return;
       }
-      setMessage("Impossible d'envoyer le formulaire pour le moment. Merci de reessayer.", true);
+      showToast(
+        "error",
+        "Envoi impossible",
+        "Impossible d'envoyer le formulaire pour le moment. Merci de réessayer.",
+      );
     } finally {
       if (requestTimeoutId) {
         window.clearTimeout(requestTimeoutId);

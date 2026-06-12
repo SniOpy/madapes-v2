@@ -1,27 +1,46 @@
 import { sendAdminNotificationEmail, sendClientConfirmationEmail } from "../services/mail.service.js";
 import { buildAdminEmailHtml } from "../templates/adminEmail.template.js";
-import { buildClientEmailHtml } from "../templates/clientEmail.template.js";
+import { buildClientEmailHtml, buildClientEmailSubject } from "../templates/clientEmail.template.js";
 
 const normalizeEmail = (value) => String(value ?? "").trim().toLowerCase();
+
+const resolveFormSource = (formData) => {
+  const source = String(formData.formSource ?? "").trim().toLowerCase();
+  return source === "devis" ? "devis" : "contact";
+};
+
+const resolveFirstName = (fullName) => {
+  const cleanedName = String(fullName ?? "").trim();
+  if (!cleanedName) {
+    return "Prospect";
+  }
+
+  return cleanedName.split(/\s+/)[0];
+};
+
+const buildAdminEmailSubject = (formData) => {
+  const formSource = resolveFormSource(formData);
+  const serviceType = String(formData.serviceType ?? "").trim() || "Demande";
+  const firstName = resolveFirstName(formData.fullName);
+  const leadLabel = formSource === "devis" ? "Devis" : "Contact";
+
+  return `🔥 ${leadLabel} · ${serviceType} — ${firstName}`;
+};
 
 export const handleContactFormSubmission = async (req, res) => {
   try {
     const formData = req.validatedContactData || req.body;
     const clientEmail = normalizeEmail(formData.email);
-    const serviceType = String(formData.serviceType ?? "").trim() || "Demande";
-
-    const adminSubject = `Nouveau lead Madapes Agency - ${serviceType}`;
-    const clientSubject = "Nous avons bien recu votre demande - Madapes Agency";
 
     await Promise.all([
       sendAdminNotificationEmail({
-        subject: adminSubject,
+        subject: buildAdminEmailSubject(formData),
         html: buildAdminEmailHtml(formData),
         replyTo: clientEmail,
       }),
       sendClientConfirmationEmail({
         to: clientEmail,
-        subject: clientSubject,
+        subject: buildClientEmailSubject(formData),
         html: buildClientEmailHtml(formData),
       }),
     ]);

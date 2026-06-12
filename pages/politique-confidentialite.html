@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
@@ -10,6 +10,10 @@
 
     <!-- Google Consent Mode v2 : DOIT etre charge avant Google Tag Manager -->
     <script src="/assets/js/modules/consent-mode.js"></script>
+    <meta
+      name="description"
+      content="Politique de confidentialité de Madapes Agency : collecte, utilisation et protection de vos données personnelles conformément au RGPD."
+    />
     <title>Politique de confidentialité | Madapes Agency</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,11 +23,14 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
     />
     <link rel="stylesheet" href="../assets/css/variables.css" />
+    <script src="../assets/js/modules/theme-init.js"></script>
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/layout.css" />
     <link rel="stylesheet" href="../assets/css/components.css" />
     <link rel="stylesheet" href="../assets/css/sections.css" />
-      <link rel="stylesheet" href="/assets/css/cookie-banner.css" />
+    <link rel="stylesheet" href="../assets/css/legal.css" />
+    <link rel="stylesheet" href="/assets/css/theme-overrides.css" />
+    <link rel="stylesheet" href="/assets/css/cookie-banner.css" />
   </head>
   <body data-path-prefix="../">
 
@@ -33,93 +40,125 @@
     <!-- End Google Tag Manager (noscript) -->
     <div data-site-header></div>
 
-    <main class="site-main legal-page">
-      <section class="section legal-content" aria-labelledby="privacy-title">
-        <div class="container legal-content__inner">
+    <main class="site-main cgs-page">
+      <section class="section cgs-hero" aria-labelledby="privacy-hero-title">
+        <div class="container">
+          <p class="cgs-hero__back"><a href="/">← Retour à l'accueil</a></p>
           <p class="eyebrow">Données personnelles</p>
-          <h1 id="privacy-title">Politique de <strong>confidentialité</strong></h1>
+          <h1 id="privacy-hero-title">Politique de <strong>confidentialité</strong></h1>
+          <p class="cgs-hero__lead">
+            Cette politique explique comment Madapes Agency collecte, utilise et protège vos données
+            personnelles lorsque vous utilisez notre site ou nos formulaires de contact.
+          </p>
+          <p class="cgs-hero__meta">
+            <i data-lucide="calendar-clock" aria-hidden="true"></i>
+            Dernière mise à jour : 2 mai 2026
+          </p>
+        </div>
+      </section>
 
-          <article class="legal-block">
-            <h2>1. Introduction</h2>
-            <p>
-              La présente politique de confidentialité a pour but d’informer les utilisateurs du site
-              madapes-agency.com sur la manière dont leurs données personnelles sont collectées, utilisées et
-              protégées.
-            </p>
-          </article>
+      <section class="section cgs-body" aria-label="Politique de confidentialité">
+        <div class="container cgs-layout">
+          <nav class="cgs-toc" aria-label="Sommaire">
+            <p class="cgs-toc__title">Sommaire</p>
+            <ol class="cgs-toc__list" role="list">
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#donnees-collectees">Données collectées</a></li>
+              <li><a href="#utilisation-donnees">Utilisation des données</a></li>
+              <li><a href="#stockage-conservation">Stockage et conservation</a></li>
+              <li><a href="#cookies">Cookies</a></li>
+              <li><a href="#droits-utilisateurs">Droits des utilisateurs</a></li>
+              <li><a href="#responsable-traitement">Responsable du traitement</a></li>
+              <li><a href="#mise-a-jour">Mise à jour</a></li>
+            </ol>
+          </nav>
 
-          <article class="legal-block">
-            <h2>2. Données collectées</h2>
-            <p>Les données personnelles susceptibles d’être collectées sont :</p>
-            <ul>
-              <li>Nom, prénom</li>
-              <li>Adresse email</li>
-              <li>Numéro de téléphone (si renseigné)</li>
-              <li>Informations de projet transmises via le formulaire de contact</li>
-            </ul>
-          </article>
+          <div class="cgs-content">
+            <article class="cgs-article" id="introduction">
+              <h2><span class="cgs-article__num">01</span> Introduction</h2>
+              <p>
+                La présente politique de confidentialité a pour but d'informer les utilisateurs du site
+                madapes-agency.com sur la manière dont leurs données personnelles sont collectées, utilisées et
+                protégées.
+              </p>
+            </article>
 
-          <article class="legal-block">
-            <h2>3. Utilisation des données</h2>
-            <p>Les données collectées via le formulaire de contact sont utilisées uniquement dans le cadre :</p>
-            <ul>
-              <li>de la prise de contact avec le client,</li>
-              <li>de l’établissement d’un devis ou d’une prestation,</li>
-              <li>du suivi de la relation commerciale.</li>
-            </ul>
-          </article>
+            <article class="cgs-article" id="donnees-collectees">
+              <h2><span class="cgs-article__num">02</span> Données collectées</h2>
+              <p>Les données personnelles susceptibles d'être collectées sont :</p>
+              <ul class="cgs-list">
+                <li>Nom, prénom</li>
+                <li>Adresse email</li>
+                <li>Numéro de téléphone (si renseigné)</li>
+                <li>Informations de projet transmises via le formulaire de contact</li>
+              </ul>
+            </article>
 
-          <article class="legal-block">
-            <h2>4. Stockage et durée de conservation</h2>
-            <p>
-              Les données sont stockées de manière sécurisée et ne sont conservées que pour la durée strictement
-              nécessaire au traitement ou au suivi du projet. Elles ne sont en aucun cas transmises à des tiers ou
-              revendues.
-            </p>
-          </article>
+            <article class="cgs-article" id="utilisation-donnees">
+              <h2><span class="cgs-article__num">03</span> Utilisation des données</h2>
+              <p>Les données collectées via le formulaire de contact sont utilisées uniquement dans le cadre :</p>
+              <ul class="cgs-list">
+                <li>de la prise de contact avec le client,</li>
+                <li>de l'établissement d'un devis ou d'une prestation,</li>
+                <li>du suivi de la relation commerciale.</li>
+              </ul>
+            </article>
 
-          <article class="legal-block">
-            <h2>5. Cookies</h2>
-            <p>
-              Ce site peut utiliser des cookies techniques pour garantir son bon fonctionnement, ainsi que des cookies
-              de mesure d’audience (type Google Analytics). Vous pouvez configurer votre navigateur pour refuser tout
-              ou partie des cookies.
-            </p>
-          </article>
+            <article class="cgs-article" id="stockage-conservation">
+              <h2><span class="cgs-article__num">04</span> Stockage et durée de conservation</h2>
+              <p>
+                Les données sont stockées de manière sécurisée et ne sont conservées que pour la durée strictement
+                nécessaire au traitement ou au suivi du projet. Elles ne sont en aucun cas transmises à des tiers ou
+                revendues.
+              </p>
+            </article>
 
-          <article class="legal-block">
-            <h2>6. Droits des utilisateurs</h2>
-            <p>
-              Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits
-              suivants :
-            </p>
-            <ul>
-              <li>Droit d’accès,</li>
-              <li>Droit de rectification,</li>
-              <li>Droit à l’effacement (« droit à l’oubli »),</li>
-              <li>Droit d’opposition,</li>
-              <li>Droit à la portabilité des données.</li>
-            </ul>
-            <p>
-              Pour exercer vos droits, il vous suffit de nous contacter par email à
-              <a href="mailto:contact@madapes-agency.com">contact@madapes-agency.com</a>.
-            </p>
-          </article>
+            <article class="cgs-article" id="cookies">
+              <h2><span class="cgs-article__num">05</span> Cookies</h2>
+              <p>
+                Ce site peut utiliser des cookies techniques pour garantir son bon fonctionnement, ainsi que des cookies
+                de mesure d'audience (type Google Analytics). Vous pouvez configurer votre navigateur pour refuser tout
+                ou partie des cookies.
+              </p>
+              <p>
+                Pour en savoir plus sur les types de cookies utilisés et gérer vos préférences, consultez notre page
+                <a href="/gestion-cookies">Gestion des cookies</a>.
+              </p>
+            </article>
 
-          <article class="legal-block">
-            <h2>7. Responsable du traitement</h2>
-            <p>Le responsable du traitement est : Soufiane Ibnaiche, représentant légal de Mad Apes Agency.</p>
-            <p>Email : <a href="mailto:contact@madapes-agency.com">contact@madapes-agency.com</a></p>
-          </article>
+            <article class="cgs-article" id="droits-utilisateurs">
+              <h2><span class="cgs-article__num">06</span> Droits des utilisateurs</h2>
+              <p>
+                Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits
+                suivants :
+              </p>
+              <ul class="cgs-list">
+                <li>Droit d'accès,</li>
+                <li>Droit de rectification,</li>
+                <li>Droit à l'effacement (« droit à l'oubli »),</li>
+                <li>Droit d'opposition,</li>
+                <li>Droit à la portabilité des données.</li>
+              </ul>
+              <p>
+                Pour exercer vos droits, il vous suffit de nous contacter par email à
+                <a href="mailto:contact@madapes-agency.com">contact@madapes-agency.com</a>.
+              </p>
+            </article>
 
-          <article class="legal-block">
-            <h2>8. Mise à jour</h2>
-            <p>
-              Cette politique de confidentialité est susceptible d’être modifiée à tout moment.
-            </p>
-          </article>
+            <article class="cgs-article" id="responsable-traitement">
+              <h2><span class="cgs-article__num">07</span> Responsable du traitement</h2>
+              <p>Le responsable du traitement est : Soufiane Ibnaiche, représentant légal de Mad Apes Agency.</p>
+              <p>Email : <a href="mailto:contact@madapes-agency.com">contact@madapes-agency.com</a></p>
+            </article>
 
-          <p class="legal-updated">Dernière mise à jour : 2 mai 2026.</p>
+            <article class="cgs-article" id="mise-a-jour">
+              <h2><span class="cgs-article__num">08</span> Mise à jour</h2>
+              <p>
+                Cette politique de confidentialité est susceptible d'être modifiée à tout moment. La date de dernière
+                mise à jour est indiquée en haut de cette page.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
     </main>
@@ -129,6 +168,7 @@
     <script defer src="https://unpkg.com/lucide@latest"></script>
     <script defer src="../assets/js/modules/security.js"></script>
     <script defer src="/assets/js/modules/cookie-banner.js"></script>
+    <script defer src="../assets/js/modules/theme.js"></script>
     <script defer src="../assets/js/main.js"></script>
   </body>
 </html>

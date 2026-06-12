@@ -137,7 +137,7 @@ p {
 }
 
 .btn-primary {
-  color: var(--color-text);
+  color: var(--color-on-primary);
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   box-shadow: var(--shadow-primary);
 }
@@ -145,7 +145,7 @@ p {
 .btn-secondary {
   color: var(--color-text);
   border-color: var(--color-border);
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: var(--color-bg-card);
 }
 
 .visually-hidden {

@@ -1,18 +1,18 @@
 body {
   --cursor-x: 50%;
   --cursor-y: 50%;
+  transition:
+    background-color var(--transition-theme),
+    color var(--transition-theme);
 }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(
-      circle at 78% 16%,
-      rgba(124, 58, 237, 0.26),
-      rgba(124, 58, 237, 0) 46%
-    ),
-    radial-gradient(circle at 16% 34%, rgba(168, 85, 247, 0.14), rgba(168, 85, 247, 0) 42%);
+  background:
+    radial-gradient(circle at 78% 16%, var(--color-gradient-start), rgba(124, 58, 237, 0) 46%),
+    radial-gradient(circle at 16% 34%, var(--color-gradient-end), rgba(168, 85, 247, 0) 42%);
   pointer-events: none;
   z-index: -1;
 }
@@ -28,13 +28,13 @@ body::after {
   background:
     radial-gradient(
       280px circle at var(--cursor-x) var(--cursor-y),
-      rgba(168, 85, 247, 0.28),
+      var(--color-cursor-glow),
       rgba(168, 85, 247, 0.08) 45%,
       transparent 72%
     ),
     radial-gradient(
       720px circle at var(--cursor-x) var(--cursor-y),
-      rgba(124, 58, 237, 0.16),
+      var(--color-cursor-glow-soft),
       rgba(124, 58, 237, 0.06) 40%,
       transparent 72%
     );
@@ -42,6 +42,10 @@ body::after {
 
 body.is-cursor-glow-active::after {
   opacity: 1;
+}
+
+[data-theme="light"] body.is-cursor-glow-active::after {
+  opacity: 0.45;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -56,7 +60,10 @@ body.is-cursor-glow-active::after {
   z-index: 100;
   background: var(--color-overlay);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition:
+    background-color var(--transition-theme),
+    border-color var(--transition-theme);
 }
 
 .site-header__inner {
@@ -65,6 +72,13 @@ body.is-cursor-glow-active::after {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-left: auto;
 }
 
 .site-main {

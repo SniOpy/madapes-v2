@@ -29,6 +29,7 @@
     { "source": "/offres", "destination": "/pages/offres" },
     { "source": "/starter", "destination": "/pages/starter" },
     { "source": "/growth", "destination": "/pages/growth" },
+    { "source": "/performance", "destination": "/pages/performance" },
     { "source": "/blog", "destination": "/pages/blog" },
     {
       "source": "/realisations",

@@ -40,7 +40,23 @@
       </ul>
     </nav>
 
-    <a class="btn btn-primary site-header__cta" href="/devis">Demander un devis</a>
+    <div class="site-header__actions">
+      <button
+        type="button"
+        class="theme-toggle"
+        data-theme-toggle
+        aria-pressed="false"
+        aria-label="Activer le mode clair"
+      >
+        <span class="theme-toggle__track" aria-hidden="true">
+          <span class="theme-toggle__thumb"></span>
+        </span>
+        <i data-lucide="sun" class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"></i>
+        <i data-lucide="moon" class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"></i>
+      </button>
+
+      <a class="btn btn-primary site-header__cta" href="/devis">Demander un devis</a>
+    </div>
 
     <button
       class="menu-toggle"

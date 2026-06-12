@@ -1,13 +1,31 @@
 :root {
-  /* Colors */
+  /* Colors — dark (default) */
   --color-primary: #7c3aed;
   --color-secondary: #a855f7;
   --color-bg: #0b0b0d;
   --color-bg-light: #121217;
+  --color-bg-contrast: #ffffff;
+  --color-bg-card: rgba(255, 255, 255, 0.04);
+  --color-bg-card-strong: rgba(255, 255, 255, 0.06);
   --color-text: #ffffff;
+  --color-text-inverse: #14141a;
   --color-muted: #b0b0b0;
+  --color-text-soft: #d1d1d8;
+  --color-text-accent: #d7bdff;
+  --color-text-on-contrast: #14141a;
+  --color-muted-on-contrast: #5c5c69;
+  --color-on-primary: #ffffff;
   --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
   --color-overlay: rgba(11, 11, 13, 0.72);
+  --color-surface-dropdown: rgba(11, 11, 13, 0.92);
+  --color-surface-footer: rgba(8, 8, 13, 0.8);
+  --color-accent-glow: rgba(168, 85, 247, 0.75);
+  --color-accent-hover-bg: rgba(124, 58, 237, 0.18);
+  --color-gradient-start: rgba(124, 58, 237, 0.26);
+  --color-gradient-end: rgba(168, 85, 247, 0.14);
+  --color-cursor-glow: rgba(168, 85, 247, 0.28);
+  --color-cursor-glow-soft: rgba(124, 58, 237, 0.16);
 
   /* Typography */
   --font-family-base: "Poppins", sans-serif;
@@ -27,6 +45,7 @@
   /* Shadows */
   --shadow-primary: 0 0 20px rgba(124, 58, 237, 0.4);
   --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.35);
+  --shadow-dropdown: 0 22px 44px rgba(0, 0, 0, 0.35);
 
   /* Layout */
   --container-max-width: 1180px;
@@ -47,4 +66,34 @@
   --transition-fast: 180ms ease;
   --transition-base: 260ms ease;
   --transition-slow: 420ms ease;
+  --transition-theme: 200ms ease;
+}
+
+[data-theme="light"] {
+  --color-bg: #f7f5fb;
+  --color-bg-light: #ffffff;
+  --color-bg-contrast: #f0ecf9;
+  --color-bg-card: #ffffff;
+  --color-bg-card-strong: #f8f5ff;
+  --color-text: #1f1233;
+  --color-text-inverse: #ffffff;
+  --color-muted: #5b4a73;
+  --color-text-soft: #6b6678;
+  --color-text-accent: #7c3aed;
+  --color-text-on-contrast: #1f1233;
+  --color-muted-on-contrast: #5b4a73;
+  --color-on-primary: #ffffff;
+  --color-border: rgba(124, 58, 237, 0.14);
+  --color-border-subtle: rgba(124, 58, 237, 0.1);
+  --color-overlay: rgba(247, 245, 251, 0.88);
+  --color-surface-dropdown: rgba(255, 255, 255, 0.98);
+  --color-surface-footer: #f0ecf9;
+  --color-accent-glow: rgba(124, 58, 237, 0.55);
+  --color-accent-hover-bg: rgba(124, 58, 237, 0.1);
+  --color-gradient-start: rgba(124, 58, 237, 0.1);
+  --color-gradient-end: rgba(168, 85, 247, 0.06);
+  --color-cursor-glow: rgba(168, 85, 247, 0.12);
+  --color-cursor-glow-soft: rgba(124, 58, 237, 0.06);
+  --shadow-card: 0 16px 40px rgba(124, 58, 237, 0.1);
+  --shadow-dropdown: 0 16px 40px rgba(124, 58, 237, 0.12);
 }

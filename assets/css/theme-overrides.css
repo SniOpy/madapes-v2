@@ -1,0 +1,663 @@
+/* Light theme overrides — loaded last for edge cases */
+
+[data-theme="light"] .offer-card,
+[data-theme="light"] .offres-plan-card,
+[data-theme="light"] .services-process__step,
+[data-theme="light"] .home-results__card,
+[data-theme="light"] .service-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .blog-card,
+[data-theme="light"] .contact-form,
+[data-theme="light"] .devis-form,
+[data-theme="light"] .mockup-card {
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .offer-card,
+[data-theme="light"] .services-process__step,
+[data-theme="light"] .offres-plan-card {
+  background: var(--color-bg-card);
+}
+
+[data-theme="light"] .offer-card:hover,
+[data-theme="light"] .offres-plan-card:hover {
+  border-color: rgba(124, 58, 237, 0.32);
+}
+
+[data-theme="light"] .offer-card--featured {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f5ff 100%);
+  border-color: rgba(124, 58, 237, 0.28);
+}
+
+[data-theme="light"] .offres-plan-card--featured {
+  background: linear-gradient(165deg, #ffffff, #f3edff);
+  border-color: rgba(124, 58, 237, 0.28);
+}
+
+[data-theme="light"] .hero-proof li,
+[data-theme="light"] .hero-proof-badge,
+[data-theme="light"] .hero__lead,
+[data-theme="light"] .section-lead {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .hero-proof-badge {
+  background: rgba(124, 58, 237, 0.08);
+  color: var(--color-text-soft);
+}
+
+[data-theme="light"] .mockup-card {
+  background: var(--color-bg-card);
+}
+
+[data-theme="light"] .mockup-card__window {
+  background: var(--color-bg-contrast);
+}
+
+[data-theme="light"] .offer-card__price-note {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .eyebrow {
+  color: var(--color-primary);
+}
+
+[data-theme="light"] .btn-secondary {
+  background: var(--color-bg-light);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+  background: var(--color-bg-contrast);
+}
+
+[data-theme="light"] .site-nav__dropdown a:hover,
+[data-theme="light"] .site-nav__dropdown a:focus-visible {
+  background: var(--color-accent-hover-bg);
+}
+
+[data-theme="light"] .performance-page {
+  --perf-glass: rgba(124, 58, 237, 0.04);
+  --perf-glass-strong: rgba(124, 58, 237, 0.07);
+  --perf-glass-border: rgba(124, 58, 237, 0.16);
+}
+
+[data-theme="light"] .perf-include-card,
+[data-theme="light"] .perf-audience-card,
+[data-theme="light"] .perf-devis-card,
+[data-theme="light"] .perf-process__step {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .perf-hero::before {
+  opacity: 0.55;
+}
+
+[data-theme="light"] .cgs-page {
+  --cgs-glass: rgba(124, 58, 237, 0.04);
+  --cgs-border: rgba(124, 58, 237, 0.14);
+}
+
+[data-theme="light"] .cgs-toc,
+[data-theme="light"] .cgs-article {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .cgs-article h2 {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .cgs-article p,
+[data-theme="light"] .cgs-list li {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .cgs-article--highlight {
+  background: linear-gradient(160deg, rgba(124, 58, 237, 0.08), rgba(168, 85, 247, 0.03));
+}
+
+[data-theme="light"] .cgs-cta__card {
+  background: linear-gradient(160deg, #7c3aed, #4c1d95);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .cgs-cta__card h2 {
+  color: #ffffff;
+}
+
+[data-theme="light"] .cgs-cta__card p {
+  color: rgba(245, 240, 255, 0.88);
+}
+
+[data-theme="light"] .cgs-callout strong {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .cookie-consent__banner,
+[data-theme="light"] .cookie-consent__panel-head,
+[data-theme="light"] .cookie-consent__list,
+[data-theme="light"] .cookie-consent__panel .cookie-consent__actions {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(247, 245, 251, 0.98));
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .cookie-consent__panel {
+  background: rgba(31, 18, 51, 0.25);
+}
+
+[data-theme="light"] .cookie-option {
+  background: var(--color-bg-contrast);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .cookie-consent .btn-ghost:hover {
+  background: var(--color-accent-hover-bg);
+}
+
+[data-theme="light"] .contact-form input,
+[data-theme="light"] .contact-form select,
+[data-theme="light"] .contact-form textarea,
+[data-theme="light"] .devis-fields input,
+[data-theme="light"] .devis-fields select,
+[data-theme="light"] .devis-fields textarea {
+  background: #ffffff;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="light"] .input-prefix {
+  background: #ffffff;
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .input-prefix input {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .contact-form label span,
+[data-theme="light"] .devis-fields label span {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .scroll-top {
+  background: rgba(124, 58, 237, 0.12);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .site-footer .social-links a,
+[data-theme="light"] .site-footer .social-links__icon {
+  color: var(--color-primary);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+[data-theme="light"] .brand__icon {
+  filter: none;
+}
+
+[data-theme="light"] .hero-laptop img {
+  filter: drop-shadow(0 24px 40px rgba(124, 58, 237, 0.18));
+}
+
+[data-theme="light"] .offres-plan-tier,
+[data-theme="light"] .offres-comparison,
+[data-theme="light"] .offres-faq__item {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .offres-comparison th,
+[data-theme="light"] .offres-comparison td {
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="light"] .offres-comparison th {
+  background: var(--color-bg-contrast);
+}
+
+[data-theme="light"] .menu-toggle__line {
+  background: var(--color-text);
+}
+
+[data-theme="light"] .hero-buttons__secondary {
+  background-color: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .hero-buttons__secondary:hover {
+  background-color: var(--color-bg-contrast);
+}
+
+[data-theme="light"] .projects-slider__card,
+[data-theme="light"] .realisations-card {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .cookie-switch__track {
+  background: var(--color-border);
+  border-color: var(--color-border-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   Surfaces sombres → fond clair + textes lisibles
+   -------------------------------------------------------------------------- */
+
+[data-theme="light"] .service-card,
+[data-theme="light"] .home-results__card,
+[data-theme="light"] .ga-info-card,
+[data-theme="light"] .ga-method-card,
+[data-theme="light"] .lp-focus-card,
+[data-theme="light"] .lp-feature-card,
+[data-theme="light"] .lp-impact__bar,
+[data-theme="light"] .devis-card,
+[data-theme="light"] .contact-audit-card,
+[data-theme="light"] .services-reassurance__list li,
+[data-theme="light"] .pack-feature,
+[data-theme="light"] .pack-includes__item,
+[data-theme="light"] .ga-feature,
+[data-theme="light"] .lp-feature,
+[data-theme="light"] .seo-feature-card,
+[data-theme="light"] .tracking-feature-card,
+[data-theme="light"] .starter-feature,
+[data-theme="light"] .growth-feature,
+[data-theme="light"] .offres-faq__item,
+[data-theme="light"] .offres-comparison {
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .service-card h3,
+[data-theme="light"] .ga-info-card h3,
+[data-theme="light"] .ga-method-card h3,
+[data-theme="light"] .lp-focus-card h3,
+[data-theme="light"] .lp-feature-card h3,
+[data-theme="light"] .devis-card__title,
+[data-theme="light"] .contact-audit-card h2,
+[data-theme="light"] .offres-plan-card__head h3,
+[data-theme="light"] .offres-plan-tier h4,
+[data-theme="light"] .project-card__content h3 {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .offres-plan-tier__checks li,
+[data-theme="light"] .offres-plan-card__label,
+[data-theme="light"] .offres-plan-card__block p {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .offres-plan-card__tagline {
+  color: var(--color-primary);
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.18);
+}
+
+[data-theme="light"] .service-card p,
+[data-theme="light"] .service-card__tag,
+[data-theme="light"] .service-card__kpi,
+[data-theme="light"] .ga-info-card p,
+[data-theme="light"] .ga-method-card p,
+[data-theme="light"] .lp-focus-card p,
+[data-theme="light"] .lp-feature-card p,
+[data-theme="light"] .devis-card li,
+[data-theme="light"] .contact-audit-card li,
+[data-theme="light"] .contact-trust li,
+[data-theme="light"] .devis-trust li,
+[data-theme="light"] .offres-plan-card__desc,
+[data-theme="light"] .offres-plan-tier li,
+[data-theme="light"] .offres-plan-tier p,
+[data-theme="light"] .services-reassurance__list li {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .home-results__card strong {
+  color: var(--color-primary);
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.22);
+}
+
+[data-theme="light"] .home-results__card p,
+[data-theme="light"] .home-results__note {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .lp-impact__lead,
+[data-theme="light"] .lp-impact__stats strong,
+[data-theme="light"] .lp-impact__stats span {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .lp-impact__stats small {
+  color: var(--color-muted);
+}
+
+/* CTA et bandeaux violets : conserver texte clair */
+[data-theme="light"] .final-cta__grid,
+[data-theme="light"] .devis-cta__grid,
+[data-theme="light"] .lp-final-cta__grid,
+[data-theme="light"] .seo-final-cta__grid,
+[data-theme="light"] .starter-final__grid,
+[data-theme="light"] .contact-cta__grid,
+[data-theme="light"] .offres-cta__grid {
+  color: #f5f0ff;
+}
+
+[data-theme="light"] .final-cta__grid h2,
+[data-theme="light"] .devis-cta__grid h2,
+[data-theme="light"] .lp-final-cta__grid h2,
+[data-theme="light"] .seo-final-cta__grid h2,
+[data-theme="light"] .starter-final__grid h2,
+[data-theme="light"] .contact-cta__grid h2,
+[data-theme="light"] .offres-cta__grid h2 {
+  color: #ffffff;
+}
+
+[data-theme="light"] .final-cta__grid p,
+[data-theme="light"] .devis-cta__grid p,
+[data-theme="light"] .lp-final-cta__grid p,
+[data-theme="light"] .lp-final-cta__list li,
+[data-theme="light"] .seo-final-cta__grid p,
+[data-theme="light"] .starter-final__grid p,
+[data-theme="light"] .starter-final__grid li,
+[data-theme="light"] .contact-cta__grid p,
+[data-theme="light"] .offres-cta__grid p {
+  color: rgba(245, 240, 255, 0.88);
+}
+
+[data-theme="light"] .lp-final-cta__grid .eyebrow {
+  color: #e9ddff;
+}
+
+[data-theme="light"] .lp-final-cta__list i {
+  color: #ffffff;
+}
+
+/* Retirer la règle globale trop agressive — titres héritent du body sauf exceptions */
+[data-theme="light"] .approach--light .section-title,
+[data-theme="light"] .objective-note--light h2,
+[data-theme="light"] .social-proof--light h2,
+[data-theme="light"] .ga-process--light .section-title {
+  color: var(--color-text-on-contrast);
+}
+
+[data-theme="light"] .devis-form-card h2,
+[data-theme="light"] .contact-form-card h2,
+[data-theme="light"] .devis-step {
+  color: var(--color-text-on-contrast);
+}
+
+[data-theme="light"] .devis-form-card > p,
+[data-theme="light"] .contact-form-card > p,
+[data-theme="light"] .devis-form-security {
+  color: var(--color-muted-on-contrast);
+}
+
+[data-theme="light"] .google-badge {
+  color: var(--color-text-on-contrast);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .offres-comparison th {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .offres-comparison td {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .offres-faq__item summary,
+[data-theme="light"] .offres-faq__item p {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .offres-faq__item p {
+  color: var(--color-muted);
+}
+
+/* Performance — textes sur cartes glass */
+[data-theme="light"] .perf-include-card h3,
+[data-theme="light"] .perf-audience-card h3,
+[data-theme="light"] .perf-devis-card h3,
+[data-theme="light"] .perf-process__step h3 {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .perf-include-card p,
+[data-theme="light"] .perf-audience-card p,
+[data-theme="light"] .perf-devis-card p,
+[data-theme="light"] .perf-process__step p {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .performance-page .perf-cta__card h2 {
+  color: #ffffff;
+}
+
+[data-theme="light"] .starter-value-card,
+[data-theme="light"] .starter-include-card,
+[data-theme="light"] .starter-trust-item,
+[data-theme="light"] .starter-trust__card {
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .starter-value-card h3,
+[data-theme="light"] .starter-include-card h3,
+[data-theme="light"] .starter-trust-item h3,
+[data-theme="light"] .starter-base__title {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .starter-value-card p,
+[data-theme="light"] .starter-include-card p,
+[data-theme="light"] .starter-trust-item p,
+[data-theme="light"] .starter-base__lead {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .performance-page .perf-cta__card p,
+[data-theme="light"] .performance-page .perf-cta__reassurance {
+  color: rgba(245, 240, 255, 0.88);
+}
+
+/* Cartes « problème » (offres, tracking…) */
+[data-theme="light"] .offres-problem-card,
+[data-theme="light"] .tracking-problem-card {
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .offres-problem-card h3,
+[data-theme="light"] .tracking-problem-card h3 {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .offres-problem__footnote {
+  color: var(--color-muted);
+}
+
+/* Formulaires — placeholders et listes déroulantes */
+[data-theme="light"] .contact-form input::placeholder,
+[data-theme="light"] .contact-form textarea::placeholder,
+[data-theme="light"] .input-prefix input::placeholder,
+[data-theme="light"] .devis-fields input::placeholder,
+[data-theme="light"] .devis-fields textarea::placeholder {
+  color: var(--color-muted);
+  opacity: 1;
+}
+
+[data-theme="light"] .contact-form select:invalid,
+[data-theme="light"] .devis-fields select:invalid {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .contact-form-card,
+[data-theme="light"] .devis-form-card {
+  background: var(--color-bg-light);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .contact-form-card > p,
+[data-theme="light"] .devis-form-card > p {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .contact-form-note {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .input-prefix__addon {
+  background: var(--color-bg-contrast);
+  color: var(--color-muted);
+  border-color: var(--color-border);
+}
+
+/* FAQ accueil */
+[data-theme="light"] .faq-item {
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .faq-item summary {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .faq-item p {
+  color: var(--color-muted);
+}
+
+/* Tableau tarifs Google Ads */
+[data-theme="light"] .ga-pricing-table {
+  background: var(--color-bg-card);
+}
+
+[data-theme="light"] .ga-pricing-table thead th {
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--color-text);
+}
+
+[data-theme="light"] .ga-pricing-table th,
+[data-theme="light"] .ga-pricing-table td {
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .ga-pricing-table tbody td {
+  color: var(--color-muted);
+}
+
+/* Bannière hero landing pages */
+[data-theme="light"] .lp-hero__points {
+  background: linear-gradient(180deg, #ffffff 0%, #f3edff 100%);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .lp-hero__points li {
+  color: var(--color-text-soft);
+}
+
+[data-theme="light"] .lp-mockup-card {
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* Page SEO — hero card + processus */
+[data-theme="light"] .seo-hero-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f5ff 100%);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .seo-hero-card h2 {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .seo-hero-card li {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .seo-step {
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .seo-step h3 {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .seo-step p {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .seo-step__number {
+  color: var(--color-on-primary);
+}
+
+[data-theme="light"] .seo-kpis__bar {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f5ff 100%);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .seo-kpis__lead {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .seo-kpis__list strong {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .seo-kpis__list span {
+  color: var(--color-muted);
+}
+
+/* Pages légales simples (gestion-cookies) */
+[data-theme="light"] .legal-block {
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-card);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .legal-block h2 {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .legal-block p,
+[data-theme="light"] .legal-block ul {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .legal-updated {
+  color: var(--color-muted);
+}
+
+/* Plan du site */
+[data-theme="light"] .sitemap-page {
+  --sitemap-glass: rgba(124, 58, 237, 0.04);
+  --sitemap-border: rgba(124, 58, 237, 0.14);
+}
+
+[data-theme="light"] .sitemap-card {
+  background: var(--color-bg-card);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .sitemap-card__head h2 {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .sitemap-card__desc {
+  color: var(--color-muted);
+}
+
+[data-theme="light"] .sitemap-card__links a {
+  color: var(--color-text-soft);
+}
+
+[data-theme="light"] .sitemap-card__links a:hover,
+[data-theme="light"] .sitemap-card__links a:focus-visible {
+  color: var(--color-text);
+  background: var(--color-accent-hover-bg);
+}

@@ -499,4 +499,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   initLegalScrollSpy();
   initIconsAndAnimations();
   ensureIconsAfterLoad();
+
+  if (window.MadapesTheme && typeof window.MadapesTheme.initThemeToggle === "function") {
+    window.MadapesTheme.initThemeToggle();
+  }
 });

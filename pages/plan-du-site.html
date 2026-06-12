@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
@@ -10,6 +10,10 @@
 
     <!-- Google Consent Mode v2 : DOIT etre charge avant Google Tag Manager -->
     <script src="/assets/js/modules/consent-mode.js"></script>
+    <meta
+      name="description"
+      content="Plan du site Madapes Agency : accès rapide à toutes les pages, services, offres et informations légales."
+    />
     <title>Plan du site | Madapes Agency</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,11 +23,14 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
     />
     <link rel="stylesheet" href="../assets/css/variables.css" />
+    <script src="../assets/js/modules/theme-init.js"></script>
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/layout.css" />
     <link rel="stylesheet" href="../assets/css/components.css" />
     <link rel="stylesheet" href="../assets/css/sections.css" />
-      <link rel="stylesheet" href="/assets/css/cookie-banner.css" />
+    <link rel="stylesheet" href="../assets/css/legal.css" />
+    <link rel="stylesheet" href="/assets/css/theme-overrides.css" />
+    <link rel="stylesheet" href="/assets/css/cookie-banner.css" />
   </head>
   <body data-path-prefix="../">
 
@@ -32,36 +39,87 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div data-site-header></div>
-    <main class="site-main">
-      <section class="section" aria-labelledby="sitemap-title">
+
+    <main class="site-main sitemap-page">
+      <section class="section sitemap-hero" aria-labelledby="sitemap-title">
         <div class="container">
+          <p class="cgs-hero__back"><a href="/">← Retour à l'accueil</a></p>
           <p class="eyebrow">Navigation</p>
           <h1 id="sitemap-title">Plan du <strong>site</strong></h1>
-          <ul role="list">
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/realisations">Réalisations</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/google-ads">Google Ads</a></li>
-            <li><a href="/landing-pages">Landing Pages</a></li>
-            <li><a href="/seo">SEO</a></li>
-            <li><a href="/tracking">Suivi des performances</a></li>
-            <li><a href="/offres">Offres</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/devis">Devis</a></li>
-            <li><a href="/plan-du-site">Plan du site</a></li>
-            <li><a href="/conditions-generales-de-service">Conditions générales de service</a></li>
-            <li><a href="/mentions-legales">Mentions légales</a></li>
-            <li><a href="/politique-confidentialite">Politique de confidentialité</a></li>
-            <li><a href="/gestion-cookies">Gestion des cookies</a></li>
-          </ul>
+          <p class="sitemap-hero__lead">
+            Retrouvez l'ensemble des pages du site Madapes Agency, classées par rubrique pour une navigation rapide.
+          </p>
+        </div>
+      </section>
+
+      <section class="section sitemap-body" aria-label="Pages du site">
+        <div class="container sitemap-grid">
+          <article class="sitemap-card">
+            <header class="sitemap-card__head">
+              <span class="sitemap-card__icon" aria-hidden="true"><i data-lucide="home"></i></span>
+              <h2>Site principal</h2>
+            </header>
+            <p class="sitemap-card__desc">Pages essentielles pour découvrir l'agence et nous contacter.</p>
+            <ul class="sitemap-card__links" role="list">
+              <li><a href="/">Accueil</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/realisations">Réalisations</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/devis">Demander un devis</a></li>
+            </ul>
+          </article>
+
+          <article class="sitemap-card">
+            <header class="sitemap-card__head">
+              <span class="sitemap-card__icon" aria-hidden="true"><i data-lucide="layers"></i></span>
+              <h2>Expertises</h2>
+            </header>
+            <p class="sitemap-card__desc">Nos services d'acquisition et de performance digitale.</p>
+            <ul class="sitemap-card__links" role="list">
+              <li><a href="/google-ads">Google Ads</a></li>
+              <li><a href="/landing-pages">Landing Pages</a></li>
+              <li><a href="/seo">SEO</a></li>
+              <li><a href="/tracking">Suivi des performances</a></li>
+            </ul>
+          </article>
+
+          <article class="sitemap-card">
+            <header class="sitemap-card__head">
+              <span class="sitemap-card__icon" aria-hidden="true"><i data-lucide="package"></i></span>
+              <h2>Offres</h2>
+            </header>
+            <p class="sitemap-card__desc">Nos packs et formules pour lancer ou accélérer votre acquisition.</p>
+            <ul class="sitemap-card__links" role="list">
+              <li><a href="/offres">Toutes nos offres</a></li>
+              <li><a href="/starter">Pack Starter</a></li>
+              <li><a href="/growth">Pack Growth</a></li>
+              <li><a href="/performance">Pack Performance</a></li>
+            </ul>
+          </article>
+
+          <article class="sitemap-card">
+            <header class="sitemap-card__head">
+              <span class="sitemap-card__icon" aria-hidden="true"><i data-lucide="scale"></i></span>
+              <h2>Informations légales</h2>
+            </header>
+            <p class="sitemap-card__desc">Documents légaux, confidentialité et gestion des cookies.</p>
+            <ul class="sitemap-card__links" role="list">
+              <li><a href="/conditions-generales-de-service">Conditions générales de service</a></li>
+              <li><a href="/mentions-legales">Mentions légales</a></li>
+              <li><a href="/politique-confidentialite">Politique de confidentialité</a></li>
+              <li><a href="/gestion-cookies">Gestion des cookies</a></li>
+            </ul>
+          </article>
         </div>
       </section>
     </main>
+
     <div data-site-footer></div>
     <script defer src="https://unpkg.com/lucide@latest"></script>
     <script defer src="../assets/js/modules/security.js"></script>
     <script defer src="/assets/js/modules/cookie-banner.js"></script>
+    <script defer src="../assets/js/modules/theme.js"></script>
     <script defer src="../assets/js/main.js"></script>
   </body>
 </html>

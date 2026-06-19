@@ -55,8 +55,8 @@ export const buildAdminEmailHtml = (formData) => {
   const rawEmail = String(formData.email || "").trim();
   const safeServiceType = normalizeFieldValue(formData.serviceType);
   const siteBaseUrl = resolveSiteBaseUrl();
-  const logoUrl = `${siteBaseUrl}/assets/images/logo.svg`;
-  const fallbackLogoUrl = `${siteBaseUrl}/assets/images/logo.png`;
+  const logoUrl = `${siteBaseUrl}/assets/images/logo/logo.webp`;
+  const fallbackLogoUrl = `${siteBaseUrl}/assets/images/logo/logo.webp`;
   const summaryRows = buildSummaryRows(formData);
 
   return `

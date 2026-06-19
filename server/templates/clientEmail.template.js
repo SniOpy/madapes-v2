@@ -96,8 +96,8 @@ export const buildClientEmailHtml = (formData) => {
   const formSource = resolveFormSource(formData);
   const safeFirstName = resolveFirstName(formData.fullName);
   const siteBaseUrl = resolveSiteBaseUrl();
-  const logoUrl = `${siteBaseUrl}/assets/images/logo.svg`;
-  const fallbackLogoUrl = `${siteBaseUrl}/assets/images/logo.png`;
+  const logoUrl = `${siteBaseUrl}/assets/images/logo/logo.webp`;
+  const fallbackLogoUrl = `${siteBaseUrl}/assets/images/logo/logo.webp`;
   const summaryRows = buildClientSummaryRows(formData);
   const nextSteps = buildNextSteps(formSource);
   const isDevis = formSource === "devis";

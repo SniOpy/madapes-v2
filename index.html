@@ -388,7 +388,8 @@
         <div class="container">
           <p class="eyebrow">Réalisations</p>
           <h2 id="projects-title" class="section-title">Des projets qui parlent de résultats</h2>
-          <div class="projects-slider" data-projects-slider>
+          <div id="projects-list" data-projects-slider>
+            <div class="projects-slider">
             <article class="project-card">
               <a
                 href="https://tadara-landing-sniopy-sniopys-projects.vercel.app/"
@@ -443,7 +444,10 @@
                 <p>Société d'assainissement situé en île de France</p>
               </div>
             </article>
+          </div>
 
+          <div class="projects-more">
+            <div class="projects-more__inner projects-slider">
             <article class="project-card">
               <a
                 href="https://tadara-landing-sniopy-sniopys-projects.vercel.app/"
@@ -555,27 +559,19 @@
                 <p>Application mobile pour trouver un petsitter à proximité de chez soi</p>
               </div>
             </article>
+            </div>
+          </div>
           </div>
           <div class="projects-actions">
-            <a class="btn btn-secondary" href="/google-ads">Voir tous nos projets</a>
-            <div class="projects-nav" aria-label="Navigation des projets">
-              <button
-                class="projects-prev"
-                type="button"
-                data-projects-prev
-                aria-label="Projet précédent"
-              >
-                <i data-lucide="chevron-left"></i>
-              </button>
-              <button
-                class="projects-next"
-                type="button"
-                data-projects-next
-                aria-label="Projet suivant"
-              >
-                <i data-lucide="chevron-right"></i>
-              </button>
-            </div>
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-projects-toggle
+              aria-expanded="false"
+              aria-controls="projects-list"
+            >
+              Voir tous nos projets
+            </button>
           </div>
         </div>
       </section>

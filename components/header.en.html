@@ -1,6 +1,6 @@
-<header class="site-header" aria-label="En-tête principal">
+<header class="site-header" aria-label="Main header">
   <div class="container site-header__inner">
-    <a class="brand" href="/" aria-label="Accueil Madapes Agency">
+    <a class="brand" href="/en" aria-label="Madapes Agency home">
       <img
         class="brand__icon"
         src="{{BASE}}assets/images/logo/logo.webp"
@@ -10,9 +10,9 @@
       />
     </a>
 
-    <nav class="site-nav" id="mobile-nav" aria-label="Navigation principale">
+    <nav class="site-nav" id="mobile-nav" aria-label="Main navigation">
       <ul class="site-nav__list" role="list">
-        <li><a href="/">Accueil</a></li>
+        <li><a href="/en">Home</a></li>
         <li class="site-nav__dropdown-item">
           <button
             class="site-nav__dropdown-toggle"
@@ -26,22 +26,22 @@
             <i data-lucide="chevron-down" aria-hidden="true"></i>
           </button>
           <ul class="site-nav__dropdown" id="services-dropdown-menu" role="list" data-services-dropdown>
-            <li><a href="/google-ads">Google Ads</a></li>
-            <li><a href="/landing-pages">Landing Pages</a></li>
-            <li><a href="/seo">SEO</a></li>
-            <li><a href="/tracking">Suivi des performances</a></li>
+            <li><a href="/en/google-ads">Google Ads</a></li>
+            <li><a href="/en/landing-pages">Landing Pages</a></li>
+            <li><a href="/en/seo">SEO</a></li>
+            <li><a href="/en/tracking">Performance tracking</a></li>
             <li class="site-nav__dropdown-separator" aria-hidden="true"></li>
-            <li><a href="/offres">Nos offres</a></li>
+            <li><a href="/en/offers">Our offers</a></li>
           </ul>
         </li>
-        <li><a href="/realisations">Réalisations</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/en/work">Work</a></li>
+        <li><a href="/en/blog">Blog</a></li>
+        <li><a href="/en/contact">Contact</a></li>
       </ul>
     </nav>
 
     <div class="site-header__actions">
-      <nav class="lang-switch" aria-label="Choisir la langue">
+      <nav class="lang-switch" aria-label="Choose language">
         <a class="lang-switch__link" href="/" data-lang-switch="fr" hreflang="fr" lang="fr" aria-label="Français">
           <svg class="lang-switch__flag" viewBox="0 0 24 16" aria-hidden="true">
             <rect width="8" height="16" fill="#0055A4" />
@@ -69,7 +69,7 @@
         class="theme-toggle"
         data-theme-toggle
         aria-pressed="false"
-        aria-label="Activer le mode clair"
+        aria-label="Switch to light mode"
       >
         <span class="theme-toggle__track" aria-hidden="true">
           <span class="theme-toggle__thumb"></span>
@@ -78,13 +78,13 @@
         <i data-lucide="moon" class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"></i>
       </button>
 
-      <a class="btn btn-primary site-header__cta" href="/devis">Demander un devis</a>
+      <a class="btn btn-primary site-header__cta" href="/en/quote">Request a quote</a>
     </div>
 
     <button
       class="menu-toggle"
       type="button"
-      aria-label="Ouvrir le menu"
+      aria-label="Open menu"
       aria-controls="mobile-nav"
       aria-expanded="false"
     >

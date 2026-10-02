@@ -76,6 +76,12 @@ export const validateContactForm = [
   sanitizeOptionalTextField("projectGoal", 500),
   sanitizeOptionalTextField("startDelay", 120),
   sanitizeOptionalTextField("formSource", 20),
+  body("lang")
+    .optional({ values: "falsy" })
+    .isString()
+    .customSanitizer(normalizeText)
+    .isIn(["fr", "en"])
+    .withMessage("lang invalide."),
 
   body("website")
     .optional({ values: "falsy" })

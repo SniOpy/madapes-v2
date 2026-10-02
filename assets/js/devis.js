@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   const REQUEST_TIMEOUT_MS = window.location.hostname === "localhost" ? 12000 : 45000;
+  const isEnglish = () => (document.documentElement.lang || "").toLowerCase().startsWith("en");
 
   const setOfferSelectionState = () => {
     serviceRadios.forEach((radio) => {
@@ -64,7 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     submitButton.disabled = isLoading;
     submitButton.setAttribute("aria-busy", isLoading ? "true" : "false");
-    submitButton.textContent = isLoading ? "Envoi en cours..." : submitButtonInitialText;
+    submitButton.textContent = isLoading
+      ? isEnglish()
+        ? "Sending..."
+        : "Envoi en cours..."
+      : submitButtonInitialText;
   };
 
   const toPayload = () => {
@@ -101,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       startDelay,
       start_timing: startDelay,
       formSource: "devis",
+      lang: isEnglish() ? "en" : "fr",
       contact_website: honeypot,
     };
   };
@@ -160,7 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok || !result.success) {
-        const fallbackError = "Une erreur est survenue. Merci de reessayer.";
+        const fallbackError = isEnglish()
+          ? "Something went wrong. Please try again."
+          : "Une erreur est survenue. Merci de reessayer.";
         const firstValidationError = Array.isArray(result.errors)
           ? result.errors
               .map((errorItem) => {
@@ -174,9 +182,14 @@ document.addEventListener("DOMContentLoaded", () => {
               })
               .find(Boolean)
           : "";
-        const safeMessage =
-          firstValidationError || (typeof result.message === "string" ? result.message : fallbackError);
-        showToast("error", "Envoi impossible", safeMessage);
+        const safeMessage = isEnglish()
+          ? fallbackError
+          : firstValidationError || (typeof result.message === "string" ? result.message : fallbackError);
+        showToast(
+          "error",
+          isEnglish() ? "Couldn't send" : "Envoi impossible",
+          safeMessage,
+        );
         return;
       }
 
@@ -194,22 +207,28 @@ document.addEventListener("DOMContentLoaded", () => {
       setOfferSelectionState();
       showToast(
         "success",
-        "Demande envoyée",
-        "Merci, votre demande de devis a bien été transmise. Nous revenons vers vous rapidement.",
+        isEnglish() ? "Request sent" : "Demande envoyée",
+        isEnglish()
+          ? "Thanks, your quote request has been sent. We'll get back to you shortly."
+          : "Merci, votre demande de devis a bien été transmise. Nous revenons vers vous rapidement.",
       );
     } catch (error) {
       if (error?.name === "AbortError") {
         showToast(
           "error",
-          "Délai dépassé",
-          "Le serveur met plus de temps à répondre. Merci de réessayer dans quelques secondes.",
+          isEnglish() ? "Timed out" : "Délai dépassé",
+          isEnglish()
+            ? "The server is taking longer than usual. Please try again in a few seconds."
+            : "Le serveur met plus de temps à répondre. Merci de réessayer dans quelques secondes.",
         );
         return;
       }
       showToast(
         "error",
-        "Envoi impossible",
-        "Impossible d'envoyer le formulaire pour le moment. Merci de réessayer.",
+        isEnglish() ? "Couldn't send" : "Envoi impossible",
+        isEnglish()
+          ? "The form can't be sent right now. Please try again."
+          : "Impossible d'envoyer le formulaire pour le moment. Merci de réessayer.",
       );
     } finally {
       if (requestTimeoutId) {

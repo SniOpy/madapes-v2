@@ -163,17 +163,19 @@
 [data-theme="light"] .devis-fields select,
 [data-theme="light"] .devis-fields textarea {
   background: #ffffff;
-  border-color: var(--color-border);
-  color: var(--color-text);
+  border-color: #c5c6d0;
+  color: #14141a;
 }
 
 [data-theme="light"] .input-prefix {
   background: #ffffff;
-  border-color: var(--color-border);
+  border-color: #c5c6d0;
 }
 
 [data-theme="light"] .input-prefix input {
-  color: var(--color-text);
+  color: #14141a;
+  -webkit-text-fill-color: #14141a;
+  background: #ffffff;
 }
 
 [data-theme="light"] .contact-form label span,
@@ -383,8 +385,7 @@
 }
 
 [data-theme="light"] .devis-form-card h2,
-[data-theme="light"] .contact-form-card h2,
-[data-theme="light"] .devis-step {
+[data-theme="light"] .contact-form-card h2 {
   color: var(--color-text-on-contrast);
 }
 
@@ -509,9 +510,9 @@
 }
 
 [data-theme="light"] .input-prefix__addon {
-  background: var(--color-bg-contrast);
-  color: var(--color-muted);
-  border-color: var(--color-border);
+  background: #f4f4f8;
+  color: #5c5c6a;
+  border-color: #c5c6d0;
 }
 
 /* FAQ accueil */

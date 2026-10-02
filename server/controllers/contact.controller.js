@@ -1,18 +1,29 @@
-import { sendAdminNotificationEmail, sendClientConfirmationEmail } from "../services/mail.service.js";
-import { buildAdminEmailHtml } from "../templates/adminEmail.template.js";
-import { buildClientEmailHtml, buildClientEmailSubject } from "../templates/clientEmail.template.js";
+import {
+  sendAdminNotificationEmail,
+  sendClientConfirmationEmail,
+} from '../services/mail.service.js';
+import { buildAdminEmailHtml } from '../templates/adminEmail.template.js';
+import {
+  buildClientEmailHtml,
+  buildClientEmailSubject,
+} from '../templates/clientEmail.template.js';
 
-const normalizeEmail = (value) => String(value ?? "").trim().toLowerCase();
+const normalizeEmail = (value) =>
+  String(value ?? '')
+    .trim()
+    .toLowerCase();
 
 const resolveFormSource = (formData) => {
-  const source = String(formData.formSource ?? "").trim().toLowerCase();
-  return source === "devis" ? "devis" : "contact";
+  const source = String(formData.formSource ?? '')
+    .trim()
+    .toLowerCase();
+  return source === 'devis' ? 'devis' : 'contact';
 };
 
 const resolveFirstName = (fullName) => {
-  const cleanedName = String(fullName ?? "").trim();
+  const cleanedName = String(fullName ?? '').trim();
   if (!cleanedName) {
-    return "Prospect";
+    return 'Prospect';
   }
 
   return cleanedName.split(/\s+/)[0];
@@ -20,9 +31,9 @@ const resolveFirstName = (fullName) => {
 
 const buildAdminEmailSubject = (formData) => {
   const formSource = resolveFormSource(formData);
-  const serviceType = String(formData.serviceType ?? "").trim() || "Demande";
+  const serviceType = String(formData.serviceType ?? '').trim() || 'Demande';
   const firstName = resolveFirstName(formData.fullName);
-  const leadLabel = formSource === "devis" ? "Devis" : "Contact";
+  const leadLabel = formSource === 'devis' ? 'Devis' : 'Contact';
 
   return `🔥 ${leadLabel} · ${serviceType} — ${firstName}`;
 };
@@ -47,10 +58,10 @@ export const handleContactFormSubmission = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: "Votre demande a bien ete envoyee.",
+      message: 'Votre demande a bien ete envoyee.',
     });
   } catch (error) {
-    console.error("Contact form email send failed");
+    console.error('Contact form email send failed');
     console.error({
       message: error?.message,
       code: error?.code,
@@ -61,7 +72,8 @@ export const handleContactFormSubmission = async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: "Le service email est temporairement indisponible. Merci de reessayer dans quelques instants.",
+      message:
+        'Le service email est temporairement indisponible. Merci de reessayer dans quelques instants.',
     });
   }
 };

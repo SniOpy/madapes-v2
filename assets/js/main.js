@@ -202,33 +202,39 @@ const initServicesDropdown = () => {
 };
 
 const initProjectsSlider = () => {
-  const slider = document.querySelector("[data-projects-slider]");
-  const prevButton = document.querySelector("[data-projects-prev]");
-  const nextButton = document.querySelector("[data-projects-next]");
+  const list = document.querySelector("[data-projects-slider]");
+  const toggleButton = document.querySelector("[data-projects-toggle]");
 
-  if (!slider || !prevButton || !nextButton) {
+  if (!list || !toggleButton) {
     return;
   }
 
-  const getScrollAmount = () => {
-    const firstCard = slider.querySelector(".project-card");
+  const more = list.querySelector(".projects-more");
+  const collapsedLabel = "Voir tous nos projets";
+  const expandedLabel = "Voir moins";
 
-    if (!firstCard) {
-      return 320;
+  const setExpanded = (isExpanded) => {
+    list.classList.toggle("is-expanded", isExpanded);
+    toggleButton.setAttribute("aria-expanded", String(isExpanded));
+    toggleButton.textContent = isExpanded ? expandedLabel : collapsedLabel;
+
+    if (!more) {
+      return;
     }
 
-    const sliderStyles = window.getComputedStyle(slider);
-    const gap = Number.parseFloat(sliderStyles.columnGap || sliderStyles.gap || "0");
+    more.setAttribute("aria-hidden", String(!isExpanded));
+    if (isExpanded) {
+      more.removeAttribute("inert");
+      return;
+    }
 
-    return firstCard.getBoundingClientRect().width + gap;
+    more.setAttribute("inert", "");
   };
 
-  prevButton.addEventListener("click", () => {
-    slider.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
-  });
+  setExpanded(false);
 
-  nextButton.addEventListener("click", () => {
-    slider.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+  toggleButton.addEventListener("click", () => {
+    setExpanded(!list.classList.contains("is-expanded"));
   });
 };
 

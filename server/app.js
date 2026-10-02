@@ -28,6 +28,24 @@ const SLUG_ROUTES = {
   "/mentions-legales": "/pages/mentions-legales.html",
   "/politique-confidentialite": "/pages/politique-confidentialite.html",
   "/gestion-cookies": "/pages/gestion-cookies.html",
+  "/en/services": "/pages/en/services.html",
+  "/en/tracking": "/pages/en/tracking.html",
+  "/en/offers": "/pages/en/offers.html",
+  "/en/starter": "/pages/en/starter.html",
+  "/en/growth": "/pages/en/growth.html",
+  "/en/performance": "/pages/en/performance.html",
+  "/en/blog": "/pages/en/blog.html",
+  "/en/work": "/pages/en/work.html",
+  "/en/google-ads": "/pages/en/google-ads.html",
+  "/en/landing-pages": "/pages/en/landing-pages.html",
+  "/en/seo": "/pages/en/seo.html",
+  "/en/contact": "/pages/en/contact.html",
+  "/en/quote": "/pages/en/quote.html",
+  "/en/sitemap": "/pages/en/sitemap.html",
+  "/en/terms": "/pages/en/terms.html",
+  "/en/legal-notice": "/pages/en/legal-notice.html",
+  "/en/privacy": "/pages/en/privacy.html",
+  "/en/cookies": "/pages/en/cookies.html",
 };
 
 const LEGACY_ROUTES = {
@@ -179,6 +197,10 @@ app.use("/api/contact", contactRouter);
 
 app.get("/", (_req, res) => {
   return res.sendFile(path.join(projectRootDir, "index.html"));
+});
+
+app.get("/en", (_req, res) => {
+  return res.sendFile(path.join(projectRootDir, "en/index.html"));
 });
 
 for (const [legacyPath, slugPath] of Object.entries(LEGACY_ROUTES)) {

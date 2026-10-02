@@ -20,6 +20,25 @@ const ROUTE_ALIASES = new Map([
   ["/mentions-legales", "/pages/mentions-legales.html"],
   ["/politique-confidentialite", "/pages/politique-confidentialite.html"],
   ["/gestion-cookies", "/pages/gestion-cookies.html"],
+  ["/en", "/en/index.html"],
+  ["/en/services", "/pages/en/services.html"],
+  ["/en/tracking", "/pages/en/tracking.html"],
+  ["/en/offers", "/pages/en/offers.html"],
+  ["/en/starter", "/pages/en/starter.html"],
+  ["/en/growth", "/pages/en/growth.html"],
+  ["/en/performance", "/pages/en/performance.html"],
+  ["/en/blog", "/pages/en/blog.html"],
+  ["/en/work", "/pages/en/work.html"],
+  ["/en/google-ads", "/pages/en/google-ads.html"],
+  ["/en/landing-pages", "/pages/en/landing-pages.html"],
+  ["/en/seo", "/pages/en/seo.html"],
+  ["/en/contact", "/pages/en/contact.html"],
+  ["/en/quote", "/pages/en/quote.html"],
+  ["/en/sitemap", "/pages/en/sitemap.html"],
+  ["/en/terms", "/pages/en/terms.html"],
+  ["/en/legal-notice", "/pages/en/legal-notice.html"],
+  ["/en/privacy", "/pages/en/privacy.html"],
+  ["/en/cookies", "/pages/en/cookies.html"],
 ]);
 
 const normalizePathname = (pathname) => {
@@ -210,8 +229,9 @@ const initProjectsSlider = () => {
   }
 
   const more = list.querySelector(".projects-more");
-  const collapsedLabel = "Voir tous nos projets";
-  const expandedLabel = "Voir moins";
+  const isEnglish = (document.documentElement.lang || "").toLowerCase().startsWith("en");
+  const collapsedLabel = toggleButton.textContent.trim() || (isEnglish ? "See all our projects" : "Voir tous nos projets");
+  const expandedLabel = isEnglish ? "See less" : "Voir moins";
 
   const setExpanded = (isExpanded) => {
     list.classList.toggle("is-expanded", isExpanded);
@@ -484,16 +504,43 @@ const initLegalScrollSpy = () => {
   setActiveLink(sections[0].id);
 };
 
+const initLanguageSwitch = () => {
+  const isEnglish = (document.documentElement.lang || "fr").toLowerCase().startsWith("en");
+  const frenchAlternate = document.querySelector('link[rel="alternate"][hreflang="fr"]');
+  const englishAlternate = document.querySelector('link[rel="alternate"][hreflang="en"]');
+  const hrefByLang = {
+    fr: frenchAlternate?.getAttribute("href") || "/",
+    en: englishAlternate?.getAttribute("href") || "/en",
+  };
+
+  document.querySelectorAll("[data-lang-switch]").forEach((link) => {
+    const lang = link.getAttribute("data-lang-switch");
+    if (hrefByLang[lang]) {
+      link.setAttribute("href", hrefByLang[lang]);
+    }
+
+    const isCurrent = (lang === "en" && isEnglish) || (lang === "fr" && !isEnglish);
+    if (isCurrent) {
+      link.setAttribute("aria-current", "true");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
+  const isEnglish = (document.documentElement.lang || "").toLowerCase().startsWith("en");
+
   try {
     await Promise.all([
-      loadComponent("[data-site-header]", "header.html"),
-      loadComponent("[data-site-footer]", "footer.html"),
+      loadComponent("[data-site-header]", isEnglish ? "header.en.html" : "header.html"),
+      loadComponent("[data-site-footer]", isEnglish ? "footer.en.html" : "footer.html"),
     ]);
   } catch (error) {
     console.warn(error);
   }
 
+  initLanguageSwitch();
   setActivePageLink();
   initServicesDropdown();
   initMobileNavigation();

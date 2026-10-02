@@ -65,6 +65,25 @@
     {
       "source": "/gestion-cookies",
       "destination": "/pages/gestion-cookies"
-    }
+    },
+    { "source": "/en", "destination": "/en/index" },
+    { "source": "/en/services", "destination": "/pages/en/services" },
+    { "source": "/en/tracking", "destination": "/pages/en/tracking" },
+    { "source": "/en/offers", "destination": "/pages/en/offers" },
+    { "source": "/en/starter", "destination": "/pages/en/starter" },
+    { "source": "/en/growth", "destination": "/pages/en/growth" },
+    { "source": "/en/performance", "destination": "/pages/en/performance" },
+    { "source": "/en/blog", "destination": "/pages/en/blog" },
+    { "source": "/en/work", "destination": "/pages/en/work" },
+    { "source": "/en/google-ads", "destination": "/pages/en/google-ads" },
+    { "source": "/en/landing-pages", "destination": "/pages/en/landing-pages" },
+    { "source": "/en/seo", "destination": "/pages/en/seo" },
+    { "source": "/en/contact", "destination": "/pages/en/contact" },
+    { "source": "/en/quote", "destination": "/pages/en/quote" },
+    { "source": "/en/sitemap", "destination": "/pages/en/sitemap" },
+    { "source": "/en/terms", "destination": "/pages/en/terms" },
+    { "source": "/en/legal-notice", "destination": "/pages/en/legal-notice" },
+    { "source": "/en/privacy", "destination": "/pages/en/privacy" },
+    { "source": "/en/cookies", "destination": "/pages/en/cookies" }
   ]
 }

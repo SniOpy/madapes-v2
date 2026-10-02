@@ -7,9 +7,14 @@ const escapeHtml = (value) => {
     .replace(/'/g, "&#039;");
 };
 
-const normalizeFieldValue = (value) => {
+const EMPTY_FR = "Non renseigné";
+const EMPTY_EN = "Not provided";
+
+const isEnglishEmail = (formData) => String(formData?.lang || "").trim().toLowerCase() === "en";
+
+const normalizeFieldValue = (value, emptyLabel = EMPTY_FR) => {
   const cleanedValue = String(value ?? "").trim();
-  return cleanedValue ? escapeHtml(cleanedValue) : "Non renseigné";
+  return cleanedValue ? escapeHtml(cleanedValue) : emptyLabel;
 };
 
 const resolveSiteBaseUrl = () => {
@@ -32,14 +37,16 @@ const resolveFormSource = (formData) => {
 };
 
 const buildClientSummaryRows = (formData) => {
+  const isEn = isEnglishEmail(formData);
+  const emptyLabel = isEn ? EMPTY_EN : EMPTY_FR;
   const rows = [
-    ["Nom", normalizeFieldValue(formData.fullName)],
-    ["Prestation", normalizeFieldValue(formData.serviceType)],
-    ["Budget", normalizeFieldValue(formData.budget)],
-    ["Objectif", normalizeFieldValue(formData.projectGoal)],
-    ["Description", normalizeFieldValue(formData.projectDescription)],
-    ["Délai souhaité", normalizeFieldValue(formData.startDelay)],
-  ].filter(([, value]) => value !== "Non renseigné");
+    [isEn ? "Name" : "Nom", normalizeFieldValue(formData.fullName, emptyLabel)],
+    [isEn ? "Service" : "Prestation", normalizeFieldValue(formData.serviceType, emptyLabel)],
+    [isEn ? "Budget" : "Budget", normalizeFieldValue(formData.budget, emptyLabel)],
+    [isEn ? "Goal" : "Objectif", normalizeFieldValue(formData.projectGoal, emptyLabel)],
+    [isEn ? "Description" : "Description", normalizeFieldValue(formData.projectDescription, emptyLabel)],
+    [isEn ? "Preferred timing" : "Délai souhaité", normalizeFieldValue(formData.startDelay, emptyLabel)],
+  ].filter(([, value]) => value !== emptyLabel);
 
   return rows
     .map(
@@ -57,19 +64,31 @@ const buildClientSummaryRows = (formData) => {
     .join("");
 };
 
-const buildNextSteps = (formSource) => {
+const buildNextSteps = (formSource, isEn) => {
   const steps =
     formSource === "devis"
-      ? [
-          ["01", "Analyse de votre brief", "Nous étudions vos objectifs, votre budget et vos contraintes."],
-          ["02", "Proposition sur mesure", "Vous recevez une recommandation claire et un devis adapté."],
-          ["03", "Échange stratégique", "Nous affinons ensemble la meilleure approche pour votre projet."],
-        ]
-      : [
-          ["01", "Prise en charge", "Nous analysons votre demande et le contexte de votre projet."],
-          ["02", "Retour personnalisé", "Un membre de l'équipe revient vers vous avec des recommandations."],
-          ["03", "Prochaine étape", "Nous planifions un échange pour avancer concrètement."],
-        ];
+      ? isEn
+        ? [
+            ["01", "Brief review", "We look at your goals, budget, and constraints."],
+            ["02", "Tailored proposal", "You receive a clear recommendation and a quote that fits."],
+            ["03", "Strategy call", "We refine the best approach for your project together."],
+          ]
+        : [
+            ["01", "Analyse de votre brief", "Nous étudions vos objectifs, votre budget et vos contraintes."],
+            ["02", "Proposition sur mesure", "Vous recevez une recommandation claire et un devis adapté."],
+            ["03", "Échange stratégique", "Nous affinons ensemble la meilleure approche pour votre projet."],
+          ]
+      : isEn
+        ? [
+            ["01", "We take it from here", "We review your request and the context of your project."],
+            ["02", "A personal reply", "A team member gets back to you with recommendations."],
+            ["03", "Next step", "We schedule a call so we can move forward."],
+          ]
+        : [
+            ["01", "Prise en charge", "Nous analysons votre demande et le contexte de votre projet."],
+            ["02", "Retour personnalisé", "Un membre de l'équipe revient vers vous avec des recommandations."],
+            ["03", "Prochaine étape", "Nous planifions un échange pour avancer concrètement."],
+          ];
 
   return steps
     .map(
@@ -94,28 +113,57 @@ const buildNextSteps = (formSource) => {
 
 export const buildClientEmailHtml = (formData) => {
   const formSource = resolveFormSource(formData);
+  const isEn = isEnglishEmail(formData);
   const safeFirstName = resolveFirstName(formData.fullName);
   const siteBaseUrl = resolveSiteBaseUrl();
   const logoUrl = `${siteBaseUrl}/assets/images/logo/logo.webp`;
   const fallbackLogoUrl = `${siteBaseUrl}/assets/images/logo/logo.webp`;
   const summaryRows = buildClientSummaryRows(formData);
-  const nextSteps = buildNextSteps(formSource);
+  const nextSteps = buildNextSteps(formSource, isEn);
   const isDevis = formSource === "devis";
-  const heroTitle = isDevis
-    ? `Merci ${safeFirstName}, votre demande de devis est bien reçue.`
-    : `Merci ${safeFirstName}, votre demande est bien reçue.`;
-  const introText = isDevis
-    ? "Nous avons bien reçu votre demande de devis. Notre équipe l'étudie et revient vers vous sous <strong style=\"color:#FFFFFF;\">24h ouvrées</strong> avec une proposition adaptée."
-    : "Nous avons bien reçu votre message. Notre équipe revient vers vous sous <strong style=\"color:#FFFFFF;\">24h ouvrées</strong> pour faire le point sur votre projet.";
-  const ctaLabel = isDevis ? "Découvrir nos offres" : "Voir nos réalisations";
-  const ctaUrl = isDevis ? `${siteBaseUrl}/offres` : siteBaseUrl;
-  const preheader = isDevis
-    ? "Votre demande de devis a bien été transmise. Réponse sous 24h ouvrées."
-    : "Votre demande a bien été transmise. Réponse sous 24h ouvrées.";
+  const heroTitle = isEn
+    ? isDevis
+      ? `Thanks ${safeFirstName}, we received your quote request.`
+      : `Thanks ${safeFirstName}, we received your message.`
+    : isDevis
+      ? `Merci ${safeFirstName}, votre demande de devis est bien reçue.`
+      : `Merci ${safeFirstName}, votre demande est bien reçue.`;
+  const introText = isEn
+    ? isDevis
+      ? "We received your quote request. Our team is reviewing it and will get back to you within <strong style=\"color:#FFFFFF;\">one business day</strong> with a proposal that fits."
+      : "We received your message. Our team will get back to you within <strong style=\"color:#FFFFFF;\">one business day</strong> to talk through your project."
+    : isDevis
+      ? "Nous avons bien reçu votre demande de devis. Notre équipe l'étudie et revient vers vous sous <strong style=\"color:#FFFFFF;\">24h ouvrées</strong> avec une proposition adaptée."
+      : "Nous avons bien reçu votre message. Notre équipe revient vers vous sous <strong style=\"color:#FFFFFF;\">24h ouvrées</strong> pour faire le point sur votre projet.";
+  const ctaLabel = isEn
+    ? isDevis
+      ? "See our offers"
+      : "See our work"
+    : isDevis
+      ? "Découvrir nos offres"
+      : "Voir nos réalisations";
+  const ctaUrl = isEn
+    ? isDevis
+      ? `${siteBaseUrl}/en/offers`
+      : `${siteBaseUrl}/en`
+    : isDevis
+      ? `${siteBaseUrl}/offres`
+      : siteBaseUrl;
+  const preheader = isEn
+    ? isDevis
+      ? "Your quote request was sent. We'll reply within one business day."
+      : "Your message was sent. We'll reply within one business day."
+    : isDevis
+      ? "Votre demande de devis a bien été transmise. Réponse sous 24h ouvrées."
+      : "Votre demande a bien été transmise. Réponse sous 24h ouvrées.";
+  const eyebrow = isEn ? "Request confirmed" : "Confirmation de demande";
+  const nextStepsLabel = isEn ? "Next steps" : "Prochaines étapes";
+  const summaryLabel = isEn ? "Your brief" : "Récapitulatif de votre brief";
+  const emailLang = isEn ? "en" : "fr";
 
   return `
     <!doctype html>
-    <html lang="fr">
+    <html lang="${emailLang}">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -158,7 +206,7 @@ export const buildClientEmailHtml = (formData) => {
                               </td>
                               <td style="vertical-align: top;">
                                 <p style="margin: 0 0 8px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.78);">
-                                  Confirmation de demande
+                                  ${eyebrow}
                                 </p>
                                 <h1 style="margin: 0; font-size: 24px; line-height: 1.35; font-weight: 700; color: #FFFFFF;">
                                   ${heroTitle}
@@ -175,14 +223,14 @@ export const buildClientEmailHtml = (formData) => {
                       <tr>
                         <td style="padding: 28px; background: #FFFFFF;">
                           <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7C3AED;">
-                            Prochaines étapes
+                            ${nextStepsLabel}
                           </p>
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
                             ${nextSteps}
                           </table>
 
                           <p style="margin: 0 0 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7C3AED;">
-                            Récapitulatif de votre brief
+                            ${summaryLabel}
                           </p>
 
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; background: #FCFAFF; border: 1px solid rgba(124, 58, 237, 0.14); border-radius: 16px; overflow: hidden; margin-bottom: 24px;">
@@ -232,6 +280,15 @@ export const buildClientEmailHtml = (formData) => {
 
 export const buildClientEmailSubject = (formData) => {
   const formSource = resolveFormSource(formData);
+  const isEn = isEnglishEmail(formData);
+
+  if (isEn && formSource === "devis") {
+    return "We received your quote request — Madapes Agency";
+  }
+
+  if (isEn) {
+    return "We received your message — Madapes Agency";
+  }
 
   if (formSource === "devis") {
     return "Votre demande de devis est bien reçue — Madapes Agency";

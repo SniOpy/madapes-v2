@@ -31,7 +31,13 @@
       toggle.setAttribute("aria-pressed", isLight ? "true" : "false");
       toggle.setAttribute(
         "aria-label",
-        isLight ? "Activer le mode sombre" : "Activer le mode clair",
+        (document.documentElement.lang || "").toLowerCase().startsWith("en")
+          ? isLight
+            ? "Switch to dark mode"
+            : "Switch to light mode"
+          : isLight
+            ? "Activer le mode sombre"
+            : "Activer le mode clair",
       );
     });
 

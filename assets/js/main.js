@@ -12,6 +12,7 @@ const ROUTE_ALIASES = new Map([
   ["/realisations", "/pages/realisations.html"],
   ["/google-ads", "/pages/google-ads.html"],
   ["/landing-pages", "/pages/landing-pages.html"],
+  ["/custom-project", "/pages/custom-project.html"],
   ["/seo", "/pages/seo.html"],
   ["/contact", "/pages/contact.html"],
   ["/devis", "/pages/devis.html"],

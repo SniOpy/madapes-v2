@@ -43,6 +43,10 @@
       "source": "/landing-pages",
       "destination": "/pages/landing-pages"
     },
+    {
+      "source": "/custom-project",
+      "destination": "/pages/custom-project"
+    },
     { "source": "/seo", "destination": "/pages/seo" },
     { "source": "/contact", "destination": "/pages/contact" },
     { "source": "/devis", "destination": "/pages/devis" },

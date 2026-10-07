@@ -185,6 +185,24 @@ app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 app.use(express.json({ limit: "100kb" }));
 app.use(express.urlencoded({ extended: false, limit: "100kb" }));
 
+const enableHttpCache = process.env.VERCEL === "1" || process.env.RENDER === "true";
+
+if (!enableHttpCache) {
+  app.set("etag", false);
+  app.use((_req, res, next) => {
+    res.setHeader("Cache-Control", "no-store");
+    const sendFile = res.sendFile.bind(res);
+    res.sendFile = (filePath, options, callback) => {
+      const opts = typeof options === "function" ? {} : { ...options };
+      const done = typeof options === "function" ? options : callback;
+      opts.lastModified = false;
+      opts.cacheControl = false;
+      return sendFile(filePath, opts, done);
+    };
+    next();
+  });
+}
+
 app.get("/favicon.ico", (_req, res) => {
   return res.status(204).end();
 });
@@ -223,7 +241,13 @@ for (const [slugPath, htmlPath] of Object.entries(SLUG_ROUTES)) {
   });
 }
 
-app.use(express.static(projectRootDir, { index: false }));
+app.use(
+  express.static(projectRootDir, {
+    index: false,
+    etag: enableHttpCache,
+    lastModified: enableHttpCache,
+  }),
+);
 
 app.use((err, _req, res, _next) => {
   console.error("Unhandled API error");

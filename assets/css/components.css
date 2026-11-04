@@ -5,7 +5,7 @@
 }
 
 .brand__icon {
-  width: 80px;
+  width: 52px;
   height: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -13,7 +13,7 @@
 
 .brand__logo-full {
   width: auto;
-  height: 125px;
+  height: 72px;
   object-fit: contain;
 }
 
@@ -566,7 +566,7 @@
   }
 
   .brand--footer .brand__logo-full {
-    height: 56px;
+    height: 48px;
   }
 
   .site-header__inner {
@@ -687,7 +687,7 @@
 
 @media (max-width: 640px) {
   .brand--footer .brand__logo-full {
-    height: 62px;
+    height: 48px;
   }
 
   .site-footer__bottom {

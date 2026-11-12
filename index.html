@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     />
     <link rel="stylesheet" href="./assets/css/variables.css" />
     <script src="./assets/js/modules/theme-init.js"></script>
@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="./assets/css/sections.css" />
     <link rel="stylesheet" href="./assets/css/theme-overrides.css" />
     <link rel="stylesheet" href="/assets/css/cookie-banner.css" />
+    <!-- V2 : nouvelle feuille, chargée en dernier -->
+    <link rel="stylesheet" href="/assets/css/v2.css" />
   </head>
   <body data-path-prefix="./">
     <!-- Google Tag Manager (noscript) -->
@@ -56,681 +58,266 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div data-site-header></div>
-    <main class="site-main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero__grid">
-          <div class="hero__content">
-            <p class="eyebrow">Développement web &amp; automatisation</p>
-            <h1 class="hero__title" id="hero-title">
-              Votre projet web prend vie. <strong>Votre quotidien se simplifie.</strong>
-            </h1>
-            <p class="hero__lead">
-              Je crée vos sites, applications et outils sur mesure, et automatise les tâches qui
-              vous prennent du temps.
-            </p>
-            <div class="hero-buttons">
-              <a class="btn btn-primary" href="/custom-project"
-                >Parlons de votre projet <i data-lucide="arrow-right" aria-hidden="true"></i
-              ></a>
-              <a class="btn btn-secondary hero-buttons__secondary" href="#realisations"
-                >Voir mes réalisations</a
-              >
+
+    <main class="site-main v2">
+      <!-- ===================== HERO (noir + halos) ===================== -->
+      <section class="v2-hero v2-glow" aria-labelledby="hero-title">
+        <div class="v2-blob" aria-hidden="true" style="right:-120px;top:-160px;width:620px;height:620px;background:radial-gradient(closest-side,rgba(124,58,237,.4),rgba(124,58,237,0))"></div>
+        <div class="v2-blob" aria-hidden="true" style="left:-200px;bottom:-260px;width:560px;height:560px;background:radial-gradient(closest-side,rgba(124,58,237,.28),rgba(124,58,237,0))"></div>
+        <div class="v2-hero__grid">
+          <div class="v2-hero__text">
+            <p class="v2-eyebrow">Agence Google Ads &amp; landing pages</p>
+            <h1 id="hero-title">Votre budget Google Ads mérite mieux que <span class="v2-gradient-text">des clics perdus.</span></h1>
+            <p class="v2-hero__sub">Des campagnes et des pages pensées pour une seule chose : transformer vos visiteurs en clients.</p>
+            <div class="v2-hero__ctas">
+              <a class="v2-btn v2-btn--primary" href="/devis">Demander un devis</a>
+              <a class="v2-link" href="/contact">Réserver un appel →</a>
             </div>
-            <ul class="hero-proof" role="list">
-              <li>
-                <i class="hero-trust__icon" data-lucide="check" aria-hidden="true"></i
-                ><span>Sites &amp; applications sur mesure</span>
-              </li>
-              <li>
-                <i class="hero-trust__icon" data-lucide="check" aria-hidden="true"></i
-                ><span>Interfaces simples à utiliser</span>
-              </li>
-              <li>
-                <i class="hero-trust__icon" data-lucide="check" aria-hidden="true"></i
-                ><span>Tâches répétitives automatisées</span>
-              </li>
-            </ul>
-            <div class="hero-proof-badges" aria-label="Mon accompagnement">
-              <span class="hero-proof-badge">Un interlocuteur direct</span>
-              <span class="hero-proof-badge">Pensé pour votre activité</span>
-              <span class="hero-proof-badge">Adapté aux mobiles</span>
+            <p class="v2-hero__proof">Plus de demandes clients<span>·</span>Sites rapides &amp; optimisés<span>·</span>Suivi clair des performances<span>·</span><b>5.0</b> sur Google</p>
+          </div>
+
+          <div class="v2-console">
+            <div class="v2-tabs" role="tablist" aria-label="Aperçu de nos expertises">
+              <button class="v2-tab" role="tab" id="tab-ads" aria-controls="panel-ads" aria-selected="true">Google Ads</button>
+              <button class="v2-tab" role="tab" id="tab-landing" aria-controls="panel-landing" aria-selected="false" tabindex="-1">Landing</button>
+              <button class="v2-tab" role="tab" id="tab-tracking" aria-controls="panel-tracking" aria-selected="false" tabindex="-1">Tracking</button>
+              <button class="v2-tab" role="tab" id="tab-lab" aria-controls="panel-lab" aria-selected="false" tabindex="-1">Lab ✦</button>
             </div>
-          </div>
-          <div class="hero__visual" aria-hidden="true">
-            <figure class="hero-laptop">
-              <img
-                src="./assets/images/hero/laptop-hero.svg"
-                alt=""
-                width="1067"
-                height="683"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-              />
-            </figure>
-          </div>
-        </div>
-      </section>
-      <section
-        class="section approach approach--light"
-        id="process"
-        aria-labelledby="approach-title"
-      >
-        <div class="container">
-          <p class="eyebrow">Mon approche</p>
-          <h2 id="approach-title" class="section-title">
-            De votre idée à un outil que vous utilisez vraiment
-          </h2>
-          <ol class="approach-steps" role="list">
-            <li class="approach-step">
-              <span class="approach-step__icon"
-                ><i data-lucide="search" aria-hidden="true"></i
-              ></span>
-              <h3>Comprendre votre besoin</h3>
-              <p>
-                Nous définissons vos objectifs, vos utilisateurs et les tâches à simplifier pour
-                concentrer le projet sur ce qui vous sera utile.
-              </p>
-              <span class="approach-step__arrow" aria-hidden="true"
-                ><i data-lucide="arrow-right"></i
-              ></span>
-            </li>
-            <li class="approach-step">
-              <span class="approach-step__icon"
-                ><i data-lucide="layout-template" aria-hidden="true"></i
-              ></span>
-              <h3>Concevoir votre interface</h3>
-              <p>
-                Je prépare la structure et les écrans pour que vous puissiez visualiser votre projet
-                avant son développement.
-              </p>
-              <span class="approach-step__arrow" aria-hidden="true"
-                ><i data-lucide="arrow-right"></i
-              ></span>
-            </li>
-            <li class="approach-step">
-              <span class="approach-step__icon"
-                ><i data-lucide="code-2" aria-hidden="true"></i
-              ></span>
-              <h3>Développer votre solution</h3>
-              <p>
-                Je construis votre site ou application et connecte les fonctionnalités nécessaires à
-                votre activité.
-              </p>
-              <span class="approach-step__arrow" aria-hidden="true"
-                ><i data-lucide="arrow-right"></i
-              ></span>
-            </li>
-            <li class="approach-step">
-              <span class="approach-step__icon"
-                ><i data-lucide="check-check" aria-hidden="true"></i
-              ></span>
-              <h3>Tester et mettre en ligne</h3>
-              <p>
-                Nous vérifions les parcours, les formulaires et l’affichage sur mobile avant la mise
-                en ligne.
-              </p>
-              <span class="approach-step__arrow" aria-hidden="true"
-                ><i data-lucide="arrow-right"></i
-              ></span>
-            </li>
-            <li class="approach-step">
-              <span class="approach-step__icon"
-                ><i data-lucide="refresh-cw" aria-hidden="true"></i
-              ></span>
-              <h3>Faire évoluer votre projet</h3>
-              <p>
-                Je peux vous accompagner dans la maintenance, l’ajout de fonctionnalités et
-                l’automatisation de vos processus.
-              </p>
-            </li>
-          </ol>
-        </div>
-      </section>
-      <section class="section services" id="services" aria-labelledby="services-title">
-        <div class="container">
-          <div class="services-heading">
-            <div>
-              <p class="eyebrow">Ce que je peux créer pour vous</p>
-              <h2 id="services-title" class="section-title">
-                Votre présence en ligne. Vos outils. Vos automatisations.
-              </h2>
+            <div class="v2-panel" role="tabpanel" id="panel-ads" aria-labelledby="tab-ads">
+              <p class="v2-small">Campagne locale optimisée</p>
+              <p><span class="v2-big">-28%</span> <span class="v2-small">de coût par lead</span></p>
+              <div class="v2-bars" aria-hidden="true"><span style="height:92%"></span><span style="height:88%"></span><span style="height:84%"></span><span style="height:86%"></span><span style="height:78%"></span><span style="height:74%"></span><span style="height:70%"></span><span style="height:66%"></span></div>
+              <p class="v2-small" style="margin-top:10px">Coût par lead semaine par semaine (illustration)</p>
             </div>
-          </div>
-          <div class="services-grid">
-            <article class="service-card">
-              <span class="service-card__icon"
-                ><i data-lucide="layout-template" aria-hidden="true"></i
-              ></span>
-              <p class="service-card__tag">Présenter votre activité</p>
-              <h3>Sites &amp; landing pages</h3>
-              <p class="service-card__desc">
-                Une présence en ligne qui explique votre offre, rassure vos visiteurs et facilite la
-                prise de contact.
-              </p>
-              <ul class="service-card__list" role="list">
-                <li>Design adapté à votre identité</li>
-                <li>Navigation claire sur mobile et ordinateur</li>
-                <li>Formulaires et prises de rendez-vous</li>
+            <div class="v2-panel" role="tabpanel" id="panel-landing" aria-labelledby="tab-landing" hidden>
+              <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+                <svg viewBox="0 0 160 160" width="160" height="160" role="img" aria-label="Chargement mobile 1,8 seconde">
+                  <circle cx="80" cy="80" r="64" fill="none" stroke="#EEE8FB" stroke-width="14" />
+                  <circle cx="80" cy="80" r="64" fill="none" stroke="#7C3AED" stroke-width="14" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="88" transform="rotate(-90 80 80)" />
+                  <text x="80" y="84" text-anchor="middle" font-size="30" font-weight="600" fill="#14141A" font-family="Poppins, sans-serif">1,8s</text>
+                  <text x="80" y="106" text-anchor="middle" font-size="11" fill="#6B6B79" font-family="Poppins, sans-serif">mobile</text>
+                </svg>
+                <div style="flex:1 1 180px"><p class="v2-big">+37%</p><p style="color:#5C5C69">de demandes clients après refonte de landing pages.</p></div>
+              </div>
+            </div>
+            <div class="v2-panel" role="tabpanel" id="panel-tracking" aria-labelledby="tab-tracking" hidden>
+              <p><span class="v2-big">100%</span> <span class="v2-small">des conversions suivies</span></p>
+              <ol class="v2-feed" id="v2-feed" aria-live="polite"></ol>
+            </div>
+            <div class="v2-panel" role="tabpanel" id="panel-lab" aria-labelledby="tab-lab" hidden>
+              <p style="font-size:20px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px">Nouveau : testez nos outils sur-mesure.</p>
+              <ul class="v2-feed">
+                <li><a href="/lab/smart-fleet" style="display:flex;width:100%;justify-content:space-between">Smart Fleet <span style="color:#7C3AED">→</span></a></li>
+                <li><a href="/lab/dashboard" style="display:flex;width:100%;justify-content:space-between">Executive Dashboard <span style="color:#7C3AED">→</span></a></li>
+                <li><a href="/lab/blog-seo" style="display:flex;width:100%;justify-content:space-between">Blog &amp; SEO admin <span style="color:#7C3AED">→</span></a></li>
+                <li><a href="/lab/ai-workflow" style="display:flex;width:100%;justify-content:space-between">AI Workflow <span style="color:#7C3AED">→</span></a></li>
+                <li><a href="/lab/configurateur" style="display:flex;width:100%;justify-content:space-between">Configurateur produit <span style="color:#7C3AED">→</span></a></li>
               </ul>
-              <p class="service-card__kpi">Un site qui aide vos visiteurs à passer à l’action.</p>
-              <a
-                class="service-card__link"
-                href="/landing-pages"
-                aria-label="Discuter de mon projet : Sites &amp; landing pages"
-              ></a>
-            </article>
-            <article class="service-card">
-              <span class="service-card__icon"
-                ><i data-lucide="panels-top-left" aria-hidden="true"></i
-              ></span>
-              <p class="service-card__tag">Créer votre outil</p>
-              <h3>Applications web sur mesure</h3>
-              <p class="service-card__desc">
-                Un espace client, un tableau de bord ou un outil métier conçu autour de votre façon
-                de travailler.
-              </p>
-              <ul class="service-card__list" role="list">
-                <li>Écrans adaptés à vos utilisateurs</li>
-                <li>Gestion des données et des accès</li>
-                <li>Connexions avec vos services existants</li>
-              </ul>
-              <p class="service-card__kpi">
-                Un outil pratique qui peut évoluer avec votre activité.
-              </p>
-              <a
-                class="service-card__link"
-                href="/custom-project"
-                aria-label="Discuter de mon projet : Applications web sur mesure"
-              ></a>
-            </article>
-            <article class="service-card">
-              <span class="service-card__icon"
-                ><i data-lucide="workflow" aria-hidden="true"></i
-              ></span>
-              <p class="service-card__tag">Simplifier votre quotidien</p>
-              <h3>Automatisation &amp; IA</h3>
-              <p class="service-card__desc">
-                Reliez vos outils et confiez les tâches répétitives à des automatisations adaptées à
-                vos besoins.
-              </p>
-              <ul class="service-card__list" role="list">
-                <li>Centralisation des demandes clients</li>
-                <li>Notifications et relances</li>
-                <li>Assistance à la rédaction et au traitement de contenus</li>
-              </ul>
-              <p class="service-card__kpi">Moins de manipulations manuelles au quotidien.</p>
-              <a
-                class="service-card__link"
-                href="/custom-project"
-                aria-label="Discuter de mon projet : Automatisation &amp; IA"
-              ></a>
-            </article>
-            <article class="service-card">
-              <span class="service-card__icon"
-                ><i data-lucide="target" aria-hidden="true"></i
-              ></span>
-              <p class="service-card__tag">Attirer des prospects</p>
-              <h3>Google Ads</h3>
-              <p class="service-card__desc">
-                Des campagnes complémentaires à votre site pour toucher les personnes qui
-                recherchent vos services.
-              </p>
-              <ul class="service-card__list" role="list">
-                <li>Création ou reprise de campagnes</li>
-                <li>Annonces et ciblage adaptés</li>
-                <li>Suivi des demandes et ajustements</li>
-              </ul>
-              <p class="service-card__kpi">Des décisions fondées sur les demandes obtenues.</p>
-              <a
-                class="service-card__link"
-                href="/google-ads"
-                aria-label="Discuter de mon projet : Google Ads"
-              ></a>
-            </article>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section offers" id="offres" aria-labelledby="offers-title">
-        <div class="container">
-          <div class="offers-heading">
-            <p class="eyebrow">Trois offres pour démarrer</p>
-            <h2 id="offers-title" class="section-title">
-              Choisissez l’accompagnement adapté à votre besoin
-            </h2>
-          </div>
-          <div class="offers-grid">
-            <article class="offer-card">
-              <p class="offer-card__label">Offre 1</p>
-              <h3>Landing page</h3>
-              <p class="offer-card__benefit">
-                Présenter une offre et faciliter la prise de contact.
-              </p>
-              <ul class="offer-card__list" role="list">
-                <li>Une page dédiée à votre service ou campagne</li>
-                <li>Design sur mesure et affichage adapté aux mobiles</li>
-                <li>Contenus structurés et appels à l’action clairs</li>
-                <li>Formulaire de contact et mesure des demandes</li>
-              </ul>
-              <a class="btn btn-secondary" href="/devis">Discuter de ma landing page</a>
-            </article>
-            <article class="offer-card">
-              <p class="offer-card__label">Offre 2</p>
-              <h3>Google Ads</h3>
-              <p class="offer-card__benefit">
-                Faire connaître vos services auprès des personnes qui les recherchent.
-              </p>
-              <ul class="offer-card__list" role="list">
-                <li>Analyse de votre activité et de vos objectifs</li>
-                <li>Création ou optimisation de vos campagnes</li>
-                <li>Annonces, ciblage et suivi des demandes</li>
-                <li>Ajustements et bilan des performances</li>
-              </ul>
-              <a class="btn btn-secondary" href="/devis">Discuter de mes campagnes</a>
-            </article>
-            <article class="offer-card offer-card--featured">
-              <span class="offer-card__badge">Page + campagnes</span>
-              <p class="offer-card__label">Offre 3</p>
-              <h3>Landing page + Google Ads</h3>
-              <p class="offer-card__benefit">
-                Associer une page dédiée à des campagnes cohérentes avec votre offre.
-              </p>
-              <ul class="offer-card__list" role="list">
-                <li>Création de votre landing page sur mesure</li>
-                <li>Création ou reprise de vos campagnes Google Ads</li>
-                <li>Cohérence entre annonces, page et formulaire</li>
-                <li>Suivi des demandes et optimisations coordonnées</li>
-              </ul>
-              <a class="btn btn-primary" href="/devis">Discuter du pack complet</a>
-            </article>
-          </div>
+      <!-- ===================== BANDEAU CLIENTS (violet) ===================== -->
+      <section class="v2-marquee" aria-label="Ils nous font confiance">
+        <div class="v2-marquee__track">
+          <span>Colourpig</span><span>Galopin Automobile</span><span>Tadara</span><span>Sokhra</span><span>Debarenov</span><span>Crazee Burger</span><span>O'Dog next door</span>
+          <span aria-hidden="true">Colourpig</span><span aria-hidden="true">Galopin Automobile</span><span aria-hidden="true">Tadara</span><span aria-hidden="true">Sokhra</span><span aria-hidden="true">Debarenov</span><span aria-hidden="true">Crazee Burger</span><span aria-hidden="true">O'Dog next door</span>
         </div>
       </section>
-      <section
-        class="section objective-note objective-note--light"
-        id="sur-mesure"
-        aria-labelledby="objective-title"
-      >
-        <div class="container objective-note__inner">
-          <p class="eyebrow">Votre projet sur mesure</p>
-          <h2 id="objective-title">
-            Votre besoin va au-delà d’une landing page ? Créons votre solution.
-          </h2>
-          <p>
-            Site complet, application web, espace client, tableau de bord ou outil métier : je
-            conçois une solution autour de vos utilisateurs et de votre activité.
-          </p>
-          <p>
-            Je développe principalement avec React et TypeScript. Selon votre besoin, je peux
-            connecter vos outils et intégrer des automatisations avec n8n et l’IA pour simplifier
-            vos processus.
-          </p>
-          <p>
-            Nous définissons ensemble les fonctionnalités prioritaires, le périmètre et les étapes
-            de réalisation avant de démarrer.
-          </p>
-          <div class="objective-note__actions">
-            <a class="btn btn-primary" href="/custom-project"
-              >Présenter mon projet sur mesure <i data-lucide="arrow-right" aria-hidden="true"></i
-            ></a>
-          </div>
-        </div>
-      </section>
-      <section class="section projects" id="realisations" aria-labelledby="projects-title">
-        <div class="container">
-          <p class="eyebrow">Réalisations</p>
-          <h2 id="projects-title" class="section-title">
-            Des sites et applications conçus pour des besoins concrets
-          </h2>
-          <div id="projects-list" data-projects-slider>
-            <div class="projects-slider">
-              <article class="project-card">
-                <a
-                  href="https://colourpig-preview.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="./assets/images/projects/hero-coloupig.png"
-                    alt="E-commerce Colourpig Project"
-                    loading="lazy"
-                    width="360"
-                    height="160"
-                  />
-                </a>
-                <div class="project-card__content">
-                  <h3>
-                    <a
-                      href="https://colourpig-preview.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Colourpig — Prototype e-commerce</a
-                    >
-                  </h3>
-                  <p>
-                    Prototype d’interface e-commerce réalisé pour un client australien.
-                    Prévisualisation validée avant l’intégration prévue sur Shopify.
-                  </p>
-                </div>
-              </article>
-              <article class="project-card">
-                <a href="https://galopinautomobile.fr" target="_blank" rel="noopener noreferrer">
-                  <img
-                    src="./assets/images/projects/galopin.webp"
-                    alt="Projet Galopin Automobile"
-                    loading="lazy"
-                    width="360"
-                    height="160"
-                  />
-                </a>
-                <div class="project-card__content">
-                  <h3>Galopin Automobile</h3>
-                  <p>Vente de voiture automobile de luxe et de prestige.</p>
-                </div>
-              </article>
+
+      <!-- ===================== SERVICES (blanc) — id conservé ===================== -->
+      <section class="v2-section v2-light" id="services" aria-labelledby="services-title">
+        <div class="v2-container">
+          <div class="v2-head">
+            <div>
+              <p class="v2-eyebrow">Nos expertises</p>
+              <h2 class="v2-h2" id="services-title">Des services clairs pour développer votre activité</h2>
             </div>
-            <div class="projects-more">
-              <div class="projects-more__inner projects-slider">
-                <article class="project-card">
-                  <a
-                    href="https://tadara-landing-sniopy-sniopys-projects.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="./assets/images/projects/tadara-picture.png"
-                      alt="Projet Tadara"
-                      loading="lazy"
-                      width="360"
-                      height="160"
-                    />
-                  </a>
-                  <div class="project-card__content">
-                    <h3>Tadara</h3>
-                    <p>
-                      Lettre mensuelle qui fait découvrir aux enfants l'héritage de la civilisation
-                      arabo-musulmane.
-                    </p>
-                  </div>
-                </article>
-                <article class="project-card">
-                  <img
-                    src="./assets/images/projects/sokhra-picture.png"
-                    alt="Projet Sokhra"
-                    loading="lazy"
-                    width="360"
-                    height="160"
-                  />
-                  <div class="project-card__content">
-                    <h3>Sokhra</h3>
-                    <p>Application de réservation de livreur au Maroc.</p>
-                  </div>
-                </article>
-                <article class="project-card">
-                  <a href="https://debarenov.fr" target="_blank" rel="noopener noreferrer">
-                    <img
-                      src="./assets/images/projects/debarenov.webp"
-                      alt="Debarenov"
-                      loading="lazy"
-                      width="360"
-                      height="160"
-                    />
-                  </a>
-                  <div class="project-card__content">
-                    <h3>Debarenov</h3>
-                    <p>
-                      Entreprise spécialisée dans le débarras après décès et succession immobilière
-                    </p>
-                  </div>
-                </article>
-                <article class="project-card">
-                  <a
-                    href="https://fluvia-assainissement.fr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="./assets/images/projects/fluvia.webp"
-                      alt="Fluvia assainissement"
-                      loading="lazy"
-                      width="360"
-                      height="160"
-                    />
-                  </a>
-                  <div class="project-card__content">
-                    <h3>Fluvia assainissement</h3>
-                    <p>
-                      Spécialisé dans la mise en conformité des installations de traitement des eaux
-                      usées
-                    </p>
-                  </div>
-                </article>
-                <article class="project-card">
-                  <a
-                    href="https://crazee-burger-eta-nine.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="./assets/images/projects/crazee-burger.webp"
-                      alt="Crazee Burger"
-                      loading="lazy"
-                      width="360"
-                      height="160"
-                    />
-                  </a>
-                  <div class="project-card__content">
-                    <h3>Crazee Burger</h3>
-                    <p>Application web de commande de burgers avec gestion des produits</p>
-                  </div>
-                </article>
-                <article class="project-card">
-                  <a
-                    href="https://odog-next-door-3g90zfg8a-sniopys-projects.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="./assets/images/projects/odog.png"
-                      alt="O'Dog next door"
-                      loading="lazy"
-                      width="360"
-                      height="160"
-                    />
-                  </a>
-                  <div class="project-card__content">
-                    <h3>O'Dog next door - Trouver un petsitter</h3>
-                    <p>
-                      Application web pour mettre en relation propriétaires d’animaux et petsitters
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
+            <p class="v2-lead" style="max-width:340px">Indicateurs observés sur des projets récents, selon secteur et contexte.</p>
           </div>
-          <div class="projects-actions">
-            <button
-              class="btn btn-secondary"
-              type="button"
-              data-projects-toggle
-              aria-expanded="false"
-              aria-controls="projects-list"
-            >
-              Voir tous mes projets
-            </button>
-          </div>
-        </div>
-      </section>
-      <section
-        class="section social-proof social-proof--light"
-        aria-labelledby="social-proof-title"
-      >
-        <div class="container">
-          <div class="social-proof__head">
-            <div class="google-badge" aria-label="Avis Google">
-              <span class="google-badge__g">G</span>
-              <span>Avis Google</span>
-            </div>
-            <h2 id="social-proof-title">Ils font confiance à Madapes pour leurs projets</h2>
-            <p>Leurs retours sur la disponibilité, l’écoute et la qualité de l’accompagnement.</p>
-            <div class="social-proof__rating" aria-label="Note moyenne 5 sur 5">
-              <div class="social-proof__stars" aria-hidden="true">
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-              </div>
-              <span>5.0 sur 5 - avis clients Google</span>
-            </div>
-          </div>
-          <div class="social-proof__marquee" aria-label="Défilement des avis clients">
-            <div class="social-proof__track">
-              <article class="social-review-card">
-                <p>"Service au top, réactif et à l'écoute. Je recommande à 100 %."</p>
-                <h3>Quentin BRIDON</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-              <article class="social-review-card">
-                <p>
-                  "Super expérience avec Madapes Agency ! L'équipe est dispo, pro et donne vraiment
-                  de bonnes idées."
-                </p>
-                <h3>Ismail AISSI</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-              <article class="social-review-card">
-                <p>"Complètement satisfait. Hyper pro et très sérieux, je recommande vivement."</p>
-                <h3>Aiman BOULTOUAK</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-              <article class="social-review-card">
-                <p>"À l'écoute et très pro, je recommande vivement !"</p>
-                <h3>Yassin AMZIL</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-              <article class="social-review-card">
-                <p>"Highly recommended."</p>
-                <h3>Umar Faruque</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-              <article class="social-review-card" aria-hidden="true">
-                <p>"Service au top, réactif et à l'écoute. Je recommande à 100 %."</p>
-                <h3>Quentin BRIDON</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-              <article class="social-review-card" aria-hidden="true">
-                <p>
-                  "Super expérience avec Madapes Agency ! L'équipe est dispo, pro et donne vraiment
-                  de bonnes idées."
-                </p>
-                <h3>Ismail AISSI</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-              <article class="social-review-card" aria-hidden="true">
-                <p>"Complètement satisfait. Hyper pro et très sérieux, je recommande vivement."</p>
-                <h3>Aiman BOULTOUAK</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-              <article class="social-review-card" aria-hidden="true">
-                <p>"À l'écoute et très pro, je recommande vivement !"</p>
-                <h3>Yassin AMZIL</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-              <article class="social-review-card" aria-hidden="true">
-                <p>"Highly recommended."</p>
-                <h3>Umar Faruque</h3>
-                <span>Visité en octobre 2025</span>
-              </article>
-            </div>
-          </div>
-          <div class="social-proof__actions">
-            <a
-              class="btn btn-primary"
-              href="https://www.google.com/search?q=madapes+agency&rlz=1C1FHFK_frMA1179MA1179&oq=madapes+agency&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQIxgnMgoIAhAAGIAEGKIEMgoIAxAAGIAEGKIEMgcIBBAAGO8FMgoIBRAAGIAEGKIEMgYIBhBFGDwyBggHEEUYQdIBCDE1OTVqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Voir tous les avis Google
-              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+          <div class="v2-cols">
+            <a class="v2-col" href="/google-ads">
+              <p class="v2-col__stat">-28%</p><p class="v2-col__statlabel">Coût par lead réduit sur des campagnes locales optimisées.</p>
+              <p class="v2-col__tag">ACQUISITION</p><h3>Google Ads</h3>
+              <p>Des campagnes Google Ads pensées pour attirer des prospects réellement intéressés par vos services.</p>
+              <p class="v2-col__points">Audit du compte · Annonces ciblées · Optimisations régulières</p>
+            </a>
+            <a class="v2-col" href="/landing-pages">
+              <p class="v2-col__stat">+37%</p><p class="v2-col__statlabel">Hausse des demandes clients après refonte de landing pages.</p>
+              <p class="v2-col__tag">CONVERSION</p><h3>Landing Pages</h3>
+              <p>Des pages rapides et claires conçues pour donner envie de vous contacter.</p>
+              <p class="v2-col__points">Structure claire · Textes orientés contact · Expérience fluide mobile/desktop</p>
+            </a>
+            <a class="v2-col" href="/seo">
+              <p class="v2-col__stat">1,8s</p><p class="v2-col__statlabel">Temps de chargement moyen atteint sur les pages clés mobile.</p>
+              <p class="v2-col__tag">VISIBILITÉ</p><h3>SEO</h3>
+              <p>Des bases SEO solides pour améliorer votre visibilité sur Google.</p>
+              <p class="v2-col__points">Optimisation technique · Structure de pages claire · Suivi des positions clés</p>
+            </a>
+            <a class="v2-col" href="/tracking">
+              <p class="v2-col__stat">100%</p><p class="v2-col__statlabel">Conversions suivies avec GTM, GA4 et points de contrôle clairs.</p>
+              <p class="v2-col__tag">MESURE</p><h3>Suivi des performances</h3>
+              <p>Suivez précisément ce qui fonctionne grâce à des outils comme GA4, GTM et Microsoft Clarity.</p>
+              <p class="v2-col__points">Mesure fiable des conversions · Tableaux de bord clairs · Actions utiles identifiées</p>
             </a>
           </div>
         </div>
       </section>
-      <section class="section final-cta" id="contact" aria-labelledby="final-cta-title">
-        <div class="container final-cta__grid">
-          <h2 id="final-cta-title">Une idée, un site à améliorer ou un outil à créer ?</h2>
-          <p>
-            Expliquez-moi votre besoin. Nous définirons les priorités et la solution adaptée à votre
-            projet.
-          </p>
-          <a class="btn btn-primary" href="/custom-project">Parlons de votre projet</a>
+
+      <!-- ===================== MÉTHODE (violet) — id conservé : #process ===================== -->
+      <section class="v2-section v2-violet" id="process" aria-labelledby="approach-title">
+        <div class="v2-container">
+          <div class="v2-head" style="margin-bottom:0">
+            <div>
+              <p class="v2-eyebrow">Notre approche</p>
+              <h2 class="v2-h2" id="approach-title">Une méthode claire pour des résultats concrets</h2>
+            </div>
+            <p style="font-size:14px;color:#E4D9FF">Cliquez sur une étape →</p>
+          </div>
+          <div class="v2-stepper">
+            <div class="v2-stepper__track" aria-hidden="true"></div>
+            <div class="v2-stepper__fill" aria-hidden="true"></div>
+            <div class="v2-stepper__list" role="tablist" aria-label="Étapes de la méthode">
+              <button class="v2-step" role="tab"><span class="v2-step__n">01</span><span class="v2-step__label">Analyse</span></button>
+              <button class="v2-step" role="tab"><span class="v2-step__n">02</span><span class="v2-step__label">Stratégie</span></button>
+              <button class="v2-step" role="tab"><span class="v2-step__n">03</span><span class="v2-step__label">Création</span></button>
+              <button class="v2-step" role="tab"><span class="v2-step__n">04</span><span class="v2-step__label">Tracking &amp; optimisation</span></button>
+              <button class="v2-step" role="tab"><span class="v2-step__n">05</span><span class="v2-step__label">Résultats</span></button>
+            </div>
+          </div>
+          <div class="v2-stepdetail" aria-live="polite">
+            <p class="v2-stepdetail__n" id="v2-step-n">01</p>
+            <div style="flex:1 1 360px"><h3 id="v2-step-title">Analyse</h3><p id="v2-step-text">On étudie votre activité, votre marché et vos objectifs pour construire la bonne stratégie.</p></div>
+          </div>
         </div>
       </section>
-      <section class="section home-faq" aria-labelledby="faq-title">
-        <div class="container">
-          <p class="eyebrow">Questions fréquentes</p>
-          <h2 id="faq-title" class="section-title">Votre projet, en pratique</h2>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary>Quels types de projets pouvez-vous développer ?</summary>
-              <p>
-                Je crée des sites, landing pages et applications web : espaces clients, tableaux de
-                bord, outils métier ou interfaces pour un nouveau service. Je peux aussi faire
-                évoluer une application React / TypeScript existante.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>Dois-je connaître la technique pour lancer mon projet ?</summary>
-              <p>
-                Non. Vous m’expliquez votre activité, vos utilisateurs et votre besoin. Je vous
-                accompagne pour définir les écrans et les fonctionnalités, avec des explications
-                claires à chaque étape.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>Puis-je commander une landing page sans Google Ads ?</summary>
-              <p>
-                Oui. La landing page et Google Ads sont deux offres distinctes. Le pack les réunit
-                si vous souhaitez travailler la page et les campagnes ensemble.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>Pouvez-vous automatiser mes tâches répétitives ?</summary>
-              <p>
-                Oui. Nous identifions les tâches concernées et les outils que vous utilisez, puis
-                définissons les automatisations utiles : centralisation des demandes, notifications,
-                relances ou traitement de contenus. Les usages de l’IA sont étudiés selon votre
-                besoin.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>Quel est le délai de réalisation ?</summary>
-              <p>
-                Le délai dépend du nombre de pages, des fonctionnalités et des contenus disponibles.
-                Un calendrier est défini dans la proposition, avec les étapes de validation.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>Proposez-vous un accompagnement après la mise en ligne ?</summary>
-              <p>
-                Oui. Selon le projet, je peux proposer de la maintenance, des évolutions ou un suivi
-                des campagnes. Le contenu de cet accompagnement est défini ensemble.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>Comment obtenir une proposition personnalisée ?</summary>
-              <p>
-                Présentez votre projet via le formulaire de contact : votre activité, votre objectif
-                et vos besoins prioritaires. Nous échangeons ensuite pour préciser le périmètre et
-                vous proposer un accompagnement adapté.
-              </p>
-            </details>
+
+      <!-- ===================== LAB (noir) — id conservé : #sur-mesure ===================== -->
+      <section class="v2-section v2-dark" id="sur-mesure" aria-labelledby="lab-title">
+        <div class="v2-container">
+          <p class="v2-eyebrow">Nouveau · Le Lab</p>
+          <div class="v2-head" style="margin-bottom:0">
+            <h2 class="v2-h2" id="lab-title" style="font-size:clamp(40px,5.6vw,80px);max-width:760px">Ne nous croyez pas sur parole. <span class="v2-gradient-text">Testez.</span></h2>
+            <p class="v2-lead" style="max-width:360px">Cinq outils sur-mesure jouables en direct. Données simulées, aucune inscription.</p>
+          </div>
+          <div class="v2-rows">
+            <a class="v2-row" href="/lab/smart-fleet"><span class="v2-row__n">01</span><span class="v2-row__t">Smart Fleet</span><span class="v2-row__d">Votre flotte en temps réel : statuts, pannes, alertes.</span><span class="v2-row__a" aria-hidden="true">→</span></a>
+            <a class="v2-row" href="/lab/dashboard"><span class="v2-row__n">02</span><span class="v2-row__t">Executive Dashboard</span><span class="v2-row__d">Revenus, conversion et churn en un écran.</span><span class="v2-row__a" aria-hidden="true">→</span></a>
+            <a class="v2-row" href="/lab/blog-seo"><span class="v2-row__n">02b</span><span class="v2-row__t">Blog &amp; SEO admin</span><span class="v2-row__d">Score SEO en direct pendant que vous écrivez.</span><span class="v2-row__a" aria-hidden="true">→</span></a>
+            <a class="v2-row" href="/lab/ai-workflow"><span class="v2-row__n">03</span><span class="v2-row__t">AI Workflow</span><span class="v2-row__d">Formulaire, IA, CRM, Slack : tout s'enchaîne seul.</span><span class="v2-row__a" aria-hidden="true">→</span></a>
+            <a class="v2-row" href="/lab/configurateur"><span class="v2-row__n">04</span><span class="v2-row__t">Configurateur produit</span><span class="v2-row__d">Couleurs, options, prix recalculé en direct.</span><span class="v2-row__a" aria-hidden="true">→</span></a>
+          </div>
+          <p style="margin-top:32px"><a class="v2-link" href="/lab">Ouvrir le Lab →</a> &nbsp;&nbsp; <a class="v2-link" href="/custom-project">Projet sur-mesure →</a></p>
+        </div>
+      </section>
+
+      <!-- ===================== RÉALISATIONS (gris foncé) — ids conservés ===================== -->
+      <section class="v2-section v2-dark-2" id="realisations" aria-labelledby="projects-title">
+        <div class="v2-container">
+          <div class="v2-head" style="margin-bottom:36px">
+            <div>
+              <p class="v2-eyebrow">Réalisations</p>
+              <h2 class="v2-h2" id="projects-title">Des projets qui parlent de résultats</h2>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center">
+              <span id="v2-proj-pos" style="font-size:14px;color:#B0B0B0;margin-right:6px">01 / 09</span>
+              <button class="v2-round" id="v2-proj-prev" aria-label="Projet précédent">←</button>
+              <button class="v2-round v2-round--fill" id="v2-proj-next" aria-label="Projet suivant">→</button>
+            </div>
+          </div>
+          <div class="v2-proj" id="projects-list" aria-live="polite"></div>
+          <p style="margin-top:28px"><a class="v2-link" href="/realisations">Voir tous nos projets →</a></p>
+        </div>
+      </section>
+
+      <!-- ===================== OFFRES (blanc) — ids conservés ===================== -->
+      <section class="v2-section v2-light" id="offres" aria-labelledby="offers-title">
+        <div class="v2-container">
+          <div class="v2-head">
+            <div>
+              <p class="v2-eyebrow">Nos offres</p>
+              <h2 class="v2-h2" id="offers-title">Des offres adaptées à vos objectifs</h2>
+            </div>
+            <div class="v2-plantabs" role="tablist" aria-label="Choisir une offre">
+              <button class="v2-plantab" role="tab" data-plan="starter" aria-selected="false">Starter</button>
+              <button class="v2-plantab" role="tab" data-plan="growth" aria-selected="true">Growth</button>
+              <button class="v2-plantab" role="tab" data-plan="performance" aria-selected="false">Performance</button>
+            </div>
+          </div>
+          <div class="v2-plan" aria-live="polite">
+            <div style="flex:1 1 340px">
+              <p id="v2-plan-badge" style="font-size:13px;letter-spacing:.16em;color:#7C3AED">GROWTH · LE PLUS POPULAIRE</p>
+              <p class="v2-plan__price" id="v2-plan-price">1 990 €</p>
+              <p id="v2-plan-sub" style="margin-top:10px;color:#5C5C69;font-size:17px">+ 400 €/mois (3 mois minimum)</p>
+              <a class="v2-btn v2-btn--primary" id="v2-plan-cta" href="/growth" style="margin-top:28px">Voir le Growth →</a>
+            </div>
+            <div style="flex:1.3 1 420px">
+              <p id="v2-plan-desc" style="font-size:20px;font-weight:500;margin-bottom:10px">Landing page + Google Ads + suivi des performances.</p>
+              <ul class="v2-plan__list" id="v2-plan-list"></ul>
+              <p id="v2-plan-note" style="margin-top:14px;font-size:13.5px;color:#6B6B79">Budget publicitaire non inclus.</p>
+            </div>
+          </div>
+          <p style="margin-top:32px"><a class="v2-link" href="/offres" style="color:#14141A">Comparer toutes les offres →</a></p>
+        </div>
+      </section>
+
+      <!-- ===================== OBJECTIF (noir) ===================== -->
+      <section class="v2-section v2-dark" aria-labelledby="objective-title" style="padding-top:96px;padding-bottom:96px">
+        <div class="v2-container">
+          <p class="v2-eyebrow">Notre objectif</p>
+          <h2 class="v2-h2" id="objective-title" style="font-weight:500;max-width:1100px">Avoir un site, c’est bien. <span style="color:#8E8E9A">Qu’il vous ramène des clients, c’est mieux.</span></h2>
+          <p class="v2-lead" style="margin-top:28px;max-width:640px">Chaque page est pensée pour convertir : vitesse, clarté du message, parcours utilisateur et appels à l’action alignés sur vos objectifs business.</p>
+        </div>
+      </section>
+
+      <!-- ===================== AVIS (lilas clair) ===================== -->
+      <section class="v2-section v2-lilac" aria-labelledby="social-proof-title">
+        <div class="v2-container">
+          <div class="v2-head" style="margin-bottom:40px">
+            <div>
+              <p class="v2-eyebrow">Avis Google · 5.0 sur 5</p>
+              <h2 class="v2-h2" id="social-proof-title" style="font-size:clamp(28px,3vw,40px)">Ils nous font confiance pour développer leur activité</h2>
+            </div>
+            <div style="display:flex;gap:10px">
+              <button class="v2-round" id="v2-review-prev" aria-label="Avis précédent">←</button>
+              <button class="v2-round v2-round--fill" id="v2-review-next" aria-label="Avis suivant">→</button>
+            </div>
+          </div>
+          <figure aria-live="polite">
+            <blockquote class="v2-quote" id="v2-review-text">“Service au top, réactif et à l'écoute. Je recommande à 100 %.”</blockquote>
+            <figcaption style="margin-top:36px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline">
+              <b id="v2-review-name" style="font-size:18px">Quentin BRIDON</b><span style="color:#5C5C69">Visité en octobre 2025</span>
+              <span id="v2-review-pos" style="margin-left:auto;color:#5C5C69">01 / 05</span>
+            </figcaption>
+          </figure>
+          <p style="margin-top:40px"><a class="v2-link" style="color:#7C3AED" href="https://www.google.com/search?q=madapes+agency" target="_blank" rel="noopener">Voir tous les avis Google →</a></p>
+        </div>
+      </section>
+
+      <!-- ===================== FAQ + CTA (noir) — ids conservés ===================== -->
+      <section class="v2-section v2-dark" id="contact" aria-labelledby="final-cta-title">
+        <div class="v2-container" style="display:flex;flex-wrap:wrap;gap:56px">
+          <div style="flex:1 1 340px">
+            <p class="v2-eyebrow">Questions fréquentes</p>
+            <h2 class="v2-h2" id="final-cta-title" style="font-size:clamp(34px,4vw,52px)">Prêt à développer votre activité en ligne ?</h2>
+            <p class="v2-lead" style="margin-top:18px">Discutons de votre projet et trouvons la meilleure solution pour atteindre vos objectifs.</p>
+            <div class="v2-hero__ctas"><a class="v2-btn v2-btn--primary" href="/devis">Demander un devis gratuit</a><a class="v2-link" href="/contact">Nous contacter →</a></div>
+          </div>
+          <div style="flex:1.3 1 440px">
+            <h3 id="faq-title" class="v2-sr">FAQ</h3>
+            <div class="v2-faq">
+              <div class="v2-faq__item"><button class="v2-faq__q" aria-expanded="true" aria-controls="faq-1"><span>En combien de temps un projet peut-il être lancé ?</span><span aria-hidden="true">−</span></button><p class="v2-faq__a" id="faq-1">En général, un projet simple peut être prêt en 1 à 3 semaines selon le périmètre, les validations et les contenus fournis.</p></div>
+              <div class="v2-faq__item"><button class="v2-faq__q" aria-expanded="false" aria-controls="faq-2"><span>Travaillez-vous uniquement avec Google Ads ?</span><span aria-hidden="true">+</span></button><p class="v2-faq__a" id="faq-2" hidden>Non. Nous accompagnons aussi la création de site, les landing pages, le SEO et le suivi de performance pour un écosystème complet.</p></div>
+              <div class="v2-faq__item"><button class="v2-faq__q" aria-expanded="false" aria-controls="faq-3"><span>Proposez-vous un suivi après la mise en ligne ?</span><span aria-hidden="true">+</span></button><p class="v2-faq__a" id="faq-3" hidden>Oui. Nous proposons un suivi mensuel avec optimisation continue, reporting et ajustements selon les résultats obtenus.</p></div>
+              <div class="v2-faq__item"><button class="v2-faq__q" aria-expanded="false" aria-controls="faq-4"><span>Est-ce que vous pouvez reprendre un site existant ?</span><span aria-hidden="true">+</span></button><p class="v2-faq__a" id="faq-4" hidden>Oui, nous pouvons auditer et améliorer un site existant (performance, UX, conversion, tracking et SEO technique).</p></div>
+              <div class="v2-faq__item"><button class="v2-faq__q" aria-expanded="false" aria-controls="faq-5"><span>Comment demander un devis personnalisé ?</span><span aria-hidden="true">+</span></button><p class="v2-faq__a" id="faq-5" hidden>Vous pouvez remplir le formulaire de devis en ligne. Nous revenons vers vous rapidement avec une proposition claire et adaptée à votre objectif.</p></div>
+            </div>
           </div>
         </div>
       </section>
     </main>
+
     <div data-site-footer></div>
     <script defer src="https://unpkg.com/lucide@latest"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -739,5 +326,8 @@
     <script defer src="/assets/js/modules/cookie-banner.js"></script>
     <script defer src="./assets/js/modules/theme.js"></script>
     <script defer src="./assets/js/main.js"></script>
+    <!-- V2 -->
+    <script defer src="/assets/js/v2/core.js"></script>
+    <script defer src="/assets/js/v2/home.js"></script>
   </body>
 </html>

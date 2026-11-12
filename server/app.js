@@ -29,6 +29,12 @@ const SLUG_ROUTES = {
   "/mentions-legales": "/pages/mentions-legales.html",
   "/politique-confidentialite": "/pages/politique-confidentialite.html",
   "/gestion-cookies": "/pages/gestion-cookies.html",
+  "/lab": "/pages/lab.html",
+  "/lab/smart-fleet": "/pages/lab-smart-fleet.html",
+  "/lab/dashboard": "/pages/lab-dashboard.html",
+  "/lab/blog-seo": "/pages/lab-blog-seo.html",
+  "/lab/ai-workflow": "/pages/lab-ai-workflow.html",
+  "/lab/configurateur": "/pages/lab-configurateur.html",
   "/en/services": "/pages/en/services.html",
   "/en/tracking": "/pages/en/tracking.html",
   "/en/offers": "/pages/en/offers.html",
@@ -70,6 +76,12 @@ const LEGACY_ROUTES = {
   "/pages/mentions-legales.html": "/mentions-legales",
   "/pages/politique-confidentialite.html": "/politique-confidentialite",
   "/pages/gestion-cookies.html": "/gestion-cookies",
+  "/pages/lab.html": "/lab",
+  "/pages/lab-smart-fleet.html": "/lab/smart-fleet",
+  "/pages/lab-dashboard.html": "/lab/dashboard",
+  "/pages/lab-blog-seo.html": "/lab/blog-seo",
+  "/pages/lab-ai-workflow.html": "/lab/ai-workflow",
+  "/pages/lab-configurateur.html": "/lab/configurateur",
 };
 
 const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS || "")

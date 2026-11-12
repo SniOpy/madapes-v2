@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
@@ -10,59 +10,122 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://*.clarity.ms https://www.clarity.ms https://unpkg.com https://cdn.jsdelivr.net https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://unpkg.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://googleads.g.doubleclick.net https://*.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://*.google.com https://pagead2.googlesyndication.com https://*.clarity.ms https://c.bing.com https://calendly.com https://assets.calendly.com; frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://*.doubleclick.net https://www.google.com https://*.google.com https://calendly.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
-
     <!-- Google Consent Mode v2 : DOIT etre charge avant Google Tag Manager -->
     <script src="/assets/js/modules/consent-mode.js"></script>
-    <meta
-      name="description"
-      content="Réalisations Madapes Agency : découvrez des projets concrets orientés visibilité, conversion et performance."
-    />
+    <meta name="description" content="Réalisations Madapes Agency : découvrez des projets concrets orientés visibilité, conversion et performance." />
     <title>Réalisations | Madapes Agency</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-    />
-    <link rel="stylesheet" href="../assets/css/variables.css" />
-    <script src="../assets/js/modules/theme-init.js"></script>
-    <link rel="stylesheet" href="../assets/css/base.css" />
-    <link rel="stylesheet" href="../assets/css/layout.css" />
-    <link rel="stylesheet" href="../assets/css/components.css" />
-    <link rel="stylesheet" href="../assets/css/sections.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/assets/css/variables.css" />
+    <script src="/assets/js/modules/theme-init.js"></script>
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/sections.css" />
     <link rel="stylesheet" href="/assets/css/theme-overrides.css" />
     <link rel="stylesheet" href="/assets/css/cookie-banner.css" />
+    <link rel="stylesheet" href="/assets/css/v2.css" />
   </head>
-  <body data-path-prefix="../">
-
+  <body data-path-prefix="/">
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBMVWX4M"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBMVWX4M" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div data-site-header></div>
-    <main class="site-main">
-      <section class="section hero" aria-labelledby="realisations-title">
-        <div class="container hero__grid">
-          <div class="hero__content">
-            <p class="eyebrow">Réalisations</p>
-            <h1 class="hero__title" id="realisations-title">Des projets concrets, pensés pour <strong>des résultats.</strong></h1>
-            <p class="hero__lead">
-              Cette page arrive bientôt avec une sélection de réalisations et de résultats clients.
-            </p>
-            <div class="hero-buttons">
-              <a class="btn btn-primary" href="/devis">Demander un devis</a>
-              <a class="btn btn-secondary" href="/contact">Parler de votre projet</a>
+    <main class="site-main v2">
+      <section class="v2-hero v2-glow" aria-labelledby="realisations-title" style="padding-bottom:72px">
+        <div class="v2-container">
+          <p class="v2-eyebrow">Réalisations</p>
+          <h1 id="realisations-title" style="max-width:900px">Des projets concrets, pensés pour <span class="v2-gradient-text">des résultats.</span></h1>
+          <p class="v2-hero__sub">Landing pages, e-commerce, applications : filtrez par type pour trouver un projet proche du vôtre.</p>
+          <div class="v2-hero__ctas"><a class="v2-btn v2-btn--primary" href="/devis">Demander un devis</a><a class="v2-link" href="/contact">Parler de votre projet →</a></div>
+        </div>
+      </section>
+      <section class="v2-section v2-lilac" aria-label="Projets" style="padding-top:64px">
+        <div class="v2-container">
+          <div class="v2-filters" role="toolbar" aria-label="Filtrer par type de projet"><button type="button" class="v2-filter" data-filter="all" aria-pressed="true">Tous<span>7</span></button><button type="button" class="v2-filter" data-filter="site" aria-pressed="false">Site vitrine<span>2</span></button><button type="button" class="v2-filter" data-filter="landing" aria-pressed="false">Landing page<span>1</span></button><button type="button" class="v2-filter" data-filter="ecommerce" aria-pressed="false">E-commerce<span>1</span></button><button type="button" class="v2-filter" data-filter="app" aria-pressed="false">Application<span>3</span></button></div>
+          <div class="v2-pgrid">
+          <a class="v2-pcard" data-type="ecommerce" href="https://colourpig-preview.vercel.app/" target="_blank" rel="noopener">
+            <img src="/assets/images/projects/hero-coloupig.png" alt="Capture du site Colourpig - Landing page" loading="lazy" width="800" height="500" />
+            <div class="v2-pcard__body">
+              <div class="v2-pcard__tags"><span>Landing page · E-commerce</span><span>Beauté</span></div>
+              <h2>Colourpig - Landing page</h2>
+              <p>Intégration Shopify Hydrogen pour une boutique e-commerce monoproduit de coloration capillaire.</p>
+              <span class="v2-pcard__go">Voir le site ↗</span>
             </div>
+          </a>
+          <a class="v2-pcard" data-type="site" href="https://galopinautomobile.fr" target="_blank" rel="noopener">
+            <img src="/assets/images/projects/galopin.webp" alt="Capture du site Galopin Automobile" loading="lazy" width="800" height="500" />
+            <div class="v2-pcard__body">
+              <div class="v2-pcard__tags"><span>Site vitrine</span><span>Automobile</span></div>
+              <h2>Galopin Automobile</h2>
+              <p>Vente de voiture automobile de luxe et de prestige.</p>
+              <span class="v2-pcard__go">Voir le site ↗</span>
+            </div>
+          </a>
+          <a class="v2-pcard" data-type="landing" href="https://tadara-landing-sniopy-sniopys-projects.vercel.app/" target="_blank" rel="noopener">
+            <img src="/assets/images/projects/tadara-picture.png" alt="Capture du site Tadara" loading="lazy" width="800" height="500" />
+            <div class="v2-pcard__body">
+              <div class="v2-pcard__tags"><span>Landing page</span><span>Éducation</span></div>
+              <h2>Tadara</h2>
+              <p>Lettre mensuelle qui fait découvrir aux enfants l&#x27;héritage de la civilisation arabo-musulmane.</p>
+              <span class="v2-pcard__go">Voir le site ↗</span>
+            </div>
+          </a>
+          <article class="v2-pcard" data-type="app">
+            <img src="/assets/images/projects/sokhra-picture.png" alt="Capture du site Sokhra" loading="lazy" width="800" height="500" />
+            <div class="v2-pcard__body">
+              <div class="v2-pcard__tags"><span>Application</span><span>Logistique</span></div>
+              <h2>Sokhra</h2>
+              <p>Application de réservation de livreur au Maroc.</p>
+              
+            </div>
+          </article>
+          <a class="v2-pcard" data-type="site" href="https://debarenov.fr" target="_blank" rel="noopener">
+            <img src="/assets/images/projects/debarenov.webp" alt="Capture du site Debarenov" loading="lazy" width="800" height="500" />
+            <div class="v2-pcard__body">
+              <div class="v2-pcard__tags"><span>Site vitrine</span><span>Services</span></div>
+              <h2>Debarenov</h2>
+              <p>Entreprise spécialisée dans le débarras après décès et succession immobilière.</p>
+              <span class="v2-pcard__go">Voir le site ↗</span>
+            </div>
+          </a>
+          <a class="v2-pcard" data-type="app" href="https://crazee-burger-eta-nine.vercel.app" target="_blank" rel="noopener">
+            <img src="/assets/images/projects/crazee-burger.webp" alt="Capture du site Crazee Burger" loading="lazy" width="800" height="500" />
+            <div class="v2-pcard__body">
+              <div class="v2-pcard__tags"><span>Application</span><span>Restauration</span></div>
+              <h2>Crazee Burger</h2>
+              <p>Application mobile pour la livraison de burgers.</p>
+              <span class="v2-pcard__go">Voir le site ↗</span>
+            </div>
+          </a>
+          <a class="v2-pcard" data-type="app" href="https://odog-next-door-3g90zfg8a-sniopys-projects.vercel.app/" target="_blank" rel="noopener">
+            <img src="/assets/images/projects/odog.png" alt="Capture du site O&#x27;Dog next door - Trouver un petsitter" loading="lazy" width="800" height="500" />
+            <div class="v2-pcard__body">
+              <div class="v2-pcard__tags"><span>Application</span><span>Animaux</span></div>
+              <h2>O&#x27;Dog next door - Trouver un petsitter</h2>
+              <p>Application mobile pour trouver un petsitter à proximité de chez soi.</p>
+              <span class="v2-pcard__go">Voir le site ↗</span>
+            </div>
+          </a>
           </div>
+        </div>
+      </section>
+      <section class="v2-cta-band v2-violet" aria-label="Demander un devis">
+        <div class="v2-cta-band__in">
+          <p>Un projet proche du vôtre ? On en parle 30 minutes.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px"><a class="v2-btn v2-btn--white" href="/devis">Demander un devis</a><a class="v2-btn v2-btn--ghost" href="/lab" style="color:#fff">Tester nos démos</a></div>
         </div>
       </section>
     </main>
     <div data-site-footer></div>
     <script defer src="https://unpkg.com/lucide@latest"></script>
-    <script defer src="../assets/js/modules/security.js"></script>
+    <script defer src="/assets/js/modules/security.js"></script>
     <script defer src="/assets/js/modules/cookie-banner.js"></script>
-    <script defer src="../assets/js/modules/theme.js"></script>
-    <script defer src="../assets/js/main.js"></script>
+    <script defer src="/assets/js/modules/theme.js"></script>
+    <script defer src="/assets/js/main.js"></script>
+    <!-- V2 -->
+    <script defer src="/assets/js/v2/core.js"></script>
+    <script defer src="/assets/js/v2/realisations.js"></script>
   </body>
 </html>

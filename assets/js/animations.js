@@ -25,21 +25,24 @@ window.MadapesAnimations = {
 
     if (!prefersReducedMotion) {
       const introTimeline = window.gsap.timeline({ defaults: { ease: "power2.out" } });
+      const heroLead = document.querySelector(
+        ".hero__lead, .seo-hero__lead, .tracking-hero__lead, .offres-hero__lead, .starter-hero__lead, .ga-hero__lead, .contact-hero__lead, .devis-hero__lead, .landing-page .lp-hero__lead"
+      );
+      const heroVisual = document.querySelector(".hero-laptop, .tracking-hero-card, .offres-hero-card");
 
-      introTimeline
-        .from(".site-header", { y: -24, opacity: 0, duration: 0.32 })
-        .from(heroTitles, { y: 12, opacity: 0, duration: 0.44, stagger: 0.06 }, "-=0.08")
-        .from(
-          ".hero__lead, .seo-hero__lead, .tracking-hero__lead, .offres-hero__lead, .starter-hero__lead, .ga-hero__lead, .contact-hero__lead, .devis-hero__lead, .landing-page .lp-hero__lead",
-          { y: 12, opacity: 0, duration: 0.38 },
-          "-=0.2"
-        )
-        .from(heroButtons, { y: 10, opacity: 0, duration: 0.34 }, "-=0.18")
-        .from(
-          ".hero-laptop, .tracking-hero-card, .offres-hero-card",
-          { y: 14, opacity: 0, duration: 0.4 },
-          "-=0.2"
-        );
+      introTimeline.from(".site-header", { y: -24, opacity: 0, duration: 0.32 });
+      if (heroTitles.length) {
+        introTimeline.from(heroTitles, { y: 12, opacity: 0, duration: 0.44, stagger: 0.06 }, "-=0.08");
+      }
+      if (heroLead) {
+        introTimeline.from(heroLead, { y: 12, opacity: 0, duration: 0.38 }, "-=0.2");
+      }
+      if (heroButtons) {
+        introTimeline.from(heroButtons, { y: 10, opacity: 0, duration: 0.34 }, "-=0.18");
+      }
+      if (heroVisual) {
+        introTimeline.from(heroVisual, { y: 14, opacity: 0, duration: 0.4 }, "-=0.2");
+      }
 
       if (document.querySelector(".landing-page")) {
         introTimeline

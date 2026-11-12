@@ -70,6 +70,12 @@
       "source": "/gestion-cookies",
       "destination": "/pages/gestion-cookies"
     },
+    { "source": "/lab", "destination": "/pages/lab" },
+    { "source": "/lab/smart-fleet", "destination": "/pages/lab-smart-fleet" },
+    { "source": "/lab/dashboard", "destination": "/pages/lab-dashboard" },
+    { "source": "/lab/blog-seo", "destination": "/pages/lab-blog-seo" },
+    { "source": "/lab/ai-workflow", "destination": "/pages/lab-ai-workflow" },
+    { "source": "/lab/configurateur", "destination": "/pages/lab-configurateur" },
     { "source": "/en", "destination": "/en/index" },
     { "source": "/en/services", "destination": "/pages/en/services" },
     { "source": "/en/tracking", "destination": "/pages/en/tracking" },

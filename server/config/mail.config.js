@@ -41,7 +41,8 @@ const parseNetworkFamily = (value, fallback) => {
 
 const ensureMailEnvironment = () => {
   const mailUser = String(process.env.MAIL_USER ?? "").trim();
-  const mailPassword = String(process.env.MAIL_PASSWORD ?? "").trim();
+  // Gmail affiche le mot de passe d'application en groupes séparés par des espaces.
+  const mailPassword = String(process.env.MAIL_PASSWORD ?? "").replace(/\s+/g, "");
 
   if (!mailUser || !mailPassword) {
     throw new Error(

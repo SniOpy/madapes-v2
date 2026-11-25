@@ -38,6 +38,14 @@
   padding-bottom: 4px;
 }
 
+/* Liens et bouton « Services » : même boîte, même ligne de base */
+.site-nav__list > li > a,
+.site-nav__dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  line-height: 20px;
+}
+
 .site-nav__list a:hover {
   color: var(--color-text);
   border-color: var(--color-accent-glow);

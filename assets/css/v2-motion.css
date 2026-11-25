@@ -1,0 +1,169 @@
+/* ==========================================================================
+   Madapes V2 — couche « motion » de l'accueil
+   Chargée après v2.css. Tout ce qui cache du contenu est conditionné à
+   html.v2-motion (ajoutée par motion-init.js seulement si reduced-motion = non).
+   ========================================================================== */
+
+:root {
+  --v2-ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* expo.out */
+  --v2-ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ---------- Smooth scroll (Lenis) ---------- */
+html.lenis, html.lenis body { height: auto; }
+html.lenis { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ---------- Barre de progression de lecture ---------- */
+.v2-progressbar {
+  position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 1000;
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #d7bdff);
+  transform-origin: 0 50%; transform: scaleX(0); pointer-events: none;
+}
+
+/* ---------- Anti-flash : hero masqué jusqu'à ce que GSAP prenne la main ---------- */
+html.v2-motion:not(.v2-motion-ready) .v2-hero__grid,
+html.v2-motion:not(.v2-motion-ready) .v2-badge,
+html.v2-motion:not(.v2-motion-ready) .v2-scrollcue { visibility: hidden; }
+
+/* ---------- Mots masqués (révélation par le bas) ---------- */
+.v2-w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.v2-wi { display: inline-block; will-change: transform; }
+/* Le dégradé est porté par chaque mot (background-clip ne traverse pas les enfants transformés) */
+.v2-motion .v2-gradient-text:has(.v2-wi) { background: none; color: inherit; }
+.v2-gradient-text .v2-wi {
+  background: linear-gradient(110deg, #7c3aed 0%, #a855f7 30%, #d7bdff 50%, #a855f7 70%, #7c3aed 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: v2-shimmer 6s var(--v2-ease-inout) infinite;
+}
+@keyframes v2-shimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+/* Mots « scrubés » au scroll (section objectif) */
+.v2-sw { display: inline; }
+
+/* ---------- Eyebrow : le trait se dessine ---------- */
+.v2-motion .v2-eyebrow::before { transform-origin: 0 50%; transform: scaleX(var(--eb, 1)); }
+
+/* ---------- Hero ---------- */
+.v2-hero { isolation: isolate; }
+.v2-spot {
+  position: absolute; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px;
+  border-radius: 50%; pointer-events: none; z-index: 0; opacity: 0;
+  background: radial-gradient(closest-side, rgba(168, 85, 247, 0.22), rgba(168, 85, 247, 0));
+  transition: opacity 0.6s ease;
+}
+.v2-hero:hover .v2-spot { opacity: 1; }
+.v2-hero__grid { z-index: 1; }
+.v2-hero__grid { perspective: 1400px; }
+.v2-console { transform-style: preserve-3d; will-change: transform; }
+.v2-console .v2-bars span { transform-origin: 50% 100%; }
+.v2-hero__proof .v2-pi { display: inline-block; }
+/* grain discret pour la profondeur */
+.v2-hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Onglets de la console : indicateur glissant */
+.v2-tabs { position: relative; }
+.v2-tabs__ink { position: absolute; bottom: -1px; left: 0; height: 2px; width: 0; background: var(--v2-primary); border-radius: 2px; pointer-events: none; }
+.v2-motion .v2-tabs .v2-tab[aria-selected="true"] { border-bottom-color: transparent; }
+.v2-tab { transition: color 0.3s ease; }
+
+/* ---------- Boutons : magnétiques + reflet ---------- */
+.v2-btn--primary { position: relative; overflow: hidden; isolation: isolate; }
+.v2-btn--primary::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%); transition: transform 0.9s var(--v2-ease-out);
+}
+.v2-btn--primary:hover::after { transform: translateX(120%); }
+.v2-btn--primary:hover { box-shadow: 0 0 34px rgba(124, 58, 237, 0.6); }
+.v2-magnetic { will-change: transform; }
+.v2-link { background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; transition: background-size 0.45s var(--v2-ease-out); }
+.v2-link:hover { background-size: 100% 2px; }
+.v2-round { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+.v2-dark-2 .v2-round:not(.v2-round--fill):hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
+.v2-lilac .v2-round:not(.v2-round--fill):hover { background: #14141a; color: #fff; border-color: #14141a; }
+
+/* ---------- Bandeau : vitesse liée au scroll ---------- */
+.v2-motion .v2-marquee__track { animation: none; }
+.v2-marquee__track span { display: inline-block; }
+
+/* ---------- Services : trait vertical qui se dessine ---------- */
+.v2-motion .v2-col { position: relative; border-left-color: transparent; }
+.v2-motion .v2-col::before {
+  content: ""; position: absolute; left: -2px; top: 0; bottom: 0; width: 2px; background: #e5e7eb;
+  transform-origin: 50% 0; transform: scaleY(var(--line, 1));
+}
+.v2-motion .v2-col:first-child::before { background: var(--v2-primary); }
+.v2-col { transition: transform 0.5s var(--v2-ease-out); }
+.v2-col__stat { font-variant-numeric: tabular-nums; }
+.v2-col h3 { transition: color 0.3s ease; }
+.v2-col:hover h3 { color: var(--v2-primary); }
+@media (hover: hover) { .v2-col:hover { transform: translateY(-6px); } }
+
+/* ---------- Méthode ---------- */
+.v2-stepper__fill { transition: width 0.6s var(--v2-ease-out); }
+.v2-step__n { transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, transform 0.4s var(--v2-ease-out), box-shadow 0.4s ease; }
+.v2-step[aria-selected="true"] .v2-step__n { transform: scale(1.14); box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.14); }
+.v2-stepdetail__n { overflow: hidden; display: inline-block; }
+.v2-stepdetail__n > span { display: inline-block; }
+.v2-pinhint { font-size: 13px; color: #e4d9ff; margin-top: 28px; opacity: 0.8; display: none; }
+.v2-is-pinned .v2-pinhint { display: block; }
+
+/* ---------- Lab : balayage au survol + curseur « Tester » ---------- */
+.v2-row { position: relative; isolation: isolate; }
+.v2-row::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.22), rgba(124, 58, 237, 0.04));
+  transform: scaleX(0); transform-origin: 100% 50%; transition: transform 0.6s var(--v2-ease-out);
+}
+.v2-row:hover::before { transform: scaleX(1); transform-origin: 0 50%; }
+.v2-motion .v2-row:hover { background: transparent; }
+.v2-row__a { display: inline-block; transition: transform 0.5s var(--v2-ease-out); }
+.v2-row:hover .v2-row__a { transform: translateX(6px) rotate(-45deg); }
+.v2-row__t { transition: transform 0.5s var(--v2-ease-out); }
+.v2-row:hover .v2-row__t { transform: translateX(8px); }
+.v2-cursor {
+  position: fixed; left: 0; top: 0; z-index: 900; pointer-events: none;
+  width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: #fff;
+  background: linear-gradient(135deg, #7c3aed, #a855f7); box-shadow: 0 10px 40px rgba(124, 58, 237, 0.55);
+  transform: scale(0); opacity: 0;
+}
+@media (hover: hover) and (pointer: fine) { .v2-cursor-on .v2-row { cursor: none; } }
+
+/* ---------- Réalisations ---------- */
+.v2-proj__img { position: relative; }
+.v2-proj__img img { will-change: transform; }
+.v2-proj__main .v2-proj__img::after {
+  content: "Voir le projet ↗"; position: absolute; left: 20px; bottom: 20px; padding: 10px 16px; border-radius: 999px;
+  background: rgba(11, 11, 13, 0.7); backdrop-filter: blur(8px); color: #fff; font-size: 14px; font-weight: 500;
+  transform: translateY(12px); opacity: 0; transition: transform 0.5s var(--v2-ease-out), opacity 0.4s ease;
+}
+.v2-proj__main:hover .v2-proj__img::after, .v2-proj__main:focus-visible .v2-proj__img::after { transform: none; opacity: 1; }
+
+/* ---------- Offres : onglet glissant ---------- */
+.v2-plantabs { position: relative; }
+.v2-plantabs__ink { position: absolute; bottom: -1px; left: 0; height: 3px; width: 0; background: var(--v2-gradient); border-radius: 3px; pointer-events: none; }
+.v2-motion .v2-plantab[aria-selected="true"] { border-bottom-color: transparent; }
+.v2-plantab { transition: color 0.3s ease; }
+.v2-plan__price { font-variant-numeric: tabular-nums; }
+
+/* ---------- FAQ ---------- */
+.v2-faq__a { overflow: hidden; }
+.v2-faq__q span:last-child { display: inline-block; transition: transform 0.5s var(--v2-ease-out); }
+.v2-faq__q[aria-expanded="true"] span:last-child { transform: rotate(180deg); }
+.v2-faq__q > span:first-child { transition: transform 0.4s var(--v2-ease-out), color 0.3s ease; }
+.v2-faq__q:hover > span:first-child { transform: translateX(6px); color: var(--v2-accent-text); }
+
+/* ---------- Réduction des animations ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .v2-gradient-text .v2-wi { animation: none; }
+  .v2-spot, .v2-cursor, .v2-progressbar { display: none; }
+  .v2-btn--primary::after, .v2-row::before, .v2-row__a, .v2-row__t, .v2-col, .v2-link,
+  .v2-faq__q span, .v2-proj__img::after, .v2-step__n, .v2-stepper__fill { transition: none; }
+}
